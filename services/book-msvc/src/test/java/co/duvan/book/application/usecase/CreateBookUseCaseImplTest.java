@@ -26,6 +26,7 @@ class CreateBookUseCaseImplTest {
     @Test
     void should_create_book_successfully() {
 
+       //* Arrange
        Book book = new Book();
 
        Book saveBook = new Book();
@@ -33,8 +34,10 @@ class CreateBookUseCaseImplTest {
 
        when(repositoryPort.save(book)).thenReturn(saveBook);
 
+       //* Act
        Book result = createBookUseCase.save(book);
 
+       //* Assert
        assertNotNull(result);
        assertNotNull(result.getBookId());
 
