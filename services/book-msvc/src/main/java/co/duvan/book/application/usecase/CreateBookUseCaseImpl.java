@@ -14,7 +14,7 @@ public class CreateBookUseCaseImpl implements CreateBookUseCase {
 
     @Override
     public Book save(Book book) {
-        return null;
+        return repositoryPort.save(book);
     }
 
 }
