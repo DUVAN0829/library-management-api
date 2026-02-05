@@ -20,7 +20,7 @@ public class BookPersistenceAdapter implements BookRepositoryPort {
 
     @Override
     public Optional<Book> findById(Long id) {
-        return repository.findById(id).map(mapper::toBook);
+        return repository.findByBookId(id).map(mapper::toBook);
     }
 
     @Override

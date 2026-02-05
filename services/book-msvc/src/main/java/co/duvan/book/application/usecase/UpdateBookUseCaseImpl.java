@@ -7,6 +7,7 @@ import co.duvan.book.domain.model.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class UpdateBookUseCaseImpl implements UpdateBookUseCase {
 
