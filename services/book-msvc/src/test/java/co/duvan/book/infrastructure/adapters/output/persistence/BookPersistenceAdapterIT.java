@@ -3,6 +3,7 @@ package co.duvan.book.infrastructure.adapters.output.persistence;
 import co.duvan.book.application.ports.output.BookRepositoryPort;
 import co.duvan.book.domain.enums.Category;
 import co.duvan.book.domain.model.Book;
+import co.duvan.book.infrastructure.adapters.output.persistence.entity.BookEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -81,7 +82,52 @@ class BookPersistenceAdapterIT {
 
     }
 
+    @Test
+    void should_find_all_books() {
+
+        //* Give
+        Book bookA = new Book();
+        bookA.setTitle("Clean Code");
+        bookA.setDescription("A practical guide to writing clean, readable, and maintainable software.");
+        bookA.setPublisher("Addison-Wesley");
+        bookA.setIsbn("ISBN-456");
+        bookA.setCategory(Category.PROGRAMMING);
+        bookA.setAuthors(List.of("Robert C. Martin", "Prentice Hall", "Pearson"));
+
+        Book bookB = new Book();
+        bookB.setTitle("Clean Code (Second Edition)");
+        bookB.setDescription("Updated guidelines and best practices for writing clean and maintainable code.");
+        bookB.setPublisher("Addison-Wesley");
+        bookB.setIsbn("ISBN-874");
+        bookB.setCategory(Category.PROGRAMMING);
+        bookB.setAuthors(List.of("Robert C. Martin", "Prentice Hall", "Pearson"));
+
+        //* When
+        repositoryPort.save(bookA);
+        repositoryPort.save(bookB);
+
+        List<Book> bookList = repositoryPort.findAll();
+
+        //* Then
+        assertFalse(bookList.isEmpty());
+        assertTrue(bookList.size() >= 2);
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

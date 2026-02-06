@@ -30,7 +30,7 @@ public class BookPersistenceAdapter implements BookRepositoryPort {
 
     @Override
     public List<Book> findAll() {
-        return mapper.toListBook((List<BookEntity>) repository.findAll());
+        return mapper.toListBook(repository.findAll());
     }
 
     @Override
