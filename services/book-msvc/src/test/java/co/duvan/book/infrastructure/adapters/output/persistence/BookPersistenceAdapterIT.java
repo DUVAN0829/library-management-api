@@ -7,6 +7,7 @@ import co.duvan.book.infrastructure.adapters.output.persistence.entity.BookEntit
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -24,7 +25,7 @@ class BookPersistenceAdapterIT {
 
     @Container
     static PostgreSQLContainer<?> postgres =
-            new PostgreSQLContainer<>("postgres:17")
+            new PostgreSQLContainer<>("postgres:17-alpine")
                     .withDatabaseName("books")
                     .withUsername("postgres")
                     .withPassword("12345");
@@ -53,10 +54,10 @@ class BookPersistenceAdapterIT {
         book.setCategory(Category.THRILLER);
 
         //* When
-        Book bookSave = repositoryPort.save(book);
+        Book savedBook = repositoryPort.save(book);
 
         //* Then
-        assertNotNull(bookSave.getBookId());
+        assertNotNull(savedBook.getBookId());
 
     }
 
@@ -73,12 +74,12 @@ class BookPersistenceAdapterIT {
         book.setCategory(Category.DRAMA);
 
         //* When
-        Book bookSave = repositoryPort.save(book);
-        Book found = repositoryPort.findById(bookSave.getBookId()).orElseThrow();
+        Book savedBook = repositoryPort.save(book);
+        Book foundBook = repositoryPort.findById(savedBook.getBookId()).orElseThrow();
 
         //* Then
-        assertNotNull(found);
-        assertEquals(bookSave.getBookId(), found.getBookId());
+        assertNotNull(foundBook);
+        assertEquals(savedBook.getBookId(), foundBook.getBookId());
 
     }
 
@@ -106,11 +107,11 @@ class BookPersistenceAdapterIT {
         repositoryPort.save(bookA);
         repositoryPort.save(bookB);
 
-        List<Book> bookList = repositoryPort.findAll();
+        List<Book> listBook = repositoryPort.findAll();
 
         //* Then
-        assertFalse(bookList.isEmpty());
-        assertTrue(bookList.size() >= 2);
+        assertFalse(listBook.isEmpty());
+        assertTrue(listBook.size() >= 2);
 
     }
 
@@ -127,14 +128,14 @@ class BookPersistenceAdapterIT {
         book.setCategory(Category.HISTORY);
 
         //* When
-        Book bookSave = repositoryPort.save(book);
+        Book savedBook = repositoryPort.save(book);
 
-        bookSave.setPublisher("Vintage");
+        savedBook.setPublisher("Vintage");
 
-        Book bookUpdate = repositoryPort.save(bookSave);
+        Book updatedBook = repositoryPort.save(savedBook);
 
         //* Then
-        assertEquals("Vintage", bookUpdate.getPublisher());
+        assertEquals("Vintage", updatedBook.getPublisher());
 
     }
 
@@ -151,13 +152,34 @@ class BookPersistenceAdapterIT {
         book.setCategory(Category.ROMANCE);
 
         //* When
-        Book bookSaved = repositoryPort.save(book);
+        Book savedBook = repositoryPort.save(book);
 
-        repositoryPort.deleteById(bookSaved.getBookId());
+        repositoryPort.deleteById(savedBook.getBookId());
 
-       Optional<Book> bookDeleted = repositoryPort.findById(bookSaved.getBookId());
+       Optional<Book> deletedBook = repositoryPort.findById(savedBook.getBookId());
 
-       assertTrue(bookDeleted.isEmpty());
+       assertTrue(deletedBook.isEmpty());
+
+    }
+
+    @Test
+    void should_fail_when_isbn_is_duplicated() {
+
+        Book book1 = new Book();
+        book1.setTitle("Book 1");
+        book1.setIsbn("ISBN-999");
+        book1.setCategory(Category.THRILLER);
+
+        Book book2 = new Book();
+        book2.setTitle("Book 2");
+        book2.setIsbn("ISBN-999");
+        book2.setCategory(Category.DRAMA);
+
+        repositoryPort.save(book1);
+
+        assertThrows(DataIntegrityViolationException.class, () -> {
+            repositoryPort.save(book2);
+        });
 
     }
 
