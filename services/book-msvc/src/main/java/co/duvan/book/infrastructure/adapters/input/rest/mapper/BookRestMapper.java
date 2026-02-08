@@ -13,7 +13,7 @@ public interface BookRestMapper {
 
     Book toBook(BookRequest bookRequest);
 
-    BookResponse toBookResponse(BookRequest bookRequest);
+    BookResponse toBookResponse(Book book);
 
     List<BookResponse> toBookResponseList(List<Book> books);
 
