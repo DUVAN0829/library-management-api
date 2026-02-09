@@ -1,15 +1,12 @@
 package co.duvan.book.application.usecase;
 
 import co.duvan.book.application.ports.output.BookRepositoryPort;
-import co.duvan.book.domain.enums.Category;
 import co.duvan.book.domain.model.Book;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
