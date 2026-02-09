@@ -74,6 +74,22 @@ class BookRestAdapterTest {
 
     }
 
+    @Test
+    void should_get_all_books() throws Exception {
+
+        //* Given
+        when(getBookUseCase.findAll()).thenReturn(List.of(book));
+        when(bookRestMapper.toBookResponseList(List.of(book))).thenReturn(List.of(bookResponse));
+
+        //* When
+        mockMvc.perform(get("/books/api/v1"))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.[0].bookId").value(1));
+
+    }
+
 }
 
 
