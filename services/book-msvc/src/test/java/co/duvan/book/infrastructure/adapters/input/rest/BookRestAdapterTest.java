@@ -53,6 +53,7 @@ class BookRestAdapterTest {
 
     private Book book;
     private BookResponse bookResponse;
+    private BookRequest bookRequest;
 
     @BeforeEach
     void setup() {
@@ -61,6 +62,10 @@ class BookRestAdapterTest {
 
         bookResponse = new BookResponse(1L, "Clean Code", "ISBN-1", "desc",
                 Category.PROGRAMMING, List.of("Robert"), "Prentice");
+
+
+        bookRequest = new BookRequest("Clean Code V2", "ISBN-981", "Some description",
+                Category.PROGRAMMING, List.of("Robert C. Martin"), "Prentice");
     }
 
     @Test
@@ -107,9 +112,6 @@ class BookRestAdapterTest {
     void should_create_book() throws Exception {
 
         //* Given
-        BookRequest request = new BookRequest();
-        request.setTitle("Clean Code V2");
-
         when(bookRestMapper.toBookResponse(any(Book.class))).thenReturn(bookResponse);
         when(createBookUseCase.save(any(Book.class))).thenReturn(book);
         when(bookRestMapper.toBook(any(BookRequest.class))).thenReturn(book);
@@ -117,7 +119,7 @@ class BookRestAdapterTest {
         //* When
         mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
+                        .content(objectMapper.writeValueAsString(bookRequest)))
                 .andExpect(jsonPath("$.title").value("Clean Code"))
                 .andExpect(status().isCreated());
 
@@ -131,9 +133,6 @@ class BookRestAdapterTest {
     void should_update_book() throws Exception {
 
         //* Given
-        BookRequest request = new BookRequest();
-        request.setIsbn("ISBN-981");
-
         when(bookRestMapper.toBookResponse(any(Book.class))).thenReturn(bookResponse);
         when(updateBookUseCase.update(anyLong(), any(Book.class))).thenReturn(book);
         when(bookRestMapper.toBook(any(BookRequest.class))).thenReturn(book);
@@ -143,7 +142,7 @@ class BookRestAdapterTest {
 
                         //* Then
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
+                        .content(objectMapper.writeValueAsString(bookRequest)))
                 .andExpect(jsonPath("$.authors.size()").value(1))
                 .andExpect(status().isOk());
 

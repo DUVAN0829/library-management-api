@@ -7,6 +7,7 @@ import co.duvan.book.application.ports.input.UpdateBookUseCase;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
 import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class BookRestAdapter {
     }
 
     @PostMapping("/api/v1")
-    public ResponseEntity<BookResponse> createBook(@RequestBody BookRequest bookRequest) {
+    public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookRequest bookRequest) {
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(bookRestMapper.toBookResponse(createBookUseCase.save(bookRestMapper.toBook(bookRequest))));
@@ -48,7 +49,7 @@ public class BookRestAdapter {
     }
 
     @PutMapping("/api/v1/{id}")
-    public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @RequestBody BookRequest bookRequest) {
+    public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest bookRequest) {
 
         return ResponseEntity.ok()
                 .body(bookRestMapper.toBookResponse(updateBookUseCase.update(id, bookRestMapper.toBook(bookRequest))));
