@@ -7,11 +7,13 @@ import co.duvan.book.application.ports.input.UpdateBookUseCase;
 import co.duvan.book.domain.enums.Category;
 import co.duvan.book.domain.model.Book;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
+import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -89,6 +91,27 @@ class BookRestAdapterTest {
                 .andExpect(jsonPath("$.[0].bookId").value(1));
 
     }
+
+    @Test
+    void should_create_book() throws Exception {
+
+        //* Given
+        BookRequest request = new BookRequest();
+        request.setTitle("Clean Code V2");
+
+        when(bookRestMapper.toBookResponse(book)).thenReturn(bookResponse);
+        when(createBookUseCase.save(book)).thenReturn(book);
+        when(bookRestMapper.toBook(request)).thenReturn(book);
+
+        //* When
+        mockMvc.perform(post("/books/api/v1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isCreated());
+
+    }
+
+
 
 }
 
