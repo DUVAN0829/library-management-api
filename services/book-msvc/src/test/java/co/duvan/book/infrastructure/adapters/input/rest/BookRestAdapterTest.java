@@ -132,6 +132,16 @@ class BookRestAdapterTest {
 
     }
 
+    @Test
+    void should_delete_book() throws Exception {
+
+        doNothing().when(deleteBookUseCase).deleteById(1L);
+
+        mockMvc.perform(delete("/books/api/v1/1"))
+                .andExpect(status().isNoContent());
+
+    }
+
 }
 
 
