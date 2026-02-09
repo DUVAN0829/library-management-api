@@ -111,7 +111,26 @@ class BookRestAdapterTest {
 
     }
 
+    @Test
+    void should_update_book() throws Exception {
 
+        //* Given
+        BookRequest request = new BookRequest();
+        request.setIsbn("ISBN-981");
+
+        when(bookRestMapper.toBookResponse(book)).thenReturn(bookResponse);
+        when(updateBookUseCase.update(1L, book)).thenReturn(book);
+        when(bookRestMapper.toBook(request)).thenReturn(book);
+
+        //* When
+        mockMvc.perform(put("/books/api/v1/1")
+
+                //* Then
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().isOk());
+
+    }
 
 }
 
