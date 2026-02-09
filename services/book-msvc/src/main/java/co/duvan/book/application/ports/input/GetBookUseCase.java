@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GetBookUseCase {
 
-    Book findByid(Long id);
+    Book findById(Long id);
 
     List<Book> findAll();
 

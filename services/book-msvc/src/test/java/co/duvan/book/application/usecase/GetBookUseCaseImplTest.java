@@ -34,7 +34,7 @@ class GetBookUseCaseImplTest {
         when(repositoryPort.findById(1L)).thenReturn(Optional.of(book));
 
         //* Act
-        Book result = getBookUseCase.findByid(1L);
+        Book result = getBookUseCase.findById(1L);
 
         //* Assert
         assertNotNull(result);
@@ -52,7 +52,7 @@ class GetBookUseCaseImplTest {
 
         //* Assert
         assertThrows(BookNotFoundException.class,
-                () -> getBookUseCase.findByid(1L));
+                () -> getBookUseCase.findById(1L));
 
         verify(repositoryPort).findById(1L);
 

@@ -35,7 +35,7 @@ public class BookRestAdapter {
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
 
-        return ResponseEntity.ok(bookRestMapper.toBookResponse(getBookUseCase.findByid(id)));
+        return ResponseEntity.ok(bookRestMapper.toBookResponse(getBookUseCase.findById(id)));
 
     }
 

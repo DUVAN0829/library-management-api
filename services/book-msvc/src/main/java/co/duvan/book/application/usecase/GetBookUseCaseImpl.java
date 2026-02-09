@@ -16,7 +16,7 @@ public class GetBookUseCaseImpl implements GetBookUseCase {
     private final BookRepositoryPort repositoryPort;
 
     @Override
-    public Book findByid(Long id) {
+    public Book findById (Long id) {
 
         return repositoryPort.findById(id).
                 orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
