@@ -9,7 +9,6 @@ import co.duvan.book.domain.model.Book;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
 import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
-import org.hibernate.mapping.Any;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
