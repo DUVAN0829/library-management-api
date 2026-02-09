@@ -51,8 +51,8 @@ class GlobalControllerAdviceTest {
 
                 //* Then
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.code").value("ERR_STUDENT_01"))
-                .andExpect(jsonPath("$.message").value("Student not found"));
+                .andExpect(jsonPath("$.code").value("ERR_BOOK_01"))
+                .andExpect(jsonPath("$.message").value("Book not found"));
 
     }
 

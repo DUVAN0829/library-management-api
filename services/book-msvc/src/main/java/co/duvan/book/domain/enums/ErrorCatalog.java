@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ErrorCatalog {
 
-    BOOK_NOT_FOUND("ERR_STUDENT_01", "Student not found"),
-    INVALID_STUDENT("ERR_STUDENT_02", "Invalid student parameters"),
+    BOOK_NOT_FOUND("ERR_BOOK_01", "Book not found"),
+    INVALID_BOOK("ERR_BOOK_02", "Invalid book parameters"),
     GENERIC_ERROR("GEN_ERR_01", "An unexpected error occurred");
 
     private final String code;
