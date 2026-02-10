@@ -156,9 +156,9 @@ class BookPersistenceAdapterIT {
 
         repositoryPort.deleteById(savedBook.getBookId());
 
-       Optional<Book> deletedBook = repositoryPort.findById(savedBook.getBookId());
+        Optional<Book> deletedBook = repositoryPort.findById(savedBook.getBookId());
 
-       assertTrue(deletedBook.isEmpty());
+        assertTrue(deletedBook.isEmpty());
 
     }
 
