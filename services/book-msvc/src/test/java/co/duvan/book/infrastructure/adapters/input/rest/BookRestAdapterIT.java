@@ -49,9 +49,14 @@ public class BookRestAdapterIT {
     @Test
     void should_create_book_end_to_end() throws Exception {
 
-        BookRequest bookRequest = new BookRequest("Book Test", "ISBN-1", "Description",
-                Category.DYSTOPIA, List.of("Jhon Doe", "Marie Garzón"), "Anonimo");
-
+        BookRequest bookRequest = new BookRequest(
+                "1984",
+                "ISBN-9780451524935",
+                "A dystopian novel about surveillance, control, and the loss of freedom.",
+                Category.DYSTOPIA,
+                List.of("George Orwell"),
+                "Secker & Warburg"
+        );
 
         mockMvc.perform(post("/books/api/v1")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -64,23 +69,23 @@ public class BookRestAdapterIT {
     @Test
     void should_get_book_by_id_end_to_end() throws Exception {
 
-        BookRequest request = new BookRequest(
-                "Book Test",
-                "ISBN-778",
-                "desc",
+        BookRequest bookRequest = new BookRequest(
+                "The Shining",
+                "ISBN-9780307743657",
+                "A writer and his family face terrifying forces in an isolated hotel.",
                 Category.THRILLER,
                 List.of("Stephen King"),
-                "publisher"
+                "Doubleday"
         );
 
         String response = mockMvc.perform(post("/books/api/v1")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
+                        .content(objectMapper.writeValueAsString(bookRequest)))
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
 
-        Long id = objectMapper.readTree(response).get("bookId").asLong();
+        long id = objectMapper.readTree(response).get("bookId").asLong();
 
         mockMvc.perform(get("/books/api/v1/" + id))
 
@@ -89,6 +94,34 @@ public class BookRestAdapterIT {
 
     }
 
+    @Test
+    void should_delete_book_end_to_end() throws Exception {
+
+        BookRequest bookRequest = new BookRequest(
+                "Misery",
+                "ISBN-9780450417399",
+                "A famous writer is held captive by an obsessed fan.",
+                Category.THRILLER,
+                List.of("Stephen King"),
+                "Viking Press"
+        );
+
+        String response = mockMvc.perform(post("/books/api/v1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(bookRequest)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("bookId").asLong();
+
+        mockMvc.perform(delete("/books/api/v1/" + id))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/books/api/v1/" + id))
+                .andExpect(status().is4xxClientError());
+
+    }
 
 }
 
