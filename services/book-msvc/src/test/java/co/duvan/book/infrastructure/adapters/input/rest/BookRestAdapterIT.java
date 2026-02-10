@@ -61,5 +61,45 @@ public class BookRestAdapterIT {
 
     }
 
+    @Test
+    void should_get_book_by_id_end_to_end() throws Exception {
+
+        BookRequest request = new BookRequest(
+                "Book Test",
+                "ISBN-778",
+                "desc",
+                Category.THRILLER,
+                List.of("Stephen King"),
+                "publisher"
+        );
+
+        String response = mockMvc.perform(post("/books/api/v1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Long id = objectMapper.readTree(response).get("bookId").asLong();
+
+        mockMvc.perform(get("/books/api/v1/" + id))
+
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.bookId").value(2L));
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
