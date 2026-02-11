@@ -26,34 +26,34 @@ class UpdateBookUseCaseImplTest {
     @Test
     void should_update_book_successfully() {
 
-       //* Arrange
-       Long bookId= 1L;
+        //* Arrange
+        Long bookId = 1L;
 
-       Book existingBook = new Book();
-       existingBook.setBookId(bookId);
-       existingBook.setTitle("Old title");
+        Book existingBook = new Book();
+        existingBook.setBookId(bookId);
+        existingBook.setTitle("Old title");
 
-       Book bookToUpdate = new Book();
-       bookToUpdate.setTitle("New title");
+        Book bookToUpdate = new Book();
+        bookToUpdate.setTitle("New title");
 
-       Book saveBook = new Book();
-       saveBook.setBookId(bookId);
-       saveBook.setTitle("New title");
+        Book saveBook = new Book();
+        saveBook.setBookId(bookId);
+        saveBook.setTitle("New title");
 
-       when(repositoryPort.findById(bookId))
-               .thenReturn(Optional.of(existingBook));
+        when(repositoryPort.findById(bookId))
+                .thenReturn(Optional.of(existingBook));
 
-       when(repositoryPort.save(any(Book.class)))
-               .thenReturn(saveBook);
+        when(repositoryPort.save(any(Book.class)))
+                .thenReturn(saveBook);
 
-       //* Act
-       Book result = updateBookUseCase.update(bookId, bookToUpdate);
+        //* Act
+        Book result = updateBookUseCase.update(bookId, bookToUpdate);
 
-       //* Assert
-       assertEquals("New title", result.getTitle());
+        //* Assert
+        assertEquals("New title", result.getTitle());
 
-       verify(repositoryPort).findById(bookId);
-       verify(repositoryPort).save(existingBook);
+        verify(repositoryPort).findById(bookId);
+        verify(repositoryPort).save(existingBook);
 
     }
 
