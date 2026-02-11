@@ -14,7 +14,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
     public void deleteById(Long id) {
 
         if (repositoryPort.findById(id).isEmpty()) {
-            throw new UserNotFoundException("User not found");
+            throw new UserNotFoundException("User not found with id: " + id);
         }
 
         repositoryPort.deleteById(id);
