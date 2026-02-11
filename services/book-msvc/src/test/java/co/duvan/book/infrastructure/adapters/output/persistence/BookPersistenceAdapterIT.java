@@ -54,10 +54,10 @@ class BookPersistenceAdapterIT {
         book.setCategory(Category.THRILLER);
 
         //* When
-        Book savedBook = repositoryPort.save(book);
+        Book exitingBook = repositoryPort.save(book);
 
         //* Then
-        assertNotNull(savedBook.getBookId());
+        assertNotNull(exitingBook.getBookId());
 
     }
 
@@ -73,20 +73,21 @@ class BookPersistenceAdapterIT {
         book.setPublisher("Riverhead Books");
         book.setCategory(Category.DRAMA);
 
+        Book exitingBook = repositoryPort.save(book);
+
         //* When
-        Book savedBook = repositoryPort.save(book);
-        Book foundBook = repositoryPort.findById(savedBook.getBookId()).orElseThrow();
+        Book foundBook = repositoryPort.findById(exitingBook.getBookId()).orElseThrow();
 
         //* Then
         assertNotNull(foundBook);
-        assertEquals(savedBook.getBookId(), foundBook.getBookId());
+        assertEquals(exitingBook.getBookId(), foundBook.getBookId());
 
     }
 
     @Test
     void should_find_all_books() {
 
-        //* Give
+        //* Given
         Book bookA = new Book();
         bookA.setTitle("Clean Code");
         bookA.setDescription("A practical guide to writing clean, readable, and maintainable software.");
@@ -103,10 +104,10 @@ class BookPersistenceAdapterIT {
         bookB.setCategory(Category.PROGRAMMING);
         bookB.setAuthors(List.of("Robert C. Martin", "Prentice Hall", "Pearson"));
 
-        //* When
         repositoryPort.save(bookA);
         repositoryPort.save(bookB);
 
+        //* When
         List<Book> listBook = repositoryPort.findAll();
 
         //* Then
@@ -127,12 +128,12 @@ class BookPersistenceAdapterIT {
         book.setPublisher("Harper");
         book.setCategory(Category.HISTORY);
 
+        Book exitingBook = repositoryPort.save(book);
+
         //* When
-        Book savedBook = repositoryPort.save(book);
+        exitingBook.setPublisher("Vintage");
 
-        savedBook.setPublisher("Vintage");
-
-        Book updatedBook = repositoryPort.save(savedBook);
+        Book updatedBook = repositoryPort.save(exitingBook);
 
         //* Then
         assertEquals("Vintage", updatedBook.getPublisher());
@@ -151,12 +152,13 @@ class BookPersistenceAdapterIT {
         book.setPublisher("T. Egerton");
         book.setCategory(Category.ROMANCE);
 
+        Book exitingBook = repositoryPort.save(book);
+
         //* When
-        Book savedBook = repositoryPort.save(book);
+        repositoryPort.deleteById(exitingBook.getBookId());
 
-        repositoryPort.deleteById(savedBook.getBookId());
-
-        Optional<Book> deletedBook = repositoryPort.findById(savedBook.getBookId());
+        //* Then
+        Optional<Book> deletedBook = repositoryPort.findById(exitingBook.getBookId());
 
         assertTrue(deletedBook.isEmpty());
 
@@ -165,6 +167,7 @@ class BookPersistenceAdapterIT {
     @Test
     void should_fail_when_isbn_is_duplicated() {
 
+        //* Given
         Book book1 = new Book();
         book1.setTitle("Book 1");
         book1.setIsbn("ISBN-999");
@@ -175,8 +178,10 @@ class BookPersistenceAdapterIT {
         book2.setIsbn("ISBN-999");
         book2.setCategory(Category.DRAMA);
 
+        //* When
         repositoryPort.save(book1);
 
+        //* Then
         assertThrows(DataIntegrityViolationException.class, () -> {
             repositoryPort.save(book2);
         });

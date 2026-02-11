@@ -19,7 +19,6 @@ import tools.jackson.databind.ObjectMapper;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @WebMvcTest(BookRestAdapter.class)
 @Import(GlobalControllerAdvice.class)
@@ -74,6 +73,8 @@ class GlobalControllerAdviceTest {
         mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequest)))
+
+                //* Then
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.code").value("ERR_BOOK_02"))
                 .andExpect(jsonPath("$.message").value("Invalid book parameters"))
@@ -85,6 +86,7 @@ class GlobalControllerAdviceTest {
     @Test
     void should_return_500_when_generic_exception_occurs() throws Exception {
 
+        //* Given
         when(getBookUseCase.findById(1L)).thenThrow(new RuntimeException("Someting went wrong"));
 
         //* When

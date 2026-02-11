@@ -58,18 +58,3 @@ class UpdateBookUseCaseImplTest {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

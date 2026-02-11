@@ -50,10 +50,11 @@ class GetBookUseCaseImplTest {
         //* Arrange
         when(repositoryPort.findById(1L)).thenReturn(Optional.empty());
 
-        //* Assert
+        //* Act
         assertThrows(BookNotFoundException.class,
                 () -> getBookUseCase.findById(1L));
 
+        //* Assert
         verify(repositoryPort).findById(1L);
 
     }
@@ -82,15 +83,3 @@ class GetBookUseCaseImplTest {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 package co.duvan.book.infrastructure.adapters.input.rest;
 
-import  co.duvan.book.application.ports.input.CreateBookUseCase;
+import co.duvan.book.application.ports.input.CreateBookUseCase;
 import co.duvan.book.application.ports.input.DeleteBookUseCase;
 import co.duvan.book.application.ports.input.GetBookUseCase;
 import co.duvan.book.application.ports.input.UpdateBookUseCase;
@@ -56,15 +56,36 @@ class BookRestAdapterTest {
 
     @BeforeEach
     void setup() {
-        book = new Book(1L, "Clean Code", "ISBN-1", "desc",
-                Category.PROGRAMMING, List.of("Robert"), "Prentice");
 
-        bookResponse = new BookResponse(1L, "Clean Code", "ISBN-1", "desc",
-                Category.PROGRAMMING, List.of("Robert"), "Prentice");
+        book = new Book(
+                1L,
+                "The Girl with the Dragon Tattoo",
+                "ISBN-903",
+                "A journalist investigates a dark family mystery.",
+                Category.THRILLER,
+                List.of("Stieg Larsson"),
+                "Norstedts Förlag"
+        );
 
+        bookResponse = new BookResponse(
+                1L,
+                "The Girl with the Dragon Tattoo",
+                "ISBN-903",
+                "A journalist investigates a dark family mystery.",
+                Category.THRILLER,
+                List.of("Stieg Larsson"),
+                "Norstedts Förlag"
+        );
 
-        bookRequest = new BookRequest("Clean Code V2", "ISBN-981", "Some description",
-                Category.PROGRAMMING, List.of("Robert C. Martin"), "Prentice");
+        bookRequest = new BookRequest(
+                "A Thousand Splendid Suns",
+                "ISBN-851",
+                "A powerful drama about love and survival.",
+                Category.DRAMA,
+                List.of("Khaled Hosseini"),
+                "Riverhead Books"
+        );
+
     }
 
     @Test
@@ -80,7 +101,7 @@ class BookRestAdapterTest {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.bookId").value(1))
-                .andExpect(jsonPath("$.title").value("Clean Code"));
+                .andExpect(jsonPath("$.title").value("The Girl with the Dragon Tattoo"));
 
         verify(getBookUseCase).findById(1L);
         verify(bookRestMapper).toBookResponse(book);
@@ -99,8 +120,8 @@ class BookRestAdapterTest {
 
                 //* Then
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.[0].bookId").value(1))
-                .andExpect(jsonPath("$.[0].isbn").value("ISBN-1"));
+                .andExpect(jsonPath("$[0].bookId").value(1))
+                .andExpect(jsonPath("$[0].isbn").value("ISBN-903"));
 
         verify(getBookUseCase).findAll();
         verify(bookRestMapper).toBookResponseList(List.of(book));
@@ -119,7 +140,9 @@ class BookRestAdapterTest {
         mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
-                .andExpect(jsonPath("$.title").value("Clean Code"))
+
+                //* Then
+                .andExpect(jsonPath("$.title").value("The Girl with the Dragon Tattoo"))
                 .andExpect(status().isCreated());
 
         verify(createBookUseCase).save(any(Book.class));
@@ -138,10 +161,10 @@ class BookRestAdapterTest {
 
         //* When
         mockMvc.perform(put(BASE_URL + "/1")
-
-                        //* Then
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
+
+                //* Then
                 .andExpect(jsonPath("$.authors.size()").value(1))
                 .andExpect(status().isOk());
 
@@ -154,9 +177,13 @@ class BookRestAdapterTest {
     @Test
     void should_delete_book() throws Exception {
 
+        //* Given
         doNothing().when(deleteBookUseCase).deleteById(1L);
 
+        //* When
         mockMvc.perform(delete(BASE_URL + "/1"))
+
+                //* Then
                 .andExpect(status().isNoContent());
 
         verify(deleteBookUseCase).deleteById(1L);

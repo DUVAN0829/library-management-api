@@ -46,10 +46,11 @@ class DeleteBookUseCaseImplTest {
         //* Arrange
         when(repositoryPort.findById(1L)).thenReturn(Optional.empty());
 
-        //* Assert
+        //* Act
         assertThrows(BookNotFoundException.class,
                 () -> deleteBookUseCase.deleteById(1L));
 
+        //* Assert
         verify(repositoryPort, never()).deleteById(1L);
 
     }

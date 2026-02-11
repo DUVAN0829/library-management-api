@@ -49,6 +49,7 @@ public class BookRestAdapterIT {
     @Test
     void should_create_book_end_to_end() throws Exception {
 
+        //* Given
         BookRequest bookRequest = new BookRequest(
                 "1984",
                 "ISBN-9780451524935",
@@ -58,9 +59,12 @@ public class BookRestAdapterIT {
                 "Secker & Warburg"
         );
 
+        //* When
         mockMvc.perform(post("/books/api/v1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
+
+                //* Then
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.bookId").exists());
 
@@ -69,6 +73,7 @@ public class BookRestAdapterIT {
     @Test
     void should_get_book_by_id_end_to_end() throws Exception {
 
+        //* Given
         BookRequest bookRequest = new BookRequest(
                 "The Shining",
                 "ISBN-9780307743657",
@@ -78,6 +83,7 @@ public class BookRestAdapterIT {
                 "Doubleday"
         );
 
+        //* When
         String response = mockMvc.perform(post("/books/api/v1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
@@ -87,16 +93,19 @@ public class BookRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
+        //* When
         mockMvc.perform(get("/books/api/v1/" + id))
 
+                //* Then
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.bookId").value(2L));
+                .andExpect(jsonPath("$.bookId").value(id));
 
     }
 
     @Test
     void should_delete_book_end_to_end() throws Exception {
 
+        //* Given
         BookRequest bookRequest = new BookRequest(
                 "Misery",
                 "ISBN-9780450417399",
@@ -106,6 +115,7 @@ public class BookRestAdapterIT {
                 "Viking Press"
         );
 
+        //* When
         String response = mockMvc.perform(post("/books/api/v1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
@@ -115,6 +125,7 @@ public class BookRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
+        //* Then
         mockMvc.perform(delete("/books/api/v1/" + id))
                 .andExpect(status().isNoContent());
 
