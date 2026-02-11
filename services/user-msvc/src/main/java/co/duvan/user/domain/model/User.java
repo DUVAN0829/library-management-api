@@ -2,16 +2,13 @@ package co.duvan.user.domain.model;
 
 import co.duvan.user.domain.enums.DocumentType;
 import co.duvan.user.domain.enums.Gender;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 

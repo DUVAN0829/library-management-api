@@ -26,10 +26,10 @@ class CreateBookUseCaseImplTest {
        //* Arrange
        Book book = new Book();
 
-       Book saveBook = new Book();
-       saveBook.setBookId(1L);
+       Book exitingBook = new Book();
+       exitingBook.setBookId(1L);
 
-       when(repositoryPort.save(book)).thenReturn(saveBook);
+       when(repositoryPort.save(book)).thenReturn(exitingBook);
 
        //* Act
        Book result = createBookUseCase.save(book);
