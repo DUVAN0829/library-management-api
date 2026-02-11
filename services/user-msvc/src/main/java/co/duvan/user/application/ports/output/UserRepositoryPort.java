@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface UserRepositoryPort {
 
-    Optional<User> save(User user);
+    User save(User user);
 
-    User findById(Long id);
+   Optional<User> findById(Long id);
 
     List<User> findAll();
 
