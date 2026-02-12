@@ -13,6 +13,6 @@ public interface UserPersistenceMapper {
 
     User toUser(UserEntity userEntity);
 
-    List<User> toListBook(List<UserEntity> userEntityList);
+    List<User> toListUser(List<UserEntity> userEntityList);
 
 }
