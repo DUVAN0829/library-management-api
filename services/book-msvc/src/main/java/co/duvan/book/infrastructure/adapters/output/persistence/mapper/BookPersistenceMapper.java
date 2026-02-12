@@ -13,6 +13,6 @@ public interface BookPersistenceMapper {
 
     Book toBook(BookEntity bookEntity);
 
-    List<Book> toListBook(List<BookEntity> listBookEntity);
+    List<Book> toListBook(List<BookEntity> bookEntityList);
 
 }
