@@ -16,6 +16,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -143,6 +144,34 @@ class UserPersistenceAdapterIT {
         //* Then
         assertNotNull(updatedUser.getUserId());
         assertEquals("678-321-790", updatedUser.getPhoneNumber());
+
+    }
+
+    @Test
+    void should_delete_user() {
+
+        //* Given
+        User user = User.builder()
+                .firstname("Melanie")
+                .lastname("Martinez")
+                .documentType(DocumentType.IDENTITY_DOCUMENT)
+                .documentNumber("89.261.725")
+                .birthdate(LocalDate.of(1998, 12, 14))
+                .gender(Gender.FEMALE)
+                .email("melanie93@gmail.com")
+                .phoneNumber("902-612-927")
+                .nationality(new Nationality("EU"))
+                .build();
+
+        User exitingUser = repositoryPort.save(user);
+
+        //* When
+        repositoryPort.deleteById(exitingUser.getUserId());
+
+        //* Then
+        Optional<User> deleteUser = repositoryPort.findById(exitingUser.getUserId());
+
+        assertTrue(deleteUser.isEmpty());
 
     }
 
