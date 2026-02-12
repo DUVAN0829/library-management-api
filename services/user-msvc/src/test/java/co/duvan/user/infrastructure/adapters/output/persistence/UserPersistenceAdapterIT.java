@@ -65,6 +65,33 @@ class UserPersistenceAdapterIT {
 
     }
 
+    @Test
+    void should_find_book_by_id() {
+
+        //* Given
+        User user = User.builder()
+                .firstname("Kata")
+                .lastname("Suárez")
+                .documentType(DocumentType.PASSPORT)
+                .documentNumber("90.832.45")
+                .birthdate(LocalDate.of(2003, 1, 29))
+                .gender(Gender.FEMALE)
+                .email("katha04@gmail.com")
+                .phoneNumber("984-416-091")
+                .nationality(new Nationality("AR"))
+                .build();
+
+        User exitingUser = repositoryPort.save(user);
+
+        //* When
+        User result = repositoryPort.findById(exitingUser.getUserId()).orElseThrow();
+
+        //* Then
+        assertNotNull(result);
+        assertNotNull(result.getUserId());
+
+    }
+
 }
 
 
