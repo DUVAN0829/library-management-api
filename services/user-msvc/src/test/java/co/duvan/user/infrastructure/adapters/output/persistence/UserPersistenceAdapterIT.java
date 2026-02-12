@@ -74,7 +74,7 @@ class UserPersistenceAdapterIT {
                 .firstname("Kata")
                 .lastname("Suárez")
                 .documentType(DocumentType.PASSPORT)
-                .documentNumber("90.832.45")
+                .documentNumber("90.832.457")
                 .birthdate(LocalDate.of(2003, 1, 29))
                 .gender(Gender.FEMALE)
                 .email("katha04@gmail.com")
@@ -114,6 +114,35 @@ class UserPersistenceAdapterIT {
         //* Then
         assertFalse(result.isEmpty());
         assertTrue(result.size() >= 2);
+
+    }
+
+    @Test
+    void should_update_user() {
+
+        //* Given
+        User user = User.builder()
+                .firstname("Mark")
+                .lastname("Adams")
+                .documentType(DocumentType.PASSPORT)
+                .documentNumber("65.892.701")
+                .birthdate(LocalDate.of(2001, 8, 22))
+                .gender(Gender.MALE)
+                .email("markadams@gmail.com")
+                .phoneNumber("984-416-091")
+                .nationality(new Nationality("AR"))
+                .build();
+
+        User exitignUser = repositoryPort.save(user);
+
+        //* When
+        exitignUser.setPhoneNumber("678-321-790");
+
+        User updatedUser = repositoryPort.save(exitignUser);
+
+        //* Then
+        assertNotNull(updatedUser.getUserId());
+        assertEquals("678-321-790", updatedUser.getPhoneNumber());
 
     }
 
