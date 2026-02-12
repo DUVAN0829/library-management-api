@@ -15,6 +15,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,7 +67,7 @@ class UserPersistenceAdapterIT {
     }
 
     @Test
-    void should_find_book_by_id() {
+    void should_find_user_by_id() {
 
         //* Given
         User user = User.builder()
@@ -89,6 +90,30 @@ class UserPersistenceAdapterIT {
         //* Then
         assertNotNull(result);
         assertNotNull(result.getUserId());
+
+    }
+
+    @Test
+    void should_find_all_users() {
+
+        //* Given
+        User userA = User.builder().firstname("Mahrie").lastname("Cardona").documentType(DocumentType.IDENTITY_DOCUMENT)
+                .documentNumber("45.178.092").birthdate(LocalDate.of(2000, 11, 2)).gender(Gender.FEMALE)
+                .email("mari56@gmail.com").phoneNumber("349-902-413").nationality(new Nationality("MX")).build();
+
+        User userB = User.builder().firstname("Jacob").lastname("Álvarez").documentType(DocumentType.OTHER)
+                .documentNumber("76.364.419").birthdate(LocalDate.of(1997, 6, 18)).gender(Gender.MALE)
+                .email("jacalv07@gmail.com").phoneNumber("632-209-183").nationality(new Nationality("CO")).build();
+
+        repositoryPort.save(userA);
+        repositoryPort.save(userB);
+
+        //* When
+        List<User> result = repositoryPort.findAll();
+
+        //* Then
+        assertFalse(result.isEmpty());
+        assertTrue(result.size() >= 2);
 
     }
 
