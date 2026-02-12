@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class User {
 
     private Long userId;
@@ -19,7 +20,7 @@ public class User {
     private String documentNumber;
     private LocalDate birthdate;
     private Gender gender;
-    private String address;
+    private String email;
     private String phoneNumber;
     private Nationality nationality;
 

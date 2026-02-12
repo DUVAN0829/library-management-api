@@ -5,7 +5,9 @@ import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.domain.model.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
 
@@ -23,7 +25,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
                     userDb.setDocumentNumber(user.getDocumentNumber());
                     userDb.setBirthdate(user.getBirthdate());
                     userDb.setGender(user.getGender());
-                    userDb.setAddress(user.getAddress());
+                    userDb.setEmail(user.getEmail());
                     userDb.setPhoneNumber(user.getPhoneNumber());
                     userDb.setNationality(user.getNationality());
 

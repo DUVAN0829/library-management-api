@@ -4,7 +4,9 @@ import co.duvan.user.application.ports.input.DeleteUserUseCase;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 

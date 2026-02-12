@@ -6,10 +6,12 @@ import co.duvan.user.infrastructure.adapters.output.persistence.entity.UserEntit
 import co.duvan.user.infrastructure.adapters.output.persistence.mapper.UserPersistenceMapper;
 import co.duvan.user.infrastructure.adapters.output.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
+@Component
 @RequiredArgsConstructor
 public class UserPersistenceAdapter implements UserRepositoryPort {
 

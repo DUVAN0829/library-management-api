@@ -2,11 +2,18 @@ package co.duvan.user.infrastructure.adapters.output.persistence.entity;
 
 import co.duvan.user.domain.enums.DocumentType;
 import co.duvan.user.domain.enums.Gender;
-import co.duvan.user.domain.model.Nationality;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class UserEntity {
@@ -31,7 +38,7 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String address;
+    private String email;
 
     @Column(name = "phone_number")
     private String phoneNumber;
