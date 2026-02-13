@@ -8,6 +8,7 @@ import co.duvan.user.domain.model.User;
 import co.duvan.user.infrastructure.adapters.input.rest.mapper.UserRestMapper;
 import co.duvan.user.infrastructure.adapters.input.rest.model.request.UserRequest;
 import co.duvan.user.infrastructure.adapters.input.rest.model.response.UserResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +42,7 @@ public class UserRestAdapter {
     }
 
     @PostMapping("/api/v1")
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest userRequest) {
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userRestMapper.toUserResponse(createUserUseCase.save(userRestMapper.toUser(userRequest))));
@@ -49,7 +50,7 @@ public class UserRestAdapter {
     }
 
     @PutMapping("/api/v1/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest userRequest) {
 
         return ResponseEntity.ok(userRestMapper.toUserResponse(updateUserUseCase.update(id, userRestMapper.toUser(userRequest))));
 

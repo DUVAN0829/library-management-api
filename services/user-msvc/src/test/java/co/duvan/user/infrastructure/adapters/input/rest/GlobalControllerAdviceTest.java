@@ -6,10 +6,12 @@ import co.duvan.user.application.ports.input.GetUserUseCase;
 import co.duvan.user.application.ports.input.UpdateUserUseCase;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.infrastructure.adapters.input.rest.mapper.UserRestMapper;
+import co.duvan.user.infrastructure.adapters.input.rest.model.request.UserRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -59,6 +61,25 @@ class GlobalControllerAdviceTest {
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.code").value("ERR_USER_01"))
                 .andExpect(jsonPath("$.message").value("User not found"));
+    }
+
+    @Test
+    void should_return_400_when_user_request_is_invalid() throws Exception {
+
+        //* Given
+        UserRequest invalidRequest = new UserRequest();
+        invalidRequest.setFirstname(""); // asumiendo que tienes @NotBlank
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(invalidRequest)))
+
+                //* Then
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("ERR_USER_02"))
+                .andExpect(jsonPath("$.message").value("Invalid user parameters"))
+                .andExpect(jsonPath("$.details").isArray());
     }
 
 }
