@@ -84,7 +84,7 @@ class LoanRestAdapterTest {
                 LocalDate.now(),
                 LocalDate.now().plusDays(7),
                 null,
-                Status.ACTIVE
+                Status.RETURNED
         );
     }
 
@@ -146,5 +146,28 @@ class LoanRestAdapterTest {
         verify(loanRestMapper).toLoan(any(LoanRequest.class));
         verify(loanRestMapper).toLoanResponse(any(Loan.class));
     }
+
+    @Test
+    void should_update_loan() throws Exception {
+
+        //* Given
+        when(loanRestMapper.toLoan(any(LoanRequest.class))).thenReturn(loan);
+        when(updateLoanUseCase.update(eq(1L), any(Loan.class))).thenReturn(loan);
+        when(loanRestMapper.toLoanResponse(any(Loan.class))).thenReturn(loanResponse);
+
+        //* When
+        mockMvc.perform(put(BASE_URL + "/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(loanRequest)))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.loanId").value(1));
+
+        verify(updateLoanUseCase).update(eq(1L), any(Loan.class));
+        verify(loanRestMapper).toLoan(any(LoanRequest.class));
+        verify(loanRestMapper).toLoanResponse(any(Loan.class));
+    }
+
 
 }
