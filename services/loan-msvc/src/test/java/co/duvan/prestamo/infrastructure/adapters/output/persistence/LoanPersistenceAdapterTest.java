@@ -14,6 +14,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -144,6 +145,30 @@ class LoanPersistenceAdapterTest {
         //* Then
         assertEquals(Status.RETURNED, updatedLoan.getLoanStatus());
         assertNotNull(updatedLoan.getReturnDate());
+    }
+
+    @Test
+    void should_delete_loan() {
+
+        //* Given
+        Loan loan = new Loan(
+                null,
+                6L,
+                60L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(7),
+                null,
+                Status.ACTIVE
+        );
+
+        Loan savedLoan = repositoryPort.save(loan);
+
+        //* When
+        repositoryPort.deleteById(savedLoan.getLoanId());
+
+        //* Then
+        Optional<Loan> deletedLoan = repositoryPort.findById(savedLoan.getLoanId());
+        assertTrue(deletedLoan.isEmpty());
     }
 
 }
