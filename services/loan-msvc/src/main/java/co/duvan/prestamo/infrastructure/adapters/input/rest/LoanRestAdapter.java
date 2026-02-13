@@ -67,20 +67,3 @@ public class LoanRestAdapter {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
