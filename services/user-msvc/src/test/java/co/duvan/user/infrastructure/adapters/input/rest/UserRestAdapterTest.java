@@ -160,4 +160,26 @@ class UserRestAdapterTest {
         verify(userRestMapper).toUserResponse(any(User.class));
     }
 
+    @Test
+    void should_update_user() throws Exception {
+
+        //* Given
+        when(userRestMapper.toUser(any(UserRequest.class))).thenReturn(user);
+        when(updateUserUseCase.update(anyLong(), any(User.class))).thenReturn(user);
+        when(userRestMapper.toUserResponse(any(User.class))).thenReturn(userResponse);
+
+        //* When
+        mockMvc.perform(put(BASE_URL + "/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userRequest)))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.userId").value(1));
+
+        verify(updateUserUseCase).update(eq(1L), any(User.class));
+        verify(userRestMapper).toUser(any(UserRequest.class));
+        verify(userRestMapper).toUserResponse(any(User.class));
+    }
+
 }
