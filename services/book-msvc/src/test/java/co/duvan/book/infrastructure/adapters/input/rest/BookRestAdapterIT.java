@@ -25,6 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class BookRestAdapterIT {
 
+    private static final String BASE_URL = "/books/api/v1";
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -60,7 +62,7 @@ public class BookRestAdapterIT {
         );
 
         //* When
-        mockMvc.perform(post("/books/api/v1")
+        mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
 
@@ -84,7 +86,7 @@ public class BookRestAdapterIT {
         );
 
         //* When
-        String response = mockMvc.perform(post("/books/api/v1")
+        String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
                 .andReturn()
@@ -94,7 +96,7 @@ public class BookRestAdapterIT {
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
         //* When
-        mockMvc.perform(get("/books/api/v1/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id))
 
                 //* Then
                 .andExpect(status().isOk())
@@ -116,7 +118,7 @@ public class BookRestAdapterIT {
         );
 
         //* When
-        String response = mockMvc.perform(post("/books/api/v1")
+        String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
                 .andReturn()
@@ -126,10 +128,10 @@ public class BookRestAdapterIT {
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
         //* Then
-        mockMvc.perform(delete("/books/api/v1/" + id))
+        mockMvc.perform(delete(BASE_URL + "/" + id))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get("/books/api/v1/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id))
                 .andExpect(status().is4xxClientError());
 
     }
