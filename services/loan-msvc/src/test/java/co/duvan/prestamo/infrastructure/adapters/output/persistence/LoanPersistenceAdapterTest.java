@@ -13,6 +13,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -81,6 +82,41 @@ class LoanPersistenceAdapterTest {
         //* Then
         assertNotNull(foundLoan);
         assertEquals(savedLoan.getLoanId(), foundLoan.getLoanId());
+    }
+
+    @Test
+    void should_find_all_loans() {
+
+        //* Given
+        Loan loanA = new Loan(
+                null,
+                3L,
+                30L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(5),
+                null,
+                Status.ACTIVE
+        );
+
+        Loan loanB = new Loan(
+                null,
+                4L,
+                40L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(8),
+                null,
+                Status.ACTIVE
+        );
+
+        repositoryPort.save(loanA);
+        repositoryPort.save(loanB);
+
+        //* When
+        List<Loan> loans = repositoryPort.findAll();
+
+        //* Then
+        assertFalse(loans.isEmpty());
+        assertTrue(loans.size() >= 2);
     }
 
 }
