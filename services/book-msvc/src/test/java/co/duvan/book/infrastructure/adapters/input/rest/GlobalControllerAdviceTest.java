@@ -43,6 +43,7 @@ class GlobalControllerAdviceTest {
 
     @MockitoBean
     private BookRestMapper bookRestMapper;
+
     @Autowired
     private ObjectMapper objectMapper;
 
