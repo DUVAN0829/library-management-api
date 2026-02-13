@@ -4,7 +4,9 @@ import co.duvan.prestamo.application.ports.input.DeleteLoanUseCase;
 import co.duvan.prestamo.application.ports.output.LoanRepositoryPort;
 import co.duvan.prestamo.domain.exceptions.LoanNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class DeleteLoanUseCaseImpl implements DeleteLoanUseCase {
 
