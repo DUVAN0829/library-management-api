@@ -125,4 +125,26 @@ class LoanRestAdapterTest {
         verify(loanRestMapper).toLoanResponseList(List.of(loan));
     }
 
+    @Test
+    void should_create_loan() throws Exception {
+
+        //* Given
+        when(loanRestMapper.toLoan(any(LoanRequest.class))).thenReturn(loan);
+        when(createLoanUseCase.save(any(Loan.class))).thenReturn(loan);
+        when(loanRestMapper.toLoanResponse(any(Loan.class))).thenReturn(loanResponse);
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(loanRequest)))
+
+                //* Then
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.loanId").value(1));
+
+        verify(createLoanUseCase).save(any(Loan.class));
+        verify(loanRestMapper).toLoan(any(LoanRequest.class));
+        verify(loanRestMapper).toLoanResponse(any(Loan.class));
+    }
+
 }
