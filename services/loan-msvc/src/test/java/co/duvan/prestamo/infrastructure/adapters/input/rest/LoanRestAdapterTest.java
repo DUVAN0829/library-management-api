@@ -169,5 +169,19 @@ class LoanRestAdapterTest {
         verify(loanRestMapper).toLoanResponse(any(Loan.class));
     }
 
+    @Test
+    void should_delete_loan() throws Exception {
+
+        //* Given
+        doNothing().when(deleteLoanUseCase).deleteById(1L);
+
+        //* When
+        mockMvc.perform(delete(BASE_URL + "/1"))
+
+                //* Then
+                .andExpect(status().isNoContent());
+
+        verify(deleteLoanUseCase).deleteById(1L);
+    }
 
 }
