@@ -59,4 +59,28 @@ class LoanPersistenceAdapterTest {
         assertNotNull(savedLoan.getLoanId());
     }
 
+    @Test
+    void should_find_loan_by_id() {
+
+        //* Given
+        Loan loan = new Loan(
+                null,
+                2L,
+                20L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(10),
+                null,
+                Status.ACTIVE
+        );
+
+        Loan savedLoan = repositoryPort.save(loan);
+
+        //* When
+        Loan foundLoan = repositoryPort.findById(savedLoan.getLoanId()).orElseThrow();
+
+        //* Then
+        assertNotNull(foundLoan);
+        assertEquals(savedLoan.getLoanId(), foundLoan.getLoanId());
+    }
+
 }
