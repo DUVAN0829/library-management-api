@@ -182,4 +182,19 @@ class UserRestAdapterTest {
         verify(userRestMapper).toUserResponse(any(User.class));
     }
 
+    @Test
+    void should_delete_user() throws Exception {
+
+        //* Given
+        doNothing().when(deleteUserUseCase).deleteById(1L);
+
+        //* When
+        mockMvc.perform(delete(BASE_URL + "/1"))
+
+                //* Then
+                .andExpect(status().isNoContent());
+
+        verify(deleteUserUseCase).deleteById(1L);
+    }
+
 }
