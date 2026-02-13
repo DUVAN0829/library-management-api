@@ -107,4 +107,22 @@ class LoanRestAdapterTest {
         verify(loanRestMapper).toLoanResponse(loan);
     }
 
+    @Test
+    void should_get_all_loans() throws Exception {
+
+        //* Given
+        when(getLoanUseCase.findAll()).thenReturn(List.of(loan));
+        when(loanRestMapper.toLoanResponseList(List.of(loan))).thenReturn(List.of(loanResponse));
+
+        //* When
+        mockMvc.perform(get(BASE_URL))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].loanId").value(1));
+
+        verify(getLoanUseCase).findAll();
+        verify(loanRestMapper).toLoanResponseList(List.of(loan));
+    }
+
 }
