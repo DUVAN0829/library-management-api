@@ -75,6 +75,38 @@ public class UserRestAdapterIT {
                 .andExpect(jsonPath("$.userId").exists());
     }
 
+    @Test
+    void should_get_user_by_id_end_to_end() throws Exception {
+
+        //* Given
+        UserRequest request = new UserRequest(
+                "Maria",
+                "Perez",
+                DocumentType.IDENTITY_DOCUMENT,
+                "87654321",
+                LocalDate.of(1998, 3, 20),
+                Gender.FEMALE,
+                "maria@email.com",
+                "3009998888",
+                "CO"
+        );
+
+        //* Create
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("userId").asLong();
+
+        //* When + Then
+        mockMvc.perform(get(BASE_URL + "/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.userId").value(id));
+    }
+
 }
 
 
