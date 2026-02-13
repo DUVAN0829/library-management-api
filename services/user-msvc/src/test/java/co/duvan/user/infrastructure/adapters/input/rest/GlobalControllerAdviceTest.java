@@ -4,6 +4,8 @@ import co.duvan.user.application.ports.input.CreateUserUseCase;
 import co.duvan.user.application.ports.input.DeleteUserUseCase;
 import co.duvan.user.application.ports.input.GetUserUseCase;
 import co.duvan.user.application.ports.input.UpdateUserUseCase;
+import co.duvan.user.domain.enums.DocumentType;
+import co.duvan.user.domain.enums.Gender;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.infrastructure.adapters.input.rest.mapper.UserRestMapper;
 import co.duvan.user.infrastructure.adapters.input.rest.model.request.UserRequest;
@@ -15,6 +17,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
+
+import java.time.LocalDate;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -81,5 +85,38 @@ class GlobalControllerAdviceTest {
                 .andExpect(jsonPath("$.message").value("Invalid user parameters"))
                 .andExpect(jsonPath("$.details").isArray());
     }
+
+    @Test
+    void should_return_400_when_invalid_nationality_code() throws Exception {
+
+        //* Given
+        when(createUserUseCase.save(any()))
+                .thenThrow(new IllegalArgumentException("Invalid ISO 3166-1 alpha-2 code"));
+
+        UserRequest request = new UserRequest(
+                "Duvan",
+                "Gonzalez",
+                DocumentType.IDENTITY_DOCUMENT,
+                "12345678",
+                LocalDate.of(1995, 5, 10),
+                Gender.MALE,
+                "duvan@email.com",
+                "3001234567",
+                "Co"
+        );
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+
+                //* Then
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("ERR_USER_02"))
+                .andExpect(jsonPath("$.message").value("Invalid user parameters"))
+                .andExpect(jsonPath("$.details[0]")
+                        .value("Invalid ISO 3166-1 alpha-2 code"));
+    }
+
 
 }
