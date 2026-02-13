@@ -119,4 +119,31 @@ class LoanPersistenceAdapterTest {
         assertTrue(loans.size() >= 2);
     }
 
+    @Test
+    void should_update_loan() {
+
+        //* Given
+        Loan loan = new Loan(
+                null,
+                5L,
+                50L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(7),
+                null,
+                Status.ACTIVE
+        );
+
+        Loan savedLoan = repositoryPort.save(loan);
+
+        //* When
+        savedLoan.setLoanStatus(Status.RETURNED);
+        savedLoan.setReturnDate(LocalDate.now());
+
+        Loan updatedLoan = repositoryPort.save(savedLoan);
+
+        //* Then
+        assertEquals(Status.RETURNED, updatedLoan.getLoanStatus());
+        assertNotNull(updatedLoan.getReturnDate());
+    }
+
 }
