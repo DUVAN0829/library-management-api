@@ -118,5 +118,22 @@ class GlobalControllerAdviceTest {
                         .value("Invalid ISO 3166-1 alpha-2 code"));
     }
 
+    @Test
+    void should_return_500_when_generic_exception_occurs() throws Exception {
+
+        //* Given
+        when(getUserUseCase.findById(1L))
+                .thenThrow(new RuntimeException("Something went wrong"));
+
+        //* When
+        mockMvc.perform(get(BASE_URL + "/1"))
+
+                //* Then
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$.code").value("GEN_ERR_01"))
+                .andExpect(jsonPath("$.message").value("An unexpected error occurred"))
+                .andExpect(jsonPath("$.details[0]")
+                        .value("Something went wrong"));
+    }
 
 }
