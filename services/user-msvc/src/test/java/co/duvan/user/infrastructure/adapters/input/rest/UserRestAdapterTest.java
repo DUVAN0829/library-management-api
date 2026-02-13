@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -137,5 +138,26 @@ class UserRestAdapterTest {
         verify(userRestMapper).toUserResponseList(List.of(user));
     }
 
+    @Test
+    void should_create_user() throws Exception {
+
+        //* Given
+        when(userRestMapper.toUser(any(UserRequest.class))).thenReturn(user);
+        when(createUserUseCase.save(any(User.class))).thenReturn(user);
+        when(userRestMapper.toUserResponse(any(User.class))).thenReturn(userResponse);
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userRequest)))
+
+                //* Then
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.firstname").value("Duvan"));
+
+        verify(createUserUseCase).save(any(User.class));
+        verify(userRestMapper).toUser(any(UserRequest.class));
+        verify(userRestMapper).toUserResponse(any(User.class));
+    }
 
 }
