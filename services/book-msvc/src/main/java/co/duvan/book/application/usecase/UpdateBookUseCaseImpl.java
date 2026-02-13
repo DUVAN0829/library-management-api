@@ -18,6 +18,7 @@ public class UpdateBookUseCaseImpl implements UpdateBookUseCase {
 
         return bookRepositoryPort.findById(id)
                 .map(bookDb -> {
+
                     bookDb.setTitle(book.getTitle());
                     bookDb.setCategory(book.getCategory());
                     bookDb.setIsbn(book.getIsbn());
@@ -25,6 +26,7 @@ public class UpdateBookUseCaseImpl implements UpdateBookUseCase {
                     bookDb.setDescription(book.getDescription());
                     bookDb.setPublisher(book.getPublisher());
                     return bookRepositoryPort.save(bookDb);
+
                 }).orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
 
     }
