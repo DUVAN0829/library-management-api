@@ -107,21 +107,39 @@ public class UserRestAdapterIT {
                 .andExpect(jsonPath("$.userId").value(id));
     }
 
+    @Test
+    void should_delete_user_end_to_end() throws Exception {
+
+        //* Given
+        UserRequest request = new UserRequest(
+                "Carlos",
+                "Lopez",
+                DocumentType.PASSPORT,
+                "111222333",
+                LocalDate.of(1990, 1, 15),
+                Gender.MALE,
+                "carlos@email.com",
+                "3012223333",
+                "CO"
+        );
+
+        //* Create
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("userId").asLong();
+
+        //* Delete
+        mockMvc.perform(delete(BASE_URL + "/" + id))
+                .andExpect(status().isNoContent());
+
+        //* Verify deleted
+        mockMvc.perform(get(BASE_URL + "/" + id))
+                .andExpect(status().is4xxClientError());
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
