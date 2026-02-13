@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -116,5 +117,25 @@ class UserRestAdapterTest {
         verify(getUserUseCase).findById(1L);
         verify(userRestMapper).toUserResponse(user);
     }
+
+    @Test
+    void should_get_all_users() throws Exception {
+
+        //* Given
+        when(getUserUseCase.findAll()).thenReturn(List.of(user));
+        when(userRestMapper.toUserResponseList(List.of(user))).thenReturn(List.of(userResponse));
+
+        //* When
+        mockMvc.perform(get(BASE_URL))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].userId").value(1))
+                .andExpect(jsonPath("$[0].documentNumber").value("12345678"));
+
+        verify(getUserUseCase).findAll();
+        verify(userRestMapper).toUserResponseList(List.of(user));
+    }
+
 
 }
