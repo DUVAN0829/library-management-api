@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/services/user-msvc/pom.xml" />
+        <option value="$PROJECT_DIR$/services/prestamo-msvc/pom.xml" />
       </list>
     </option>
   </component>

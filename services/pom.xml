@@ -18,6 +18,7 @@
 
     <modules>
         <module>book-msvc</module>
+        <module>loan-msvc</module>
     </modules>
 
     <packaging>pom</packaging>
