@@ -16,21 +16,21 @@ import java.util.Optional;
 public class UserPersistenceAdapter implements UserRepositoryPort {
 
     private final UserRepository repository;
-    private final UserPersistenceMapper persistenceMapper;
+    private final UserPersistenceMapper userPersistenceMapper;
 
     @Override
     public User save(User user) {
-        return persistenceMapper.toUser(repository.save(persistenceMapper.toUserEntity(user)));
+        return userPersistenceMapper.toUser(repository.save(userPersistenceMapper.toUserEntity(user)));
     }
 
     @Override
     public Optional<User> findById(Long id) {
-        return repository.findById(id).map(persistenceMapper::toUser);
+        return repository.findById(id).map(userPersistenceMapper::toUser);
     }
 
     @Override
     public List<User> findAll() {
-        return persistenceMapper.toListUser((List<UserEntity>) repository.findAll());
+        return userPersistenceMapper.toListUser((List<UserEntity>) repository.findAll());
     }
 
     @Override
