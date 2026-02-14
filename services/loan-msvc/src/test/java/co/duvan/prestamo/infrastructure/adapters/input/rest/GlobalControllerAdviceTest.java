@@ -6,10 +6,12 @@ import co.duvan.prestamo.application.ports.input.GetLoanUseCase;
 import co.duvan.prestamo.application.ports.input.UpdateLoanUseCase;
 import co.duvan.prestamo.domain.exceptions.LoanNotFoundException;
 import co.duvan.prestamo.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
+import co.duvan.prestamo.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -61,6 +63,23 @@ class GlobalControllerAdviceTest {
                 .andExpect(jsonPath("$.message").value("Loan not found"));
     }
 
+    @Test
+    void should_return_400_when_loan_request_is_invalid() throws Exception {
 
+        //* Given
+        LoanRequest invalidRequest = new LoanRequest();
+        invalidRequest.setUserId(null);
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(invalidRequest)))
+
+                //* Then
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("ERR_LOAN_02"))
+                .andExpect(jsonPath("$.message").value("Invalid loan parameters"))
+                .andExpect(jsonPath("$.details").isArray());
+    }
 
 }
