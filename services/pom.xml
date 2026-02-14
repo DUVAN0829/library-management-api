@@ -19,6 +19,8 @@
     <modules>
         <module>book-msvc</module>
         <module>loan-msvc</module>
+        <module>user-msvc</module>
+        <module>copy-msvc</module>
     </modules>
 
     <packaging>pom</packaging>

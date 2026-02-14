@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/platform/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/platform/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/book-msvc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services/copy-msvc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/loan-msvc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/src/main/resources" charset="UTF-8" />
