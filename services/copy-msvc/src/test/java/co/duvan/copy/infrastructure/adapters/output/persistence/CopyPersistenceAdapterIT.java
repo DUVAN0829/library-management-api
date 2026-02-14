@@ -12,6 +12,8 @@ import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
@@ -74,6 +76,19 @@ class CopyPersistenceAdapterIT {
         assertEquals(savedCopy.getCopyId(), result.getCopyId());
     }
 
+    @Test
+    void should_find_all_copies() {
 
+        //* Given
+        repositoryPort.save(Copy.builder().bookId(1L).code("CP-003").status(Status.AVAILABLE).build());
+        repositoryPort.save(Copy.builder().bookId(1L).code("CP-004").status(Status.LOANED).build());
+
+        //* When
+        List<Copy> result = repositoryPort.findAll();
+
+        //* Then
+        assertFalse(result.isEmpty());
+        assertTrue(result.size() >= 2);
+    }
 
 }
