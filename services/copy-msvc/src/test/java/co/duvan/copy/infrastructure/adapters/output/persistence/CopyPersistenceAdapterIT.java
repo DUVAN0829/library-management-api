@@ -116,4 +116,26 @@ class CopyPersistenceAdapterIT {
 
     }
 
+    @Test
+    void should_delete_copy() {
+
+        //* Given
+        Copy copy = Copy.builder()
+                .bookId(4L)
+                .code("CP-006")
+                .status(Status.AVAILABLE)
+                .build();
+
+        Copy saved = repositoryPort.save(copy);
+
+        //* When
+        repositoryPort.deleteById(saved.getCopyId());
+
+        Optional<Copy> deleted = repositoryPort.findById(saved.getCopyId());
+
+        //* Then
+        assertTrue(deleted.isEmpty());
+
+    }
+
 }
