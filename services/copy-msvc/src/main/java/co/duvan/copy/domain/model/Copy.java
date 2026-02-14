@@ -1,15 +1,13 @@
 package co.duvan.copy.domain.model;
 
 import co.duvan.copy.domain.enums.Status;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Copy {
 
     private Long copyId;
