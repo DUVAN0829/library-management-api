@@ -4,7 +4,9 @@ import co.duvan.copy.application.ports.input.DeleteCopyUseCase;
 import co.duvan.copy.application.ports.output.CopyRepositoryPort;
 import co.duvan.copy.domain.exceptions.CopyNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class DeleteCopyUseCaseImpl implements DeleteCopyUseCase {
 

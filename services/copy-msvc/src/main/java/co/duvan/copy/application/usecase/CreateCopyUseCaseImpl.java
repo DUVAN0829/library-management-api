@@ -4,7 +4,9 @@ import co.duvan.copy.application.ports.input.CreateCopyUseCase;
 import co.duvan.copy.application.ports.output.CopyRepositoryPort;
 import co.duvan.copy.domain.model.Copy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
 @RequiredArgsConstructor
 public class CreateCopyUseCaseImpl implements CreateCopyUseCase {
 

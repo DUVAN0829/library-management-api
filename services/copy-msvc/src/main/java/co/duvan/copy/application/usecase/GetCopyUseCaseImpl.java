@@ -5,9 +5,11 @@ import co.duvan.copy.application.ports.output.CopyRepositoryPort;
 import co.duvan.copy.domain.exceptions.CopyNotFoundException;
 import co.duvan.copy.domain.model.Copy;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 @RequiredArgsConstructor
 public class GetCopyUseCaseImpl implements GetCopyUseCase {
 
