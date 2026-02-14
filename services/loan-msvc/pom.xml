@@ -11,11 +11,11 @@
     </parent>
 
     <!-- Basic configuration -->
-    <groupId>co.duvan.prestamo</groupId>
+    <groupId>co.duvan.loan</groupId>
     <artifactId>loan-msvc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>prestamo-msvc</name>
-    <description>prestamo-msvc</description>
+    <name>loan-msvc</name>
+    <description>loan-msvc</description>
 
     <!-- Properties -->
     <properties>
