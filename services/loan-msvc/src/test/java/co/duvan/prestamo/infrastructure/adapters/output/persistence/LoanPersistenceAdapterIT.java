@@ -20,12 +20,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 @SpringBootTest
-class LoanPersistenceAdapterTest {
+class LoanPersistenceAdapterIT {
 
     @Container
     static PostgreSQLContainer<?> postgres =
             new PostgreSQLContainer<>("postgres:17-alpine")
-                    .withDatabaseName("prestamos")
+                    .withDatabaseName("loans")
                     .withUsername("postgres")
                     .withPassword("12345");
 
