@@ -13,6 +13,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -74,6 +75,7 @@ class CopyPersistenceAdapterIT {
         //* Then
         assertNotNull(result);
         assertEquals(savedCopy.getCopyId(), result.getCopyId());
+
     }
 
     @Test
@@ -89,6 +91,29 @@ class CopyPersistenceAdapterIT {
         //* Then
         assertFalse(result.isEmpty());
         assertTrue(result.size() >= 2);
+
+    }
+
+    @Test
+    void should_update_copy() {
+
+        //* Given
+        Copy copy = Copy.builder()
+                .bookId(3L)
+                .code("CP-005")
+                .status(Status.AVAILABLE)
+                .build();
+
+        Copy saved = repositoryPort.save(copy);
+
+        //* When
+        saved.setStatus(Status.LOANED);
+
+        Copy updated = repositoryPort.save(saved);
+
+        //* Then
+        assertEquals(Status.LOANED, updated.getStatus());
+
     }
 
 }
