@@ -39,16 +39,41 @@ class CopyPersistenceAdapterIT {
     @Test
     void should_save_copy() {
 
+        //* Given
         Copy copy = Copy.builder()
                 .bookId(1L)
                 .code("CP-001")
                 .status(Status.AVAILABLE)
                 .build();
 
+        //* When
         Copy savedCopy = repositoryPort.save(copy);
 
+        //* Then
         assertNotNull(savedCopy);
         assertNotNull(savedCopy.getCopyId());
     }
+
+    @Test
+    void should_find_copy_by_id() {
+
+        //* Given
+        Copy copy = Copy.builder()
+                .bookId(2L)
+                .code("CP-002")
+                .status(Status.AVAILABLE)
+                .build();
+
+        Copy savedCopy = repositoryPort.save(copy);
+
+        //* When
+        Copy result = repositoryPort.findById(savedCopy.getCopyId()).orElseThrow();
+
+        //* Then
+        assertNotNull(result);
+        assertEquals(savedCopy.getCopyId(), result.getCopyId());
+    }
+
+
 
 }
