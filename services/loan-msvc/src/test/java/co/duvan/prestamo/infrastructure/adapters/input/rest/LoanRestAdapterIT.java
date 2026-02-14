@@ -100,4 +100,36 @@ public class LoanRestAdapterIT {
                 .andExpect(jsonPath("$.loanId").value(id));
     }
 
+    @Test
+    void should_delete_loan_end_to_end() throws Exception {
+
+        //* Given
+        LoanRequest request = new LoanRequest(
+                3L,
+                30L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(5),
+                null,
+                Status.ACTIVE
+        );
+
+        //* Create
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("loanId").asLong();
+
+        //* Delete
+        mockMvc.perform(delete(BASE_URL + "/" + id))
+                .andExpect(status().isNoContent());
+
+        //* Verify deleted
+        mockMvc.perform(get(BASE_URL + "/" + id))
+                .andExpect(status().is4xxClientError());
+    }
+
 }
