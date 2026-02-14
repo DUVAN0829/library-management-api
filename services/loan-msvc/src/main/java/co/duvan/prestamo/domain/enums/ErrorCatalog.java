@@ -1,5 +1,8 @@
 package co.duvan.prestamo.domain.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorCatalog {
 
     LOAN_NOT_FOUND("ERR_LOAN_01", "Loan not found"),
