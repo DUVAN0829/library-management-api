@@ -71,4 +71,33 @@ public class LoanRestAdapterIT {
                 .andExpect(jsonPath("$.loanId").exists());
     }
 
+    @Test
+    void should_get_loan_by_id_end_to_end() throws Exception {
+
+        //* Given
+        LoanRequest request = new LoanRequest(
+                2L,
+                20L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(7),
+                null,
+                Status.ACTIVE
+        );
+
+        //* Create
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("loanId").asLong();
+
+        //* When + Then
+        mockMvc.perform(get(BASE_URL + "/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.loanId").value(id));
+    }
+
 }
