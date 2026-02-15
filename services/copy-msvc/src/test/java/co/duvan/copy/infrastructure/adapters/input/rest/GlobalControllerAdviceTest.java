@@ -81,4 +81,21 @@ class GlobalControllerAdviceTest {
                 .andExpect(jsonPath("$.details").isArray());
     }
 
+    @Test
+    void should_return_500_when_generic_exception_occurs() throws Exception {
+
+        //* Given
+        when(getCopyUseCase.findById(1L))
+                .thenThrow(new RuntimeException("Something went wrong"));
+
+        //* When
+        mockMvc.perform(get(BASE_URL + "/1"))
+
+                //* Then
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$.code").value("GEN_ERR_01"))
+                .andExpect(jsonPath("$.message").value("An unexpected error occurred"))
+                .andExpect(jsonPath("$.details[0]").value("Something went wrong"));
+    }
+
 }
