@@ -81,10 +81,14 @@ class CopyRestAdapterTest {
     @Test
     void should_get_copy_by_id() throws Exception {
 
+        //* Given
         when(getCopyUseCase.findById(1L)).thenReturn(copy);
         when(copyRestMapper.toCopyResponse(copy)).thenReturn(copyResponse);
 
+        //* When
         mockMvc.perform(get(BASE_URL + "/1"))
+
+                //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.copyId").value(1))
                 .andExpect(jsonPath("$.code").value("CP-001"));
@@ -96,10 +100,14 @@ class CopyRestAdapterTest {
     @Test
     void should_get_all_copies() throws Exception {
 
+        //* Given
         when(getCopyUseCase.findAll()).thenReturn(List.of(copy));
         when(copyRestMapper.toCopyResponseList(List.of(copy))).thenReturn(List.of(copyResponse));
 
+        //* When
         mockMvc.perform(get(BASE_URL))
+
+                //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].copyId").value(1))
                 .andExpect(jsonPath("$[0].code").value("CP-001"));
@@ -111,13 +119,17 @@ class CopyRestAdapterTest {
     @Test
     void should_create_copy() throws Exception {
 
+        //* Given
         when(copyRestMapper.toCopy(any(CopyRequest.class))).thenReturn(copy);
         when(createCopyUseCase.save(any(Copy.class))).thenReturn(copy);
         when(copyRestMapper.toCopyResponse(any(Copy.class))).thenReturn(copyResponse);
 
+        //* When
         mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(copyRequest)))
+
+                //*  Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.copyId").value(1));
 
@@ -129,13 +141,17 @@ class CopyRestAdapterTest {
     @Test
     void should_update_copy() throws Exception {
 
+        //* Given
         when(copyRestMapper.toCopy(any(CopyRequest.class))).thenReturn(copy);
         when(updateCopyUseCase.update(anyLong(), any(Copy.class))).thenReturn(copy);
         when(copyRestMapper.toCopyResponse(any(Copy.class))).thenReturn(copyResponse);
 
+        //* When
         mockMvc.perform(put(BASE_URL + "/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(copyRequest)))
+
+                //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.copyId").value(1));
 
@@ -147,9 +163,13 @@ class CopyRestAdapterTest {
     @Test
     void should_delete_copy() throws Exception {
 
+        //* Given
         doNothing().when(deleteCopyUseCase).deleteById(1L);
 
+        //* When
         mockMvc.perform(delete(BASE_URL + "/1"))
+
+                //* Then
                 .andExpect(status().isNoContent());
 
         verify(deleteCopyUseCase).deleteById(1L);
