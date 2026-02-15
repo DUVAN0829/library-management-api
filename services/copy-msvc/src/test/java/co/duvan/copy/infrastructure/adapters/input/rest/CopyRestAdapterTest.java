@@ -144,4 +144,15 @@ class CopyRestAdapterTest {
         verify(copyRestMapper).toCopyResponse(any(Copy.class));
     }
 
+    @Test
+    void should_delete_copy() throws Exception {
+
+        doNothing().when(deleteCopyUseCase).deleteById(1L);
+
+        mockMvc.perform(delete(BASE_URL + "/1"))
+                .andExpect(status().isNoContent());
+
+        verify(deleteCopyUseCase).deleteById(1L);
+    }
+
 }
