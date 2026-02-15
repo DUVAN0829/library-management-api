@@ -17,6 +17,8 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 
+import java.util.List;
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -89,5 +91,21 @@ class CopyRestAdapterTest {
         verify(getCopyUseCase).findById(1L);
         verify(copyRestMapper).toCopyResponse(copy);
     }
+
+    @Test
+    void should_get_all_copies() throws Exception {
+
+        when(getCopyUseCase.findAll()).thenReturn(List.of(copy));
+        when(copyRestMapper.toCopyResponseList(List.of(copy))).thenReturn(List.of(copyResponse));
+
+        mockMvc.perform(get(BASE_URL))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].copyId").value(1))
+                .andExpect(jsonPath("$[0].code").value("CP-001"));
+
+        verify(getCopyUseCase).findAll();
+        verify(copyRestMapper).toCopyResponseList(List.of(copy));
+    }
+
 
 }
