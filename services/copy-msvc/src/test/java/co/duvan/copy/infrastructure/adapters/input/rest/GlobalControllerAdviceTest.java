@@ -6,10 +6,12 @@ import co.duvan.copy.application.ports.input.GetCopyUseCase;
 import co.duvan.copy.application.ports.input.UpdateCopyUseCase;
 import co.duvan.copy.domain.exceptions.CopyNotFoundException;
 import co.duvan.copy.infrastructure.adapters.input.rest.mapper.CopyRestMapper;
+import co.duvan.copy.infrastructure.adapters.input.rest.model.request.CopyRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -60,5 +62,23 @@ class GlobalControllerAdviceTest {
                 .andExpect(jsonPath("$.message").value("Copy not found"));
     }
 
+    @Test
+    void should_return_400_when_copy_request_is_invalid() throws Exception {
+
+        //* Given
+        CopyRequest invalidRequest = new CopyRequest();
+        invalidRequest.setCode(""); // invalid (blank)
+
+        //* When
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(invalidRequest)))
+
+                //* Then
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("ERR_COPY_02"))
+                .andExpect(jsonPath("$.message").value("Invalid copy parameters"))
+                .andExpect(jsonPath("$.details").isArray());
+    }
 
 }
