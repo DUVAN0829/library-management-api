@@ -126,4 +126,22 @@ class CopyRestAdapterTest {
         verify(copyRestMapper).toCopyResponse(any(Copy.class));
     }
 
+    @Test
+    void should_update_copy() throws Exception {
+
+        when(copyRestMapper.toCopy(any(CopyRequest.class))).thenReturn(copy);
+        when(updateCopyUseCase.update(anyLong(), any(Copy.class))).thenReturn(copy);
+        when(copyRestMapper.toCopyResponse(any(Copy.class))).thenReturn(copyResponse);
+
+        mockMvc.perform(put(BASE_URL + "/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(copyRequest)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.copyId").value(1));
+
+        verify(updateCopyUseCase).update(eq(1L), any(Copy.class));
+        verify(copyRestMapper).toCopy(any(CopyRequest.class));
+        verify(copyRestMapper).toCopyResponse(any(Copy.class));
+    }
+
 }
