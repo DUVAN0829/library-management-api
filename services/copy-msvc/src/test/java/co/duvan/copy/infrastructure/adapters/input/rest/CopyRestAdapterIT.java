@@ -95,4 +95,31 @@ public class CopyRestAdapterIT {
                 .andExpect(jsonPath("$.code").value("CP-200"));
     }
 
+    @Test
+    void should_delete_copy_end_to_end() throws Exception {
+
+        //* Given
+        CopyRequest request = new CopyRequest(
+                3L,
+                "CP-300",
+                Status.AVAILABLE
+        );
+
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("copyId").asLong();
+
+        //* Then
+        mockMvc.perform(delete(BASE_URL + "/" + id))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get(BASE_URL + "/" + id))
+                .andExpect(status().isNotFound());
+    }
+
 }
