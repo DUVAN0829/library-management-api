@@ -67,4 +67,32 @@ public class CopyRestAdapterIT {
                 .andExpect(jsonPath("$.code").value("CP-100"));
     }
 
+    @Test
+    void should_get_copy_by_id_end_to_end() throws Exception {
+
+        //* Given
+        CopyRequest request = new CopyRequest(
+                2L,
+                "CP-200",
+                Status.LOANED
+        );
+
+        String response = mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        long id = objectMapper.readTree(response).get("copyId").asLong();
+
+        //* When
+        mockMvc.perform(get(BASE_URL + "/" + id))
+
+                //* Then
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.copyId").value(id))
+                .andExpect(jsonPath("$.code").value("CP-200"));
+    }
+
 }
