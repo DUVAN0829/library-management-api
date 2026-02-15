@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
@@ -107,5 +108,22 @@ class CopyRestAdapterTest {
         verify(copyRestMapper).toCopyResponseList(List.of(copy));
     }
 
+    @Test
+    void should_create_copy() throws Exception {
+
+        when(copyRestMapper.toCopy(any(CopyRequest.class))).thenReturn(copy);
+        when(createCopyUseCase.save(any(Copy.class))).thenReturn(copy);
+        when(copyRestMapper.toCopyResponse(any(Copy.class))).thenReturn(copyResponse);
+
+        mockMvc.perform(post(BASE_URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(copyRequest)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.copyId").value(1));
+
+        verify(createCopyUseCase).save(any(Copy.class));
+        verify(copyRestMapper).toCopy(any(CopyRequest.class));
+        verify(copyRestMapper).toCopyResponse(any(Copy.class));
+    }
 
 }
