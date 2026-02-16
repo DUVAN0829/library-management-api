@@ -137,15 +137,3 @@ public class BookRestAdapterIT {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
