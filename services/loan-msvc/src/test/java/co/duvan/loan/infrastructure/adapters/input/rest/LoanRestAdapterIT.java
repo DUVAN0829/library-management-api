@@ -84,7 +84,7 @@ public class LoanRestAdapterIT {
                 Status.ACTIVE
         );
 
-        //* Create
+        //* When
         String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
@@ -94,7 +94,7 @@ public class LoanRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("loanId").asLong();
 
-        //* When + Then
+        //* Then
         mockMvc.perform(get(BASE_URL + "/" + id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.loanId").value(id));
@@ -113,7 +113,7 @@ public class LoanRestAdapterIT {
                 Status.ACTIVE
         );
 
-        //* Create
+        //* When
         String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
@@ -123,11 +123,10 @@ public class LoanRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("loanId").asLong();
 
-        //* Delete
+        //* Then
         mockMvc.perform(delete(BASE_URL + "/" + id))
                 .andExpect(status().isNoContent());
 
-        //* Verify deleted
         mockMvc.perform(get(BASE_URL + "/" + id))
                 .andExpect(status().is4xxClientError());
     }

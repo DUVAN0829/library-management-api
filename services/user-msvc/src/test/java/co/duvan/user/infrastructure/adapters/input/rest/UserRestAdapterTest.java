@@ -66,24 +66,24 @@ class UserRestAdapterTest {
                 .firstname("Duvan")
                 .lastname("Gonzalez")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
-                .documentNumber("12345678")
+                .documentNumber("90.342.056")
                 .birthdate(LocalDate.of(1995, 5, 10))
                 .gender(Gender.MALE)
                 .email("duvan@email.com")
-                .phoneNumber("3001234567")
-                .nationality(new Nationality("CO"))
+                .phoneNumber("300-123-456")
+                .nationality(new Nationality("CL"))
                 .build();
 
         userRequest = new UserRequest(
                 "Duvan",
                 "Gonzalez",
                 DocumentType.IDENTITY_DOCUMENT,
-                "12345678",
+                "90.342.056",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
-                "duvan@email.com",
-                "3001234567",
-                "CO"
+                "duvan@gmail.com",
+                "300-123-456",
+                "CL"
         );
 
         userResponse = new UserResponse(
@@ -91,12 +91,12 @@ class UserRestAdapterTest {
                 "Duvan",
                 "Gonzalez",
                 DocumentType.PASSPORT,
-                "12345678",
+                "IDF5209",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
-                "duvan@email.com",
-                "3001234567",
-                "CO"
+                "duvan@gmail.com",
+                "300-123-456",
+                "CL"
         );
     }
 
@@ -113,7 +113,7 @@ class UserRestAdapterTest {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId").value(1))
-                .andExpect(jsonPath("$.email").value("duvan@email.com"));
+                .andExpect(jsonPath("$.email").value("duvan@gmail.com"));
 
         verify(getUserUseCase).findById(1L);
         verify(userRestMapper).toUserResponse(user);
@@ -132,7 +132,7 @@ class UserRestAdapterTest {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].userId").value(1))
-                .andExpect(jsonPath("$[0].documentNumber").value("12345678"));
+                .andExpect(jsonPath("$[0].documentNumber").value("IDF5209"));
 
         verify(getUserUseCase).findAll();
         verify(userRestMapper).toUserResponseList(List.of(user));

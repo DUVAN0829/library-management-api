@@ -105,6 +105,7 @@ public class CopyRestAdapterIT {
                 Status.AVAILABLE
         );
 
+        //* When
         String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))

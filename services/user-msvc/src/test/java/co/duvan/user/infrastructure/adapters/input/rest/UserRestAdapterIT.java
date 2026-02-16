@@ -56,12 +56,12 @@ public class UserRestAdapterIT {
         UserRequest request = new UserRequest(
                 "Duvan",
                 "Gonzalez",
-                DocumentType.PASSPORT,
-                "12345678",
+                DocumentType.IDENTITY_DOCUMENT,
+                "74.930.123",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
-                "duvan@email.com",
-                "3001234567",
+                "duvan@gmail.com",
+                "300-123-456",
                 "CO"
         );
 
@@ -83,15 +83,15 @@ public class UserRestAdapterIT {
                 "Maria",
                 "Perez",
                 DocumentType.IDENTITY_DOCUMENT,
-                "87654321",
+                "87.654321",
                 LocalDate.of(1998, 3, 20),
                 Gender.FEMALE,
-                "maria@email.com",
-                "3009998888",
-                "CO"
+                "maria@gmail.com",
+                "300-999-888",
+                "MX"
         );
 
-        //* Create
+        //* When
         String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
@@ -101,7 +101,7 @@ public class UserRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("userId").asLong();
 
-        //* When + Then
+        //* Then
         mockMvc.perform(get(BASE_URL + "/" + id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId").value(id));
@@ -115,15 +115,15 @@ public class UserRestAdapterIT {
                 "Carlos",
                 "Lopez",
                 DocumentType.PASSPORT,
-                "111222333",
+                "AMN3914",
                 LocalDate.of(1990, 1, 15),
                 Gender.MALE,
-                "carlos@email.com",
-                "3012223333",
-                "CO"
+                "carlos@gmail.com",
+                "301-222-333",
+                "CL"
         );
 
-        //* Create
+        //* When
         String response = mockMvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
@@ -133,11 +133,10 @@ public class UserRestAdapterIT {
 
         long id = objectMapper.readTree(response).get("userId").asLong();
 
-        //* Delete
+        //* Then
         mockMvc.perform(delete(BASE_URL + "/" + id))
                 .andExpect(status().isNoContent());
 
-        //* Verify deleted
         mockMvc.perform(get(BASE_URL + "/" + id))
                 .andExpect(status().is4xxClientError());
     }

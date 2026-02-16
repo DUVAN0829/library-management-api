@@ -126,7 +126,7 @@ class UserPersistenceAdapterIT {
                 .firstname("Mark")
                 .lastname("Adams")
                 .documentType(DocumentType.PASSPORT)
-                .documentNumber("65.892.701")
+                .documentNumber("LDK9384")
                 .birthdate(LocalDate.of(2001, 8, 22))
                 .gender(Gender.MALE)
                 .email("markadams@gmail.com")
@@ -160,7 +160,7 @@ class UserPersistenceAdapterIT {
                 .gender(Gender.FEMALE)
                 .email("melanie93@gmail.com")
                 .phoneNumber("902-612-927")
-                .nationality(new Nationality("EU"))
+                .nationality(new Nationality("US"))
                 .build();
 
         User exitingUser = repositoryPort.save(user);
@@ -176,17 +176,3 @@ class UserPersistenceAdapterIT {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
