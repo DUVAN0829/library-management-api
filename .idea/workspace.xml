@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -313,7 +299,7 @@
       <workItem from="1771239532185" duration="838000" />
       <workItem from="1771240881448" duration="182000" />
       <workItem from="1771241101676" duration="4000000" />
-      <workItem from="1771275906278" duration="449000" />
+      <workItem from="1771275906278" duration="709000" />
     </task>
     <servers />
   </component>
