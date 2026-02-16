@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/testcontainers/testcontainers/1.19.8/testcontainers-1.19.8.jar!/org/testcontainers/DockerClientFactory.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/testcontainers/testcontainers/1.19.8/testcontainers-1.19.8.jar!/org/testcontainers/images/PullPolicy.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;configuredContexts&quot;: [
+    {
+      &quot;name&quot;: &quot;minikube&quot;,
+      &quot;kubeConfigUrl&quot;: &quot;file:///Users/duglas/.kube/config&quot;,
+      &quot;originalNamespace&quot;: &quot;default&quot;
+    }
+  ],
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="39AUM6tWhPDNp3u1LldUzDwttQg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.BookPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_fail_when_isbn_is_duplicated.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_find_all_books.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_find_book_by_id.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_update_book.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterTest.should_save_book.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.BookRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRestAdapterTest.should_get_all_books.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateBookUseCaseImplTest.should_create_book_succesfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteBookUseCaseImplTest.should_throw_exception_when_book_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GlobalControllerAdviceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanPersistenceAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NationalityTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in book-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in copy-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in loan-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in user-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.book-msvc [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.library-management-api [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.prestamo-msvc [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BookMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PrestamoMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/duglas/Documents/Backend/Portfolio-projects/library-management-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="co.duvan.copy.infrastructure.adapters.input.rest" />
+      <recent name="co.duvan.copy.infrastructure.adapters.output.persistence" />
+      <recent name="co.duvan.copy.application.usecase" />
+      <recent name="co.duvan.prestamo.infrastructure.adapters.input.rest" />
+      <recent name="co.duvan.prestamo.infrastructure.adapters.output.persistence" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.java in user-msvc">
+    <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/copy-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loan-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/loan-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/user-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="book-msvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.book.BookMsvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CopyMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.copy.CopyMsvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrestamoMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="loan-msvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.loan.PrestamoMsvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.user.UserMsvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.java in user-msvc" />
+        <item itemvalue="JUnit.java in loan-msvc" />
+        <item itemvalue="JUnit.java in copy-msvc" />
+        <item itemvalue="JUnit.java in book-msvc" />
+        <item itemvalue="JUnit.UserRestAdapterTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+      <created>1770138318050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770138318050</updated>
+      <workItem from="1770138319658" duration="365000" />
+      <workItem from="1770141145476" duration="14970000" />
+      <workItem from="1770204213110" duration="22350000" />
+      <workItem from="1770285419934" duration="1137000" />
+      <workItem from="1770316279844" duration="10284000" />
+      <workItem from="1770384250209" duration="7719000" />
+      <workItem from="1770396028249" duration="792000" />
+      <workItem from="1770397503312" duration="114000" />
+      <workItem from="1770422988211" duration="2295000" />
+      <workItem from="1770425586232" duration="647000" />
+      <workItem from="1770429023263" duration="4195000" />
+      <workItem from="1770476611470" duration="1063000" />
+      <workItem from="1770478397636" duration="5133000" />
+      <workItem from="1770568169657" duration="22000" />
+      <workItem from="1770568247737" duration="15066000" />
+      <workItem from="1770645687251" duration="7562000" />
+      <workItem from="1770667437627" duration="14668000" />
+      <workItem from="1770740993733" duration="55000" />
+      <workItem from="1770741079962" duration="9266000" />
+      <workItem from="1770777526598" duration="2681000" />
+      <workItem from="1770808366603" duration="14247000" />
+      <workItem from="1770839273541" duration="2158000" />
+      <workItem from="1770856389348" duration="5047000" />
+      <workItem from="1770904279615" duration="10645000" />
+      <workItem from="1770928319164" duration="907000" />
+      <workItem from="1770945395105" duration="3940000" />
+      <workItem from="1770989494035" duration="8487000" />
+      <workItem from="1770999291314" duration="19784000" />
+      <workItem from="1771029424337" duration="2607000" />
+      <workItem from="1771068063471" duration="1874000" />
+      <workItem from="1771081176867" duration="11694000" />
+      <workItem from="1771155774237" duration="6118000" />
+      <workItem from="1771210649148" duration="5074000" />
+      <workItem from="1771238145841" duration="527000" />
+      <workItem from="1771238763449" duration="37000" />
+      <workItem from="1771238806231" duration="40000" />
+      <workItem from="1771238860619" duration="25000" />
+      <workItem from="1771238913672" duration="174000" />
+      <workItem from="1771239532185" duration="838000" />
+      <workItem from="1771240881448" duration="182000" />
+      <workItem from="1771241101676" duration="4000000" />
+      <workItem from="1771275906278" duration="449000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
