@@ -28,16 +28,3 @@ public class GetLoanUseCaseImpl implements GetLoanUseCase {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
