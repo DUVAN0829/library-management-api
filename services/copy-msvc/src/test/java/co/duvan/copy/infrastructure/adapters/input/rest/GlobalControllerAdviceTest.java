@@ -67,7 +67,7 @@ class GlobalControllerAdviceTest {
 
         //* Given
         CopyRequest invalidRequest = new CopyRequest();
-        invalidRequest.setCode(""); // invalid (blank)
+        invalidRequest.setCode("");
 
         //* When
         mockMvc.perform(post(BASE_URL)
