@@ -4,6 +4,7 @@ import co.duvan.book.application.ports.input.CreateBookUseCase;
 import co.duvan.book.application.ports.input.DeleteBookUseCase;
 import co.duvan.book.application.ports.input.GetBookUseCase;
 import co.duvan.book.application.ports.input.UpdateBookUseCase;
+import co.duvan.book.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
 import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
@@ -64,6 +65,7 @@ public class BookRestAdapter {
 
     @Operation(summary = "Update book")
     @ApiResponse(responseCode = "200", description = "Book updated")
+    @DefaultApiErrors
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest bookRequest) {
 

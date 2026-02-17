@@ -97,7 +97,7 @@ class GlobalControllerAdviceTest {
                 .andExpect(status().isInternalServerError())
                 .andExpect(jsonPath("$.code").value("GEN_ERR_01"))
                 .andExpect(jsonPath("$.message").value("An unexpected error occurred"))
-                .andExpect(jsonPath("$.details[0]").value("Someting went wrong"));
+                .andExpect(jsonPath("$.details[0]").value("Something went wrong"));
 
     }
 
