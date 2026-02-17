@@ -1,6 +1,6 @@
-package co.duvan.book.infrastructure.adapters.input.rest.documentation;
+package co.duvan.copy.infrastructure.adapters.input.rest.documentation;
 
-import co.duvan.book.infrastructure.adapters.input.rest.model.error.ErrorResponse;
+import co.duvan.copy.infrastructure.adapters.input.rest.model.error.ErrorResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -24,8 +24,8 @@ import java.lang.annotation.*;
                                 name = "Not Found",
                                 value = """
                                         {
-                                          "code": "ERR_BOOK_01",
-                                          "message": "Book not found",
+                                          "code": "ERR_COPY_01",
+                                          "message": "Copy not found",
                                           "details": [],
                                           "timestamp": "2026-02-17T10:15:30"
                                         }

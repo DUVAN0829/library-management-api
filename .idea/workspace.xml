@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/model/error/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/model/error/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/model/response/BookResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/model/response/BookResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/request/CopyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/request/CopyRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/response/CopyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/response/CopyResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/documentation/DefaultApiErrors.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/documentation/DefaultApiErrors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/documentation/ValidationApiError.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/documentation/ValidationApiError.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +312,7 @@
       <workItem from="1771241101676" duration="4000000" />
       <workItem from="1771275906278" duration="1153000" />
       <workItem from="1771321927513" duration="11054000" />
-      <workItem from="1771364532206" duration="4655000" />
+      <workItem from="1771364532206" duration="5492000" />
     </task>
     <servers />
   </component>

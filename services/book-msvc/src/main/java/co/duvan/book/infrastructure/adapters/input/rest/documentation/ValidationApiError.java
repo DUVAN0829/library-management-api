@@ -18,7 +18,7 @@ import java.lang.annotation.*;
                 mediaType = "application/json",
                 schema = @Schema(implementation = ErrorResponse.class),
                 examples = @ExampleObject(
-                        name = "BadRequest",
+                        name = "Bad Request",
                         value = """
                                         {
                                           "code": "ERR_BOOK_02",
