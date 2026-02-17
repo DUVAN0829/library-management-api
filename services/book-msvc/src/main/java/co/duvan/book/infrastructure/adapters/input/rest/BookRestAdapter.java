@@ -5,6 +5,7 @@ import co.duvan.book.application.ports.input.DeleteBookUseCase;
 import co.duvan.book.application.ports.input.GetBookUseCase;
 import co.duvan.book.application.ports.input.UpdateBookUseCase;
 import co.duvan.book.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
+import co.duvan.book.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
 import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
@@ -34,6 +35,7 @@ public class BookRestAdapter {
 
     @Operation(summary = "Get all books")
     @ApiResponse(responseCode = "200", description = "List all books returned")
+    @DefaultApiErrors
     @GetMapping("/api/v1")
     public ResponseEntity<List<BookResponse>> getAllBooks() {
 
@@ -46,6 +48,7 @@ public class BookRestAdapter {
             @ApiResponse(responseCode = "200", description = "Book found"),
             @ApiResponse(responseCode = "404", description = "Book not found")
     })
+    @DefaultApiErrors
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
 
@@ -55,6 +58,8 @@ public class BookRestAdapter {
 
     @Operation(summary = "Create book")
     @ApiResponse(responseCode = "201", description = "Book created")
+    @DefaultApiErrors
+    @ValidationApiError
     @PostMapping("/api/v1")
     public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookRequest bookRequest) {
 
@@ -66,6 +71,7 @@ public class BookRestAdapter {
     @Operation(summary = "Update book")
     @ApiResponse(responseCode = "200", description = "Book updated")
     @DefaultApiErrors
+    @ValidationApiError
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest bookRequest) {
 
@@ -76,6 +82,7 @@ public class BookRestAdapter {
 
     @Operation(summary = "Delete book")
     @ApiResponse(responseCode = "204", description = "Book deleted")
+    @DefaultApiErrors
     @DeleteMapping("/api/v1/{id}")
     public ResponseEntity<Void> deleteBookById(@PathVariable Long id) {
 
