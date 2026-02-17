@@ -21,9 +21,9 @@ import java.lang.annotation.*;
                         name = "NotFound",
                         value = """
                                         {
-                                          "code": "BOOK-404",
-                                          "message": "Book not found",
-                                          "details": [],
+                                          "code": "ERR_BOOK_02",
+                                          "message": "Invalid book parameters",
+                                          "details": ["Field title cannot be blank"],
                                           "timestamp": "2026-02-17T10:15:30"
                                         }
                                         """

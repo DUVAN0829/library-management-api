@@ -24,7 +24,7 @@ import java.lang.annotation.*;
                                 name = "NotFound",
                                 value = """
                                         {
-                                          "code": "BOOK-404",
+                                          "code": "ERR_BOOK_01",
                                           "message": "Book not found",
                                           "details": [],
                                           "timestamp": "2026-02-17T10:15:30"
