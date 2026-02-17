@@ -8,6 +8,10 @@ import co.duvan.copy.domain.model.Copy;
 import co.duvan.copy.infrastructure.adapters.input.rest.mapper.CopyRestMapper;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.request.CopyRequest;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/copies")
+@Tag(name = "Copies API", description = "Operations basic related copies (CRUD)")
 public class CopyRestAdapter {
 
     private final CopyRestMapper copyRestMapper;
@@ -26,6 +31,11 @@ public class CopyRestAdapter {
     private final UpdateCopyUseCase updateCopyUseCase;
     private final DeleteCopyUseCase deleteCopyUseCase;
 
+    @Operation(summary = "Get copy")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Copy found"),
+            @ApiResponse(responseCode = "404", description = "Copy not found")
+    })
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<CopyResponse> findById(@PathVariable Long id) {
 
@@ -33,6 +43,8 @@ public class CopyRestAdapter {
 
     }
 
+    @Operation(summary = "Get all copies")
+    @ApiResponse(responseCode = "200", description = "List all copies")
     @GetMapping("/api/v1")
     public ResponseEntity<List<CopyResponse>> findAll() {
 
@@ -40,6 +52,8 @@ public class CopyRestAdapter {
 
     }
 
+    @Operation(summary = "Create copy")
+    @ApiResponse(responseCode = "201", description = "Copy created")
     @PostMapping("/api/v1")
     public ResponseEntity<CopyResponse> save(@Valid @RequestBody CopyRequest copyRequest) {
 
@@ -47,6 +61,8 @@ public class CopyRestAdapter {
 
     }
 
+    @Operation(summary = "Update copy")
+    @ApiResponse(responseCode = "200", description = "Copy updated")
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<CopyResponse> update(@PathVariable Long id, @Valid @RequestBody CopyRequest copyRequest) {
 
@@ -54,6 +70,8 @@ public class CopyRestAdapter {
 
     }
 
+    @Operation(summary = "Delete copy")
+    @ApiResponse(responseCode = "204", description = "Copy   deleted")
     @DeleteMapping("/api/v1/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 

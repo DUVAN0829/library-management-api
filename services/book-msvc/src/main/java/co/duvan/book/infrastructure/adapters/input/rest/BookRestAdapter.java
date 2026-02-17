@@ -34,7 +34,7 @@ public class BookRestAdapter {
     private final DeleteBookUseCase deleteBookUseCase;
 
     @Operation(summary = "Get all books")
-    @ApiResponse(responseCode = "200", description = "List all books returned")
+    @ApiResponse(responseCode = "200", description = "List all books")
     @DefaultApiErrors
     @GetMapping("/api/v1")
     public ResponseEntity<List<BookResponse>> getAllBooks() {
@@ -61,7 +61,7 @@ public class BookRestAdapter {
     @DefaultApiErrors
     @ValidationApiError
     @PostMapping("/api/v1")
-    public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookRequest bookRequest) {
+    public ResponseEntity<BookResponse> save(@Valid @RequestBody BookRequest bookRequest) {
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(bookRestMapper.toBookResponse(createBookUseCase.save(bookRestMapper.toBook(bookRequest))));
