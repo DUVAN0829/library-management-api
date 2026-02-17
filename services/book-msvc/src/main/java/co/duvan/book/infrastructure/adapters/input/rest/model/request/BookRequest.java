@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(
-        name = "BookRequest",
+        name = "Book  Request",
         description = "Payload used to create or update a book in the system"
 )
 public class BookRequest {
