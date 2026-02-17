@@ -11,7 +11,10 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Schema(description = "Standard error response returned by the API")
+@Schema(
+        name = "Error Response",
+        description = "Standard error response returned by the API"
+)
 public class ErrorResponse {
 
     @Schema(example = "BOOK-404")

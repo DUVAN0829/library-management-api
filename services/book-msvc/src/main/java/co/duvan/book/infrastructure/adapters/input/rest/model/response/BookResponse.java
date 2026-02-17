@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(
-        name = "BookResponse",
+        name = "Book Response",
         description = "Book data returned by the API"
 )
 public class BookResponse {

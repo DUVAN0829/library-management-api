@@ -20,7 +20,7 @@ import lombok.Setter;
 public class CopyRequest {
 
     @Schema(
-            description = "bookId of the book",
+            description = "bookId of the copy",
             example = "3",
             requiredMode = Schema.RequiredMode.REQUIRED
     )

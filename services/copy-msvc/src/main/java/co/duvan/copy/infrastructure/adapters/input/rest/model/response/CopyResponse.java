@@ -19,14 +19,14 @@ import lombok.Setter;
 public class CopyResponse {
 
     @Schema(
-            description = "copyId of the book",
+            description = "copyId of the copy",
             example = "2",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private Long copyId;
 
     @Schema(
-            description = "bookId of the book",
+            description = "bookId of the copy",
             example = "3",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
