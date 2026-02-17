@@ -32,7 +32,7 @@ public class BookRequest {
 
     @Schema(
             description = "Unique identifier of the book in the system",
-            example = "ISB-97",
+            example = "ISBN-97",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank(message = "Field bookId cannot be blank")
