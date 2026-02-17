@@ -1,4 +1,4 @@
-package co.duvan.user.domain.model;
+package co.duvan.user.infrastructure.adapters.input.rest.model.error;
 
 import lombok.Builder;
 import lombok.Getter;

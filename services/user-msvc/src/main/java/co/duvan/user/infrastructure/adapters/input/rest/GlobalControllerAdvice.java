@@ -2,7 +2,7 @@ package co.duvan.user.infrastructure.adapters.input.rest;
 
 import co.duvan.user.domain.enums.ErrorCatalog;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
-import co.duvan.user.domain.model.ErrorResponse;
+import co.duvan.user.infrastructure.adapters.input.rest.model.error.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
