@@ -36,7 +36,7 @@ public class CopyRestAdapter {
     @GetMapping("/api/v1")
     public ResponseEntity<List<CopyResponse>> findAll() {
 
-        return ResponseEntity.ok(copyRestMapper.toCopyResponseList((List<Copy>) getCopyUseCase.findAll()));
+        return ResponseEntity.ok(copyRestMapper.toCopyResponseList(getCopyUseCase.findAll()));
 
     }
 

@@ -29,7 +29,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
                     userDb.setPhoneNumber(user.getPhoneNumber());
                     userDb.setNationality(user.getNationality());
 
-                    return repositoryPort.save(user);
+                    return repositoryPort.save(userDb);
 
                 }).orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
 
