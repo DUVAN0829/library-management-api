@@ -2,7 +2,7 @@ package co.duvan.copy.infrastructure.adapters.input.rest;
 
 import co.duvan.copy.domain.enums.ErrorCatalog;
 import co.duvan.copy.domain.exceptions.CopyNotFoundException;
-import co.duvan.copy.domain.model.ErrorResponse;
+import co.duvan.copy.infrastructure.adapters.input.rest.model.error.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
