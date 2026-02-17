@@ -7,6 +7,10 @@ import co.duvan.book.application.ports.input.UpdateBookUseCase;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
 import co.duvan.book.infrastructure.adapters.input.rest.model.request.BookRequest;
 import co.duvan.book.infrastructure.adapters.input.rest.model.response.BookResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/books")
+@Tag(name = "Books API", description = "Operations basic related books (CRUD)")
 public class BookRestAdapter {
 
     private final BookRestMapper bookRestMapper;
@@ -26,6 +31,8 @@ public class BookRestAdapter {
     private final UpdateBookUseCase updateBookUseCase;
     private final DeleteBookUseCase deleteBookUseCase;
 
+    @Operation(summary = "Get all books")
+    @ApiResponse(responseCode = "200", description = "List all books returned")
     @GetMapping("/api/v1")
     public ResponseEntity<List<BookResponse>> getAllBooks() {
 
@@ -33,6 +40,11 @@ public class BookRestAdapter {
 
     }
 
+    @Operation(summary = "Get book")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Book found"),
+            @ApiResponse(responseCode = "404", description = "Book not found")
+    })
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
 
@@ -40,6 +52,8 @@ public class BookRestAdapter {
 
     }
 
+    @Operation(summary = "Create book")
+    @ApiResponse(responseCode = "201", description = "Book created")
     @PostMapping("/api/v1")
     public ResponseEntity<BookResponse> createBook(@Valid @RequestBody BookRequest bookRequest) {
 
@@ -48,6 +62,8 @@ public class BookRestAdapter {
 
     }
 
+    @Operation(summary = "Update book")
+    @ApiResponse(responseCode = "200", description = "Book updated")
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<BookResponse> updateBook(@PathVariable Long id, @Valid @RequestBody BookRequest bookRequest) {
 
@@ -56,6 +72,8 @@ public class BookRestAdapter {
 
     }
 
+    @Operation(summary = "Delete book")
+    @ApiResponse(responseCode = "204", description = "Book deleted")
     @DeleteMapping("/api/v1/{id}")
     public ResponseEntity<Void> deleteBookById(@PathVariable Long id) {
 
