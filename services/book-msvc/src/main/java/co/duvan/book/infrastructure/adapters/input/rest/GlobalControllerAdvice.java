@@ -2,7 +2,7 @@ package co.duvan.book.infrastructure.adapters.input.rest;
 
 import co.duvan.book.domain.enums.ErrorCatalog;
 import co.duvan.book.domain.exceptions.BookNotFoundException;
-import co.duvan.book.domain.model.ErrorResponse;
+import co.duvan.book.infrastructure.adapters.input.rest.model.error.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -49,7 +49,7 @@ public class GlobalControllerAdvice {
     //* Generic Exception
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public ErrorResponse hanlderGenericError(Exception exception) {
+    public ErrorResponse handlerGenericError(Exception exception) {
 
         return ErrorResponse.builder()
                 .code(ErrorCatalog.GENERIC_ERROR.getCode())

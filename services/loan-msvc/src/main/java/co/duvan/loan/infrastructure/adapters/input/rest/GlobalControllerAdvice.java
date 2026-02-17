@@ -49,7 +49,7 @@ public class GlobalControllerAdvice {
     //* Generic Exception
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public ErrorResponse hanlderGenericError(Exception exception) {
+    public ErrorResponse handlerGenericError(Exception exception) {
 
         return ErrorResponse.builder()
                 .code(ErrorCatalog.GENERIC_ERROR.getCode())
