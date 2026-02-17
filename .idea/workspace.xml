@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/PrestamoMsvcApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/LoanMsvcApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/UpdateUserUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/UpdateUserUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/BookMsvcApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/BookMsvcApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
