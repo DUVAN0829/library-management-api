@@ -2,7 +2,7 @@ package co.duvan.loan.infrastructure.adapters.input.rest;
 
 import co.duvan.loan.domain.enums.ErrorCatalog;
 import co.duvan.loan.domain.exceptions.LoanNotFoundException;
-import co.duvan.loan.domain.model.ErrorResponse;
+import co.duvan.loan.infrastructure.adapters.input.rest.model.error.ErrorResponse;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
