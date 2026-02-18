@@ -4,9 +4,15 @@ import co.duvan.loan.application.ports.input.CreateLoanUseCase;
 import co.duvan.loan.application.ports.input.DeleteLoanUseCase;
 import co.duvan.loan.application.ports.input.GetLoanUseCase;
 import co.duvan.loan.application.ports.input.UpdateLoanUseCase;
+import co.duvan.loan.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
+import co.duvan.loan.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.loan.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/loans")
 @RequiredArgsConstructor
+@Tag(name = "Loans API", description = "Operations basic related loans (CRUD)")
 public class LoanRestAdapter {
 
     private final LoanRestMapper loanRestMapper;
@@ -26,6 +33,9 @@ public class LoanRestAdapter {
     private final DeleteLoanUseCase deleteLoanUseCase;
     private final UpdateLoanUseCase updateLoanUseCase;
 
+    @Operation(summary = "Get all loans")
+    @ApiResponse(responseCode = "200", description = "List all loans")
+    @DefaultApiErrors
     @GetMapping("/api/v1")
     public ResponseEntity<List<LoanResponse>> findAll() {
 
@@ -33,6 +43,12 @@ public class LoanRestAdapter {
 
     }
 
+    @Operation(summary = "Get loan")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Loan found"),
+            @ApiResponse(responseCode = "404", description = "Loan not found")
+    })
+    @DefaultApiErrors
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<LoanResponse> findById(@PathVariable Long id) {
 
@@ -40,6 +56,10 @@ public class LoanRestAdapter {
 
     }
 
+    @Operation(summary = "Create loan")
+    @ApiResponse(responseCode = "201", description = "Loan created")
+    @DefaultApiErrors
+    @ValidationApiError
     @PostMapping("/api/v1")
     public ResponseEntity<LoanResponse> save(@Valid @RequestBody LoanRequest loanRequest) {
 
@@ -48,6 +68,10 @@ public class LoanRestAdapter {
 
     }
 
+    @Operation(summary = "Update loan")
+    @ApiResponse(responseCode = "200", description = "Loan updated")
+    @DefaultApiErrors
+    @ValidationApiError
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<LoanResponse> update(@Valid @PathVariable Long id, @RequestBody LoanRequest loanRequest) {
 
@@ -55,6 +79,9 @@ public class LoanRestAdapter {
 
     }
 
+    @Operation(summary = "Delete loan")
+    @ApiResponse(responseCode = "204", description = "Loan deleted")
+    @DefaultApiErrors
     @DeleteMapping("/api/v1/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 
