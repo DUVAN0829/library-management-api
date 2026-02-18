@@ -5,6 +5,8 @@ import co.duvan.copy.application.ports.input.DeleteCopyUseCase;
 import co.duvan.copy.application.ports.input.GetCopyUseCase;
 import co.duvan.copy.application.ports.input.UpdateCopyUseCase;
 import co.duvan.copy.domain.model.Copy;
+import co.duvan.copy.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
+import co.duvan.copy.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.copy.infrastructure.adapters.input.rest.mapper.CopyRestMapper;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.request.CopyRequest;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyResponse;
@@ -36,6 +38,7 @@ public class CopyRestAdapter {
             @ApiResponse(responseCode = "200", description = "Copy found"),
             @ApiResponse(responseCode = "404", description = "Copy not found")
     })
+    @DefaultApiErrors
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<CopyResponse> findById(@PathVariable Long id) {
 
@@ -45,6 +48,7 @@ public class CopyRestAdapter {
 
     @Operation(summary = "Get all copies")
     @ApiResponse(responseCode = "200", description = "List all copies")
+    @DefaultApiErrors
     @GetMapping("/api/v1")
     public ResponseEntity<List<CopyResponse>> findAll() {
 
@@ -54,6 +58,8 @@ public class CopyRestAdapter {
 
     @Operation(summary = "Create copy")
     @ApiResponse(responseCode = "201", description = "Copy created")
+    @DefaultApiErrors
+    @ValidationApiError
     @PostMapping("/api/v1")
     public ResponseEntity<CopyResponse> save(@Valid @RequestBody CopyRequest copyRequest) {
 
@@ -63,6 +69,8 @@ public class CopyRestAdapter {
 
     @Operation(summary = "Update copy")
     @ApiResponse(responseCode = "200", description = "Copy updated")
+    @DefaultApiErrors
+    @ValidationApiError
     @PutMapping("/api/v1/{id}")
     public ResponseEntity<CopyResponse> update(@PathVariable Long id, @Valid @RequestBody CopyRequest copyRequest) {
 
@@ -72,6 +80,7 @@ public class CopyRestAdapter {
 
     @Operation(summary = "Delete copy")
     @ApiResponse(responseCode = "204", description = "Copy   deleted")
+    @DefaultApiErrors
     @DeleteMapping("/api/v1/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 
