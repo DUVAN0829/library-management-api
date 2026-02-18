@@ -29,8 +29,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -159,6 +159,9 @@
       <recent name="co.duvan.copy.application.usecase" />
       <recent name="co.duvan.prestamo.infrastructure.adapters.input.rest" />
       <recent name="co.duvan.prestamo.infrastructure.adapters.output.persistence" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="co.duvan.user.infrastructure.adapters.input.rest.documentation" />
     </key>
   </component>
   <component name="RunDashboard">
