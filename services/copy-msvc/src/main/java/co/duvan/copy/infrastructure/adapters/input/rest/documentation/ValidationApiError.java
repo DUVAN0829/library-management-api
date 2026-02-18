@@ -24,7 +24,7 @@ import java.lang.annotation.*;
                                           "code": "ERR_COPY_02",
                                           "message": "Invalid copy parameters",
                                           "details": ["Field code cannot be blank"],
-                                          "timestamp": "2026-02-17T10:15:30"
+                                          "timestamp": "2026-02-17T13:02:09"
                                         }
                                         """
                 )

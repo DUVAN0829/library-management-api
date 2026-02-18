@@ -27,7 +27,7 @@ import java.lang.annotation.*;
                                           "code": "ERR_COPY_01",
                                           "message": "Copy not found",
                                           "details": [],
-                                          "timestamp": "2026-02-17T10:15:30"
+                                          "timestamp": "2026-02-17T01:35:56"
                                         }
                                         """
                         )
@@ -47,7 +47,7 @@ import java.lang.annotation.*;
                                           "code": "GEN_ERR_01",
                                           "message": "Unexpected internal error",
                                           "details": ["Something went wrong"],
-                                          "timestamp": "2026-02-17T10:15:30"
+                                          "timestamp": "2026-02-17T19:12:42"
                                         }
                                         """
                         )

@@ -24,7 +24,7 @@ import java.lang.annotation.*;
                                           "code": "ERR_BOOK_02",
                                           "message": "Invalid book parameters",
                                           "details": ["Field title cannot be blank"],
-                                          "timestamp": "2026-02-17T10:15:30"
+                                          "timestamp": "2026-02-17T18:29:12"
                                         }
                                         """
                 )
