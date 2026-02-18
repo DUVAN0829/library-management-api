@@ -63,28 +63,28 @@ public class UserResponse {
     private LocalDate birthdate;
 
     @Schema(
-            description = "documentType of the user",
+            description = "gender of the user",
             example = "MALE",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private Gender gender;
 
     @Schema(
-            description = "documentType of the user",
+            description = "email of the user",
             example = "duvan@gmail.com",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private String email;
 
     @Schema(
-            description = "documentType of the user",
+            description = "phoneNumber of the user",
             example = "318-936-812",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private String phoneNumber;
 
     @Schema(
-            description = "documentType of the user",
+            description = "Nationality of the user in ISO 3166-1 alpha-2 format",
             example = "CO",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
