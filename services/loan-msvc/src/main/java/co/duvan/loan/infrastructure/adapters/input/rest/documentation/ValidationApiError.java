@@ -1,0 +1,34 @@
+package co.duvan.loan.infrastructure.adapters.input.rest.documentation;
+
+import co.duvan.loan.infrastructure.adapters.input.rest.model.error.ErrorResponse;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
+import java.lang.annotation.*;
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@ApiResponse(
+        responseCode = "400",
+        description = "Invalid request",
+        content = @Content(
+                mediaType = "application/json",
+                schema = @Schema(implementation = ErrorResponse.class),
+                examples = @ExampleObject(
+                        name = "Bad Request",
+                        value = """
+                                {
+                                  "code": "ERR_LOAN_02",
+                                  "message": "Invalid loan parameters",
+                                  "details": ["Field loanStatus cannot be null"],
+                                  "timestamp": "2026-02-17T21:45:58"
+                                }
+                                """
+                )
+        )
+)
+public @interface ValidationApiError {
+}
