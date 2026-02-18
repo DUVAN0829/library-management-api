@@ -17,16 +17,16 @@ import java.util.List;
 )
 public class ErrorResponse {
 
-    @Schema(example = "BOOK-404")
+    @Schema(example = "ERR_COPY_01")
     private String code;
 
-    @Schema(example = "Book not found")
+    @Schema(example = "Copy not found")
     private String message;
 
-    @Schema(example = "[\"Field title cannot be blank\"]")
+    @Schema(example = "[]")
     private List<String> details;
 
-    @Schema(example = "2026-02-17T10:15:30")
+    @Schema(example = "2026-02-17T10:16:29")
     private LocalDateTime timestamp;
 
 }
