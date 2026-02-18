@@ -1,5 +1,6 @@
 package co.duvan.user.infrastructure.adapters.input.rest.model.error;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,11 +11,21 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
+@Schema(
+        name = "Error Response",
+        description = "Standard error response returned by the API"
+)
 public class ErrorResponse {
 
+    @Schema(example = "ERR_USER_01")
     private String code;
-    private String message;
-    private List<String> details;
-    private LocalDateTime timestamp;
 
+    @Schema(example = "User not found")
+    private String message;
+
+    @Schema(example = "[]")
+    private List<String> details;
+
+    @Schema(example = "2026-02-17T19:33:05")
+    private LocalDateTime timestamp;
 }
