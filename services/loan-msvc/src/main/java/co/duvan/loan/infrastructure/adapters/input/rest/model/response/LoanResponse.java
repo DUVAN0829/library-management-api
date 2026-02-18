@@ -57,13 +57,13 @@ public class LoanResponse {
     @Schema(
             description = "returnDate of the loan",
             example = "2026-02-25",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED
     )
     private LocalDate returnDate;
 
     @Schema(
             description = "loanStatus of the loan",
-            example = "ACTIVE",
+            example = "RETURNED",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private Status loanStatus;

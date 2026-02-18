@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/response/LoanResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/response/LoanResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +310,7 @@
       <workItem from="1771241101676" duration="4000000" />
       <workItem from="1771275906278" duration="1153000" />
       <workItem from="1771321927513" duration="11054000" />
-      <workItem from="1771364532206" duration="7831000" />
+      <workItem from="1771364532206" duration="8378000" />
     </task>
     <servers />
   </component>
