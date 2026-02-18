@@ -24,8 +24,8 @@ import java.lang.annotation.*;
                                 name = "Not Found",
                                 value = """
                                         {
-                                          "code": "ERR_COPY_01",
-                                          "message": "Copy not found",
+                                          "code": "ERR_LOAN_01",
+                                          "message": "Loan not found",
                                           "details": [],
                                           "timestamp": "2026-02-17T12:18:45"
                                         }
