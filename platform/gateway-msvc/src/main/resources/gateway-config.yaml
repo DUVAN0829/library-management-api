@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: book-msvc
+              uri: http://localhost:8081
+              predicates:
+                - Path=/books/api/v1/**
