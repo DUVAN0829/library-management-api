@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/response/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +131,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;Spring Boot.BookMsvcApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.CopyMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayMsvcApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.LoanMsvcApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PrestamoMsvcApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.UserMsvcApplication.executor&quot;: &quot;Run&quot;,
@@ -178,7 +179,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserMsvcApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayMsvcApplication">
     <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-msvc" />
       <extension name="coverage">
@@ -236,6 +237,13 @@
     <configuration name="CopyMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="copy-msvc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.copy.CopyMsvcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayMsvcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-msvc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="co.duvan.gateway.GatewayMsvcApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -316,6 +324,8 @@
       <workItem from="1771275906278" duration="1153000" />
       <workItem from="1771321927513" duration="11054000" />
       <workItem from="1771364532206" duration="11111000" />
+      <workItem from="1771458603782" duration="979000" />
+      <workItem from="1771500814967" duration="2359000" />
     </task>
     <servers />
   </component>

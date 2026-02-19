@@ -14,5 +14,12 @@
     <!-- Basic Configuration -->
     <groupId>co.duvan.platform</groupId>
     <artifactId>platform</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>gateway-msvc</module>
+    </modules>
+
+    <packaging>pom</packaging>
 
 </project>
