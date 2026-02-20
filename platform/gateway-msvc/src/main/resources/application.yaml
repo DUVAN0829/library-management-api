@@ -12,15 +12,44 @@ spring:
               filters:
                 - name: CircuitBreaker
                   args:
-                    name: username
-                    fallbackUri: forward:/fallback/books
-                    statusCodes:
-                      - 500
-                      - 502
-                      - 503
-                      - 504
+                    name: bookCircuit
+                    fallbackUri: forward:/fallback/book
+                    statusCodes: [ 500,502,503,504 ]
 
-# Resilience4j
+            - id: copy-msvc
+              uri: http://localhost:8082
+              predicates:
+                - Path=/copies/api/v1/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: copyCircuit
+                    fallbackUri: forward:/fallback/copy
+                    statusCodes: [ 500,502,503,504 ]
+
+            - id: loan-msvc
+              uri: http://localhost:8083
+              predicates:
+                - Path=/loans/api/v1/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: loanCircuit
+                    fallbackUri: forward:/fallback/loan
+                    statusCodes: [ 500,502,503,504 ]
+
+            - id: user-msvc
+              uri: http://localhost:8084
+              predicates:
+                - Path=/users/api/v1/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: userCircuit
+                    fallbackUri: forward:/fallback/user
+                    statusCodes: [ 500,502,503,504 ]
+
+# Resilience
 resilience4j:
   circuitbreaker:
     configs:
@@ -31,14 +60,9 @@ resilience4j:
         permitted-number-of-calls-in-half-open-state: 4
         slow-call-rate-threshold: 50
         slow-call-duration-threshold: 7s
-    instances:
-      username:
-        base-config: default
 
   timelimiter:
     configs:
       default:
-        timeout-duration: 3s
-    instances:
-      username:
-        base-config: default
+        timeout-duration: 10s
+        cancel-running-future: true
