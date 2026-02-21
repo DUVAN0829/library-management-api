@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/CreateUserUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/CreateUserUseCaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/domain/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +32,8 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -329,7 +328,7 @@
       <workItem from="1771536081624" duration="1458000" />
       <workItem from="1771621495605" duration="39000" />
       <workItem from="1771621618474" duration="353000" />
-      <workItem from="1771673654487" duration="2690000" />
+      <workItem from="1771673654487" duration="3475000" />
     </task>
     <servers />
   </component>
