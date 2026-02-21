@@ -1,0 +1,5 @@
+keycloak:
+  server-url: http://localhost:8080
+  realm: library-management-api
+  client-id: user-service
+  client-secret: TU_SECRET
