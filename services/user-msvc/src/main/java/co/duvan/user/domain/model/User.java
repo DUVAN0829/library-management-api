@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class User {
 
     private Long userId;
+    private String keycloadId;
     private String firstname;
     private String lastname;
     private DocumentType documentType;

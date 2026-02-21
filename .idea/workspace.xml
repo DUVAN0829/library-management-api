@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/gateway-msvc/src/main/java/co/duvan/gateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway-msvc/src/main/java/co/duvan/gateway/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform/gateway-msvc/src/main/java/co/duvan/gateway/fallback/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway-msvc/src/main/java/co/duvan/gateway/fallback/GatewayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,6 +328,7 @@
       <workItem from="1771536081624" duration="1458000" />
       <workItem from="1771621495605" duration="39000" />
       <workItem from="1771621618474" duration="353000" />
+      <workItem from="1771673654487" duration="934000" />
     </task>
     <servers />
   </component>
