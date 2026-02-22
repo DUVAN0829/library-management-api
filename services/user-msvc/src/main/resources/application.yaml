@@ -3,3 +3,10 @@ keycloak:
   realm: library-management-api
   client-id: user-service
   client-secret: kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/library-management-api
