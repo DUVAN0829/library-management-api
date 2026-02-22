@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
     private final UserRepositoryPort repositoryPort;
-    private IdentityProviderPort identityProviderPort;
+    private final IdentityProviderPort identityProviderPort;
 
     @Override
     public User save(User user) {

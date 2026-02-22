@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/CreateUserUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/CreateUserUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/service/KeycloakService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/service/KeycloakService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +181,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BookMsvcApplication">
+  <component name="RunManager" selected="Spring Boot.UserMsvcApplication">
     <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-msvc" />
       <extension name="coverage">
@@ -325,7 +331,9 @@
       <workItem from="1771536081624" duration="1458000" />
       <workItem from="1771621495605" duration="39000" />
       <workItem from="1771621618474" duration="353000" />
-      <workItem from="1771673654487" duration="4169000" />
+      <workItem from="1771673654487" duration="7876000" />
+      <workItem from="1771752484777" duration="3568000" />
+      <workItem from="1771772056487" duration="1456000" />
     </task>
     <servers />
   </component>

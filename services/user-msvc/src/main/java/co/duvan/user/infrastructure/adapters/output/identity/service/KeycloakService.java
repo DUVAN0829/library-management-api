@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+import org.springframework.core.ParameterizedTypeReference;
 
 import java.util.HashMap;
 import java.util.List;
@@ -49,16 +50,22 @@ public class KeycloakService {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(buildPayload(user, password))
                 .exchangeToMono(response -> {
+
                     if (response.statusCode().is2xxSuccessful()) {
 
                         String location = response.headers()
                                 .asHttpHeaders()
                                 .getFirst(HttpHeaders.LOCATION);
 
-                        return Mono.just(
-                                location.substring(location.lastIndexOf("/") + 1)
-                        );
+                        assert location != null;
+
+                        String userId = location.substring(location.lastIndexOf("/") + 1);
+
+                        assignRealmRoleToUser(userId, token);
+
+                        return Mono.just(userId);
                     }
+
                     return response.createException().flatMap(Mono::error);
                 })
                 .block();
@@ -67,8 +74,10 @@ public class KeycloakService {
     private Map<String, Object> buildPayload(User user, String password) {
 
         Map<String, Object> payload = new HashMap<>();
-        payload.put("username", user.getEmail());
+        payload.put("username", user.getFirstname());
         payload.put("email", user.getEmail());
+        payload.put("firstName", user.getFirstname());
+        payload.put("lastName", user.getLastname());
         payload.put("enabled", true);
 
         Map<String, Object> credential = new HashMap<>();
@@ -80,4 +89,35 @@ public class KeycloakService {
 
         return payload;
     }
+
+    private Map<String, Object> getRealmRole(String roleName, String token) {
+
+        return webClient.get()
+                .uri(properties.getServerUrl() +
+                        "/admin/realms/" + properties.getRealm() +
+                        "/roles/" + roleName)
+                .headers(headers -> headers.setBearerAuth(token))
+                .retrieve()
+                .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
+                })
+                .block();
+    }
+
+    private void assignRealmRoleToUser(String userId, String token) {
+
+        Map<String, Object> role = getRealmRole("MEMBER", token);
+
+        webClient.post()
+                .uri(properties.getServerUrl() +
+                        "/admin/realms/" + properties.getRealm() +
+                        "/users/" + userId +
+                        "/role-mappings/realm")
+                .headers(headers -> headers.setBearerAuth(token))
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(List.of(role))
+                .retrieve()
+                .toBodilessEntity()
+                .block();
+    }
+
 }
