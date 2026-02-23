@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/config/OpenApiConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +332,8 @@
       <workItem from="1771621618474" duration="353000" />
       <workItem from="1771673654487" duration="7876000" />
       <workItem from="1771752484777" duration="3568000" />
-      <workItem from="1771772056487" duration="5688000" />
+      <workItem from="1771772056487" duration="10357000" />
+      <workItem from="1771844780441" duration="3544000" />
     </task>
     <servers />
   </component>
