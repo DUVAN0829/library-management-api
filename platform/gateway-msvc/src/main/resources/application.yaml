@@ -49,6 +49,13 @@ spring:
                     fallbackUri: forward:/fallback/user
                     statusCodes: [ 500,502,503,504 ]
 
+# Resource server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/library-management-api
+
 # Resilience
 resilience4j:
   circuitbreaker:

@@ -3,13 +3,18 @@ package co.duvan.user.infrastructure.adapters.input.rest;
 import co.duvan.user.domain.enums.DocumentType;
 import co.duvan.user.domain.enums.Gender;
 import co.duvan.user.infrastructure.adapters.input.rest.model.request.UserRequest;
+import co.duvan.user.infrastructure.adapters.output.identity.service.KeycloakService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -18,6 +23,9 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
 
+
+import static org.mockito.Mockito.when;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -28,11 +36,17 @@ public class UserRestAdapterIT {
 
     private static final String BASE_URL = "/users/api/v1";
 
+    private static final SimpleGrantedAuthority MEMBER =
+            new SimpleGrantedAuthority("ROLE_MEMBER");
+
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @MockitoBean
+    private KeycloakService keycloakAdminClient;
 
     @Container
     static MySQLContainer<?> mysql =
@@ -49,6 +63,14 @@ public class UserRestAdapterIT {
         registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
     }
 
+    @BeforeEach
+    void setup() {
+        when(keycloakAdminClient.createUser(
+                ArgumentMatchers.any(),
+                ArgumentMatchers.any())
+        ).thenReturn("fake-keycloak-id");
+    }
+
     @Test
     void should_create_user_end_to_end() throws Exception {
 
@@ -60,13 +82,14 @@ public class UserRestAdapterIT {
                 "74.930.123",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
-                "duvan@gmail.com",
+                "duv@gmail.com",
                 "300-123-456",
                 "CO"
         );
 
         //* When
         mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(MEMBER))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
 
@@ -93,6 +116,7 @@ public class UserRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(MEMBER))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -102,7 +126,8 @@ public class UserRestAdapterIT {
         long id = objectMapper.readTree(response).get("userId").asLong();
 
         //* Then
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(MEMBER)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId").value(id));
     }
@@ -125,6 +150,7 @@ public class UserRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(MEMBER))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -134,10 +160,12 @@ public class UserRestAdapterIT {
         long id = objectMapper.readTree(response).get("userId").asLong();
 
         //* Then
-        mockMvc.perform(delete(BASE_URL + "/" + id))
+        mockMvc.perform(delete(BASE_URL + "/" + id)
+                        .with(jwt().authorities(MEMBER)))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(MEMBER)))
                 .andExpect(status().is4xxClientError());
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,6 +18,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -26,6 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BookRestAdapterIT {
 
     private static final String BASE_URL = "/books/api/v1";
+
+    private static final SimpleGrantedAuthority MEMBER =
+            new SimpleGrantedAuthority("ROLE_MEMBER");
 
     @Autowired
     private MockMvc mockMvc;
@@ -63,6 +68,7 @@ public class BookRestAdapterIT {
 
         //* When
         mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(MEMBER))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
 

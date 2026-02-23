@@ -90,12 +90,12 @@ public class KeycloakService {
         return payload;
     }
 
-    private Map<String, Object> getRealmRole(String roleName, String token) {
+    private Map<String, Object> getRealmRole(String token) {
 
         return webClient.get()
                 .uri(properties.getServerUrl() +
                         "/admin/realms/" + properties.getRealm() +
-                        "/roles/" + roleName)
+                        "/roles/" + "MEMBER")
                 .headers(headers -> headers.setBearerAuth(token))
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
@@ -105,7 +105,7 @@ public class KeycloakService {
 
     private void assignRealmRoleToUser(String userId, String token) {
 
-        Map<String, Object> role = getRealmRole("MEMBER", token);
+        Map<String, Object> role = getRealmRole(token);
 
         webClient.post()
                 .uri(properties.getServerUrl() +
