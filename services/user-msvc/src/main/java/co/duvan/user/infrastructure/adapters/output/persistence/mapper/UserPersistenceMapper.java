@@ -4,14 +4,17 @@ import co.duvan.user.domain.model.Nationality;
 import co.duvan.user.domain.model.User;
 import co.duvan.user.infrastructure.adapters.output.persistence.entity.UserEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface UserPersistenceMapper {
 
+    @Mapping(source = "keycloakId", target = "keycloakId")
     UserEntity toUserEntity(User user);
 
+    @Mapping(source = "keycloakId", target = "keycloakId")
     User toUser(UserEntity userEntity);
 
     List<User> toListUser(List<UserEntity> userEntityList);
