@@ -17,7 +17,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     @Override
     public User save(User user) {
 
-        String keycloakId = identityProviderPort.createUser(user, "123456");
+        String keycloakId = identityProviderPort.createUser(user, "12345");
 
         user.setKeycloakId(keycloakId);
 
