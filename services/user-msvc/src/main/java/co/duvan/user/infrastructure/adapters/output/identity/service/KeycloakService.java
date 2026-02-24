@@ -22,6 +22,7 @@ public class KeycloakService {
     private final WebClient webClient;
     private final KeycloakProperties properties;
 
+    //* Get admin token
     public String getAdminToken() {
 
         return webClient.post()
@@ -38,6 +39,7 @@ public class KeycloakService {
                 .block();
     }
 
+    //* Create User
     public String createUser(User user, String password) {
 
         String token = getAdminToken();
@@ -71,6 +73,7 @@ public class KeycloakService {
                 .block();
     }
 
+    //* Build payload by user
     private Map<String, Object> buildPayload(User user, String password) {
 
         Map<String, Object> payload = new HashMap<>();
@@ -90,6 +93,7 @@ public class KeycloakService {
         return payload;
     }
 
+    //* Get realm role
     private Map<String, Object> getRealmRole(String token) {
 
         return webClient.get()
@@ -103,6 +107,7 @@ public class KeycloakService {
                 .block();
     }
 
+    //* Assign role to user
     private void assignRealmRoleToUser(String userId, String token) {
 
         Map<String, Object> role = getRealmRole(token);
@@ -115,6 +120,21 @@ public class KeycloakService {
                 .headers(headers -> headers.setBearerAuth(token))
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(List.of(role))
+                .retrieve()
+                .toBodilessEntity()
+                .block();
+    }
+
+    //* Delete user
+    public void deleteUser(String keycloakId) {
+
+        String token = getAdminToken();
+
+        webClient.delete()
+                .uri(properties.getServerUrl() +
+                        "/admin/realms/" + properties.getRealm() +
+                        "/users/" + keycloakId)
+                .headers(headers -> headers.setBearerAuth(token))
                 .retrieve()
                 .toBodilessEntity()
                 .block();
