@@ -6,4 +6,6 @@ public interface IdentityProviderPort {
 
     String createUser(User user, String password);
 
+    void deleteUser(String keycloakId);
+
 }
