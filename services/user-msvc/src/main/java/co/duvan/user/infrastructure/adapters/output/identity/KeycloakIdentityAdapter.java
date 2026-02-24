@@ -17,4 +17,9 @@ public class KeycloakIdentityAdapter implements IdentityProviderPort {
         return service.createUser(user, password);
     }
 
+    @Override
+    public void deleteUser(String keycloakId) {
+
+    }
+
 }
