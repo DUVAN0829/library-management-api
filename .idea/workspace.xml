@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/KeycloakIdentityAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/KeycloakIdentityAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/service/KeycloakService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/output/identity/service/KeycloakService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +340,7 @@
       <workItem from="1771772056487" duration="10357000" />
       <workItem from="1771844780441" duration="16445000" />
       <workItem from="1771895812073" duration="7201000" />
-      <workItem from="1771965869741" duration="9150000" />
+      <workItem from="1771965869741" duration="9451000" />
     </task>
     <servers />
   </component>

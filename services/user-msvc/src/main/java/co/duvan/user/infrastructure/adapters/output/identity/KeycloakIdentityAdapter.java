@@ -22,4 +22,9 @@ public class KeycloakIdentityAdapter implements IdentityProviderPort {
         service.deleteUser(keycloakId);
     }
 
+    @Override
+    public void updateUser(String keycloakId, User user) {
+        service.updateUser(keycloakId, user);
+    }
+
 }

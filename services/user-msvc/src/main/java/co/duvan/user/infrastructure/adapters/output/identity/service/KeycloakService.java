@@ -140,4 +140,32 @@ public class KeycloakService {
                 .block();
     }
 
+    //* Update user
+    public void updateUser(String keycloakId, User user) {
+
+        String token = getAdminToken();
+
+        webClient.put()
+                .uri(properties.getServerUrl() +
+                        "/admin/realms/" + properties.getRealm() +
+                        "/users/" + keycloakId)
+                .headers(headers -> headers.setBearerAuth(token))
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(buildUpdatePayload(user))
+                .retrieve()
+                .toBodilessEntity()
+                .block();
+    }
+
+    private Map<String, Object> buildUpdatePayload(User user) {
+
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("email", user.getEmail());
+        payload.put("firstName", user.getFirstname());
+        payload.put("lastName", user.getLastname());
+        payload.put("enabled", true);
+
+        return payload;
+    }
+
 }
