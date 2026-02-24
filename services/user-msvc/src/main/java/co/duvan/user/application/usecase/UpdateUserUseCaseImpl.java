@@ -1,6 +1,7 @@
 package co.duvan.user.application.usecase;
 
 import co.duvan.user.application.ports.input.UpdateUserUseCase;
+import co.duvan.user.application.ports.output.IdentityProviderPort;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.domain.model.User;
@@ -12,12 +13,15 @@ import org.springframework.stereotype.Component;
 public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
 
     private final UserRepositoryPort repositoryPort;
+    private final IdentityProviderPort providerPort;
 
     @Override
     public User update(Long id, User user) {
 
         return repositoryPort.findById(id)
                 .map(userDb -> {
+
+                    providerPort.updateUser(user.getKeycloakId(), user);
 
                     userDb.setFirstname(user.getFirstname());
                     userDb.setLastname(user.getLastname());
