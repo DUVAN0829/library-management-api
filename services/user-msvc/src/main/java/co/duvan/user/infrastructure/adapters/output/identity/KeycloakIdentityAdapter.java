@@ -19,7 +19,7 @@ public class KeycloakIdentityAdapter implements IdentityProviderPort {
 
     @Override
     public void deleteUser(String keycloakId) {
-
+        service.deleteUser(keycloakId);
     }
 
 }
