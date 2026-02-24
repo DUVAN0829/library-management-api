@@ -4,6 +4,7 @@ import co.duvan.user.infrastructure.security.jwt.JwtConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -12,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Bean
@@ -22,7 +24,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/api/v1").hasAnyRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/users/api/v1/{id}").hasAnyRole("MEMBER", "ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/users/api/v1/{id}").authenticated()
                         .requestMatchers(HttpMethod.POST, "/users/api/v1").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/users/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/users/api/v1").hasAnyRole("ADMIN")
