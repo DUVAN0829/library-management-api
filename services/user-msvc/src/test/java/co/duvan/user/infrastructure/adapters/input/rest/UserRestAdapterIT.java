@@ -46,7 +46,7 @@ public class UserRestAdapterIT {
     private ObjectMapper objectMapper;
 
     @MockitoBean
-    private KeycloakService keycloakAdminClient;
+    private KeycloakService keycloakService;
 
     @Container
     static MySQLContainer<?> mysql =
@@ -65,7 +65,7 @@ public class UserRestAdapterIT {
 
     @BeforeEach
     void setup() {
-        when(keycloakAdminClient.createUser(
+        when(keycloakService.createUser(
                 ArgumentMatchers.any(),
                 ArgumentMatchers.any())
         ).thenReturn("fake-keycloak-id");

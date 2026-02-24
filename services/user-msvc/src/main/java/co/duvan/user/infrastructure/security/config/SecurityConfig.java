@@ -21,7 +21,11 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers("/users/api/**").hasRole("MEMBER")
+                        .requestMatchers(HttpMethod.GET, "/users/api/v1").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/users/api/v1/{id}").hasAnyRole("MEMBER", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/users/api/v1").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/users/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/users/api/v1").hasAnyRole("ADMIN")
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth -> oauth
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)));
