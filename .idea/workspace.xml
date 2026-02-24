@@ -177,7 +177,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserMsvcApplication">
+  <component name="RunManager" selected="JUnit.UserRestAdapterIT">
     <configuration name="BookRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="book-msvc" />
       <extension name="coverage">
@@ -269,8 +269,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.UserRestAdapterIT" />
+        <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.BookRestAdapterIT" />
         <item itemvalue="JUnit.java in book-msvc" />
         <item itemvalue="JUnit.java in loan-msvc" />
@@ -339,7 +339,7 @@
       <workItem from="1771772056487" duration="10357000" />
       <workItem from="1771844780441" duration="16445000" />
       <workItem from="1771895812073" duration="7201000" />
-      <workItem from="1771965869741" duration="4565000" />
+      <workItem from="1771965869741" duration="9150000" />
     </task>
     <servers />
   </component>

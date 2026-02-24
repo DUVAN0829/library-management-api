@@ -8,4 +8,6 @@ public interface IdentityProviderPort {
 
     void deleteUser(String keycloakId);
 
+    void updateUser(String keycloakId, User user);
+
 }
