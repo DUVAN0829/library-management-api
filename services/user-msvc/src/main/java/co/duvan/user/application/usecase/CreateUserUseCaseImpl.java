@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
     private final UserRepositoryPort repositoryPort;
-    private final IdentityProviderPort identityProviderPort;
+    private final IdentityProviderPort providerPort;
 
     @Override
     public User save(User user) {
 
-        String keycloakId = identityProviderPort.createUser(user, "12345");
+        String keycloakId = providerPort.createUser(user, "12345");
 
         user.setKeycloakId(keycloakId);
 
