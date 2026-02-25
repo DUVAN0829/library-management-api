@@ -17,6 +17,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,6 +48,7 @@ class UserPersistenceAdapterIT {
 
         //* Given
         User user = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
                 .firstname("Duván")
                 .lastname("González")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
@@ -72,6 +74,7 @@ class UserPersistenceAdapterIT {
 
         //* Given
         User user = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
                 .firstname("Kata")
                 .lastname("Suárez")
                 .documentType(DocumentType.PASSPORT)
@@ -98,11 +101,15 @@ class UserPersistenceAdapterIT {
     void should_find_all_users() {
 
         //* Given
-        User userA = User.builder().firstname("Mahrie").lastname("Cardona").documentType(DocumentType.IDENTITY_DOCUMENT)
+        User userA = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
+                .firstname("Mahrie").lastname("Cardona").documentType(DocumentType.IDENTITY_DOCUMENT)
                 .documentNumber("45.178.092").birthdate(LocalDate.of(2000, 11, 2)).gender(Gender.FEMALE)
                 .email("mari56@gmail.com").phoneNumber("349-902-413").nationality(new Nationality("MX")).build();
 
-        User userB = User.builder().firstname("Jacob").lastname("Álvarez").documentType(DocumentType.OTHER)
+        User userB = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
+                .firstname("Jacob").lastname("Álvarez").documentType(DocumentType.OTHER)
                 .documentNumber("76.364.419").birthdate(LocalDate.of(1997, 6, 18)).gender(Gender.MALE)
                 .email("jacalv07@gmail.com").phoneNumber("632-209-183").nationality(new Nationality("CO")).build();
 
@@ -123,6 +130,7 @@ class UserPersistenceAdapterIT {
 
         //* Given
         User user = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
                 .firstname("Mark")
                 .lastname("Adams")
                 .documentType(DocumentType.PASSPORT)
@@ -152,6 +160,7 @@ class UserPersistenceAdapterIT {
 
         //* Given
         User user = User.builder()
+                .keycloakId(UUID.randomUUID().toString())
                 .firstname("Melanie")
                 .lastname("Martinez")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
