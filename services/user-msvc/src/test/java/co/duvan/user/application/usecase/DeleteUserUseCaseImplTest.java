@@ -1,5 +1,6 @@
 package co.duvan.user.application.usecase;
 
+import co.duvan.user.application.ports.output.IdentityProviderPort;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.domain.model.User;
@@ -19,6 +20,9 @@ class DeleteUserUseCaseImplTest {
 
     @Mock
     private UserRepositoryPort repositoryPort;
+
+    @Mock
+    private IdentityProviderPort providerPort;
 
     @InjectMocks
     private DeleteUserUseCaseImpl deleteUserUseCase;

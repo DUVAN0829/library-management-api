@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/UpdateUserUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/application/usecase/UpdateUserUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/DeleteUserUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/DeleteUserUseCaseImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +178,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserRestAdapterTest">
+  <component name="RunManager" selected="JUnit.java in user-msvc">
     <configuration name="BookRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="book-msvc" />
       <extension name="coverage">
@@ -277,8 +277,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRestAdapterTest" />
         <item itemvalue="JUnit.java in user-msvc" />
+        <item itemvalue="JUnit.UserRestAdapterTest" />
         <item itemvalue="JUnit.UserRestAdapterIT" />
         <item itemvalue="JUnit.BookRestAdapterIT" />
         <item itemvalue="JUnit.java in book-msvc" />
