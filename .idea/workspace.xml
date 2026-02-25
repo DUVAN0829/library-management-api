@@ -70,6 +70,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.All in copy-msvc.executor": "Run",
     "JUnit.All in user-msvc.executor": "Run",
     "JUnit.BookPersistenceAdapterIT.executor": "Run",
     "JUnit.BookPersistenceAdapterIT.should_fail_when_isbn_is_duplicated.executor": "Run",
@@ -181,7 +182,15 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CopyMsvcApplication">
+  <component name="RunManager" selected="JUnit.GlobalControllerAdviceTest">
+    <configuration name="All in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -205,31 +214,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-msvc" />
+    <configuration name="GlobalControllerAdviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.book.infrastructure.adapters.input.rest.*" />
+          <option name="PATTERN" value="co.duvan.copy.infrastructure.adapters.input.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.book.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.book.infrastructure.adapters.input.rest.BookRestAdapterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterIT" />
+      <option name="PACKAGE_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest.GlobalControllerAdviceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -280,11 +274,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GlobalControllerAdviceTest" />
+        <item itemvalue="JUnit.All in copy-msvc" />
         <item itemvalue="JUnit.All in user-msvc" />
         <item itemvalue="JUnit.BookRestAdapterIT" />
         <item itemvalue="JUnit.java in book-msvc" />
-        <item itemvalue="JUnit.BookRestAdapterTest" />
-        <item itemvalue="JUnit.UserRestAdapterIT" />
       </list>
     </recent_temporary>
   </component>
