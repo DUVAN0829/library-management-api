@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -15,6 +16,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import tools.jackson.databind.ObjectMapper;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -24,6 +26,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CopyRestAdapterIT {
 
     private static final String BASE_URL = "/copies/api/v1";
+
+    private static final SimpleGrantedAuthority ADMIN =
+            new SimpleGrantedAuthority("ROLE_ADMIN");
 
     @Autowired
     private MockMvc mockMvc;
@@ -58,6 +63,7 @@ public class CopyRestAdapterIT {
 
         //* When
         mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
 
@@ -78,6 +84,7 @@ public class CopyRestAdapterIT {
         );
 
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -87,7 +94,8 @@ public class CopyRestAdapterIT {
         long id = objectMapper.readTree(response).get("copyId").asLong();
 
         //* When
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
 
                 //* Then
                 .andExpect(status().isOk())
@@ -107,6 +115,7 @@ public class CopyRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -116,10 +125,12 @@ public class CopyRestAdapterIT {
         long id = objectMapper.readTree(response).get("copyId").asLong();
 
         //* Then
-        mockMvc.perform(delete(BASE_URL + "/" + id))
+        mockMvc.perform(delete(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isNotFound());
     }
 
