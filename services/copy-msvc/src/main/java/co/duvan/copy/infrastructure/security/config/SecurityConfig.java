@@ -1,4 +1,4 @@
-package co.duvan.book.infrastructure.security.config;
+package co.duvan.copy.infrastructure.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,10 +22,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/books/api/v1/**").hasAnyRole("MEMBER", "LIBRARIAN", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/books/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/books/api/v1/**").hasAnyRole("LIBRARIAN", "ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/books/api/v1/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/copies/api/v1/**").hasAnyRole("MEMBER", "LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/copies/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/copies/api/v1/**").hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/copies/api/v1/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth -> oauth
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)));

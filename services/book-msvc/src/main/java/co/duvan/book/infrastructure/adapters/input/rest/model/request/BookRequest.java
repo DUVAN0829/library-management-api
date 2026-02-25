@@ -35,8 +35,8 @@ public class BookRequest {
             example = "ISBN-97",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
-    @NotBlank(message = "Field bookId cannot be blank")
-    private String bookId;
+    @NotBlank(message = "Field isbn cannot be blank")
+    private String isbn;
 
     @Schema(
             description = "Brief summary or description of the book",
