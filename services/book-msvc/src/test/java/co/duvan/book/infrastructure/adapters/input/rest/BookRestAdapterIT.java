@@ -29,8 +29,8 @@ public class BookRestAdapterIT {
 
     private static final String BASE_URL = "/books/api/v1";
 
-    private static final SimpleGrantedAuthority MEMBER =
-            new SimpleGrantedAuthority("ROLE_MEMBER");
+    private static final SimpleGrantedAuthority ADMIN =
+            new SimpleGrantedAuthority("ROLE_ADMIN");
 
     @Autowired
     private MockMvc mockMvc;
@@ -68,7 +68,7 @@ public class BookRestAdapterIT {
 
         //* When
         mockMvc.perform(post(BASE_URL)
-                        .with(jwt().authorities(MEMBER))
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
 
@@ -93,6 +93,7 @@ public class BookRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
                 .andReturn()
@@ -102,7 +103,8 @@ public class BookRestAdapterIT {
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
         //* When
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
 
                 //* Then
                 .andExpect(status().isOk())
@@ -125,6 +127,7 @@ public class BookRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(bookRequest)))
                 .andReturn()
@@ -134,10 +137,12 @@ public class BookRestAdapterIT {
         long id = objectMapper.readTree(response).get("bookId").asLong();
 
         //* Then
-        mockMvc.perform(delete(BASE_URL + "/" + id))
+        mockMvc.perform(delete(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().is4xxClientError());
 
     }

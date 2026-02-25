@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapterIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,32 +181,17 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BookMsvcApplication">
-    <configuration name="CreateUserUseCaseImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
+  <component name="RunManager" selected="JUnit.java in book-msvc">
+    <configuration name="BookRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.user.application.usecase.*" />
+          <option name="PATTERN" value="co.duvan.book.infrastructure.adapters.input.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.application.usecase" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.application.usecase.CreateUserUseCaseImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GlobalControllerAdviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.GlobalControllerAdviceTest" />
+      <option name="PACKAGE_NAME" value="co.duvan.book.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.book.infrastructure.adapters.input.rest.BookRestAdapterIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -226,17 +212,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/copy-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -286,11 +273,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in book-msvc" />
+        <item itemvalue="JUnit.BookRestAdapterIT" />
+        <item itemvalue="JUnit.java in copy-msvc" />
         <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.UpdateUserUseCaseImplTest" />
-        <item itemvalue="JUnit.CreateUserUseCaseImplTest" />
-        <item itemvalue="JUnit.GlobalControllerAdviceTest" />
-        <item itemvalue="JUnit.UserRestAdapterIT" />
       </list>
     </recent_temporary>
   </component>
@@ -358,6 +345,7 @@
       <workItem from="1771895812073" duration="7201000" />
       <workItem from="1771965869741" duration="10459000" />
       <workItem from="1771981997420" duration="560000" />
+      <workItem from="1772050570813" duration="1020000" />
     </task>
     <servers />
   </component>
