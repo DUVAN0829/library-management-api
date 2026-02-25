@@ -24,7 +24,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/books")
 @Tag(name = "Users API", description = "Operations basic related users (CRUD)")
 public class UserRestAdapter {
 
