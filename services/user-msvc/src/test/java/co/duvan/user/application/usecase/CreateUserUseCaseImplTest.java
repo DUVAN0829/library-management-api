@@ -1,5 +1,6 @@
 package co.duvan.user.application.usecase;
 
+import co.duvan.user.application.ports.output.IdentityProviderPort;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.model.User;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ class CreateUserUseCaseImplTest {
 
     @Mock
     private UserRepositoryPort repositoryPort;
+
+    @Mock
+    private IdentityProviderPort providerPort;
 
     @InjectMocks
     private CreateUserUseCaseImpl createUserUseCase;
