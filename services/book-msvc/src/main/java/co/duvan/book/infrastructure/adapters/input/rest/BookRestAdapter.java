@@ -53,7 +53,7 @@ public class BookRestAdapter {
     public ResponseEntity<BookResponse> getBookById(@PathVariable Long id) {
 
         if (id == 999L) {
-            throw new RuntimeException("Error forzado para probar 500");
+            throw new RuntimeException("Error 500");
         }
 
         return ResponseEntity.ok(bookRestMapper.toBookResponse(getBookUseCase.findById(id)));
