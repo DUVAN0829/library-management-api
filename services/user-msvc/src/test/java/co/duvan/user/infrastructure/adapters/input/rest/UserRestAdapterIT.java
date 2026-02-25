@@ -22,6 +22,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 
 import static org.mockito.Mockito.when;
@@ -37,7 +38,7 @@ public class UserRestAdapterIT {
     private static final String BASE_URL = "/users/api/v1";
 
     private static final SimpleGrantedAuthority MEMBER =
-            new SimpleGrantedAuthority("ROLE_MEMBER");
+            new SimpleGrantedAuthority("ROLE_ADMIN");
 
     @Autowired
     private MockMvc mockMvc;
@@ -63,12 +64,13 @@ public class UserRestAdapterIT {
         registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
     }
 
+
     @BeforeEach
     void setup() {
         when(keycloakService.createUser(
                 ArgumentMatchers.any(),
                 ArgumentMatchers.any())
-        ).thenReturn("fake-keycloak-id");
+        ).thenAnswer(invocation -> UUID.randomUUID().toString());
     }
 
     @Test
