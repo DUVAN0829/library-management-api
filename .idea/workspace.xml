@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/CreateUserUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/CreateUserUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/UpdateUserUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/application/usecase/UpdateUserUseCaseImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +178,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CreateUserUseCaseImplTest">
+  <component name="RunManager" selected="JUnit.java in user-msvc">
     <configuration name="CreateUserUseCaseImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-msvc" />
       <extension name="coverage">
@@ -209,6 +209,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UpdateUserUseCaseImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.duvan.user.application.usecase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.duvan.user.application.usecase" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.user.application.usecase.UpdateUserUseCaseImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="user-msvc" />
       <extension name="coverage">
@@ -219,21 +234,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
       <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -284,11 +284,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateUserUseCaseImplTest" />
         <item itemvalue="JUnit.java in user-msvc" />
+        <item itemvalue="JUnit.UpdateUserUseCaseImplTest" />
+        <item itemvalue="JUnit.CreateUserUseCaseImplTest" />
         <item itemvalue="JUnit.GlobalControllerAdviceTest" />
         <item itemvalue="JUnit.UserRestAdapterIT" />
-        <item itemvalue="JUnit.UserRestAdapterTest" />
       </list>
     </recent_temporary>
   </component>

@@ -1,5 +1,6 @@
 package co.duvan.user.application.usecase;
 
+import co.duvan.user.application.ports.output.IdentityProviderPort;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.model.User;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,9 @@ class UpdateUserUseCaseImplTest {
 
     @Mock
     private UserRepositoryPort repositoryPort;
+
+    @Mock
+    private IdentityProviderPort providerPort;
 
     @InjectMocks
     private UpdateUserUseCaseImpl updateUserUseCase;
@@ -40,7 +44,7 @@ class UpdateUserUseCaseImplTest {
         savedUser.setPhoneNumber("319-765-632");
 
         when(repositoryPort.findById(bookId)).thenReturn(Optional.of(exitingUser));
-        when(repositoryPort.save(usertoUpdate)).thenReturn(savedUser);
+        when(repositoryPort.save(any(User.class))).thenReturn(savedUser);
 
         //* Act
         User result = updateUserUseCase.update(bookId, usertoUpdate);
