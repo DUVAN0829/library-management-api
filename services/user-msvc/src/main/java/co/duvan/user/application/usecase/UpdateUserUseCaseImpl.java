@@ -21,7 +21,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
         return repositoryPort.findById(id)
                 .map(userDb -> {
 
-                    providerPort.updateUser(user.getKeycloakId(), user);
+                    providerPort.updateUser(userDb.getKeycloakId(), user);
 
                     userDb.setFirstname(user.getFirstname());
                     userDb.setLastname(user.getLastname());
