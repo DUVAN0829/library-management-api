@@ -12,6 +12,9 @@ import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyRespo
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.security.autoconfigure.SecurityAutoConfiguration;
+import org.springframework.boot.security.autoconfigure.web.servlet.SecurityFilterAutoConfiguration;
+import org.springframework.boot.security.oauth2.server.resource.autoconfigure.servlet.OAuth2ResourceServerAutoConfiguration;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -24,7 +27,14 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(CopyRestAdapter.class)
+@WebMvcTest(
+        controllers = CopyRestAdapter.class,
+        excludeAutoConfiguration = {
+                SecurityAutoConfiguration.class,
+                SecurityFilterAutoConfiguration.class,
+                OAuth2ResourceServerAutoConfiguration.class
+        }
+)
 class CopyRestAdapterTest {
 
     private static final String BASE_URL = "/copies/api/v1";
