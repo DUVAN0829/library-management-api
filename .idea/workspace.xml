@@ -178,7 +178,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in user-msvc">
+  <component name="RunManager" selected="JUnit.UserRestAdapterTest">
     <configuration name="BookRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="book-msvc" />
       <extension name="coverage">
@@ -209,18 +209,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-msvc" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+    <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
+    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/loan-msvc/src/test/java" />
+      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -270,11 +277,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserRestAdapterTest" />
         <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.UserRestAdapterIT" />
         <item itemvalue="JUnit.BookRestAdapterIT" />
         <item itemvalue="JUnit.java in book-msvc" />
-        <item itemvalue="JUnit.java in loan-msvc" />
       </list>
     </recent_temporary>
   </component>
