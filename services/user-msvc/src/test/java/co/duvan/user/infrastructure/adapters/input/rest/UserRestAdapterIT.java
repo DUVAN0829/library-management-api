@@ -37,7 +37,7 @@ public class UserRestAdapterIT {
 
     private static final String BASE_URL = "/users/api/v1";
 
-    private static final SimpleGrantedAuthority MEMBER =
+    private static final SimpleGrantedAuthority ADMIN =
             new SimpleGrantedAuthority("ROLE_ADMIN");
 
     @Autowired
@@ -91,7 +91,7 @@ public class UserRestAdapterIT {
 
         //* When
         mockMvc.perform(post(BASE_URL)
-                        .with(jwt().authorities(MEMBER))
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
 
@@ -118,7 +118,7 @@ public class UserRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
-                        .with(jwt().authorities(MEMBER))
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -129,7 +129,7 @@ public class UserRestAdapterIT {
 
         //* Then
         mockMvc.perform(get(BASE_URL + "/" + id)
-                        .with(jwt().authorities(MEMBER)))
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId").value(id));
     }
@@ -152,7 +152,7 @@ public class UserRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
-                        .with(jwt().authorities(MEMBER))
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -163,11 +163,11 @@ public class UserRestAdapterIT {
 
         //* Then
         mockMvc.perform(delete(BASE_URL + "/" + id)
-                        .with(jwt().authorities(MEMBER)))
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isNoContent());
 
         mockMvc.perform(get(BASE_URL + "/" + id)
-                        .with(jwt().authorities(MEMBER)))
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().is4xxClientError());
     }
 
