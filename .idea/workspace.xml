@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +187,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LoanRestAdapterIT">
+  <component name="RunManager" selected="JUnit.GetLoanUseCaseImplTest">
     <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loan-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -286,11 +286,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoanRestAdapterIT" />
+        <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
         <item itemvalue="JUnit.All in loan-msvc" />
+        <item itemvalue="JUnit.LoanRestAdapterIT" />
         <item itemvalue="JUnit.LoanRestAdapterTest" />
         <item itemvalue="JUnit.java in user-msvc" />
-        <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +361,7 @@
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
-      <workItem from="1772103498195" duration="21736000" />
+      <workItem from="1772103498195" duration="22462000" />
     </task>
     <servers />
   </component>
