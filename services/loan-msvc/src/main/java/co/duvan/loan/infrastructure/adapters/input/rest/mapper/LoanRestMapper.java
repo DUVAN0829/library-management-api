@@ -6,6 +6,7 @@ import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanDetail
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
@@ -19,6 +20,11 @@ public interface LoanRestMapper {
 
     List<LoanResponse> toLoanResponseList(List<Loan> loans);
 
+    @Mapping(source = "loan.loanId", target = "loanId")
+    @Mapping(source = "loan.loanDate", target = "loanDate")
+    @Mapping(source = "loan.dueDate", target = "dueDate")
+    @Mapping(source = "loan.returnDate", target = "returnDate")
+    @Mapping(source = "loan.loanStatus", target = "loanStatus")
     LoanDetailResponse toLoanDetailResponse(LoanDetailResult loanDetailResult);
 
 }

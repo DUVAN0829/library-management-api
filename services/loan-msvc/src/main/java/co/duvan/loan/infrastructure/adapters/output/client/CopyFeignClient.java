@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "copy-msvc", url = "http://localhost:8082", configuration = FeignClientInterceptor.class)
 public interface CopyFeignClient {
 
-    @GetMapping("/api/v1/{id}")
+    @GetMapping("/copies/api/v1/{id}")
     CopyClientResponse findById(@PathVariable Long id);
 
 }

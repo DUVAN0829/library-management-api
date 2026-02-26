@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "user-msvc", url = "http://localhost:8084", configuration = FeignClientInterceptor.class)
 public interface UserFeignClient {
 
-    @GetMapping("/api/v1/{id}")
+    @GetMapping("/users/api/v1/{id}")
     UserClientResponse findById(@PathVariable Long id);
 
 }

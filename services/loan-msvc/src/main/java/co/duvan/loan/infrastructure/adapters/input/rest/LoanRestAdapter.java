@@ -7,6 +7,7 @@ import co.duvan.loan.application.ports.input.UpdateLoanUseCase;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.loan.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
+import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanDetailResponse;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -50,9 +51,9 @@ public class LoanRestAdapter {
     })
     @DefaultApiErrors
     @GetMapping("/api/v1/{id}")
-    public ResponseEntity<LoanResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<LoanDetailResponse> findById(@PathVariable Long id) {
 
-        return ResponseEntity.ok(loanRestMapper.toLoanResponse(getLoanUseCase.findById(id)));
+        return ResponseEntity.ok(loanRestMapper.toLoanDetailResponse(getLoanUseCase.findById(id)));
 
     }
 

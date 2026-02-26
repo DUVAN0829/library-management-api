@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/loans/api/v1/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/loans/api/v1/**").hasAnyRole("MEMBER")
                         .requestMatchers(HttpMethod.POST, "/loans/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/loans/api/v1/**").hasAnyRole("LIBRARIAN", "ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/loans/api/v1/**").hasAnyRole("ADMIN")
