@@ -12,7 +12,7 @@ public interface UserFeignClient {
     @GetMapping("/users/api/v1/{id}")
     UserClientResponse findById(@PathVariable Long id);
 
-    @GetMapping("/api/v1/internal/keycloak/{keycloakId}")
+    @GetMapping("/users/api/v1/internal/keycloak/{keycloakId}")
     Long findUserIdByKeycloakId(@PathVariable String keycloakId);
 
 }
