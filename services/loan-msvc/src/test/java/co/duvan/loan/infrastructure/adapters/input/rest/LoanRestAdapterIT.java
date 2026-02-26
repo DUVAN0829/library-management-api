@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,6 +18,7 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.time.LocalDate;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -26,6 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class LoanRestAdapterIT {
 
     private static final String BASE_URL = "/loans/api/v1";
+
+    private static final SimpleGrantedAuthority ADMIN =
+            new SimpleGrantedAuthority("ROLE_ADMIN");
 
     @Autowired
     private MockMvc mockMvc;
@@ -63,6 +68,7 @@ public class LoanRestAdapterIT {
 
         //* When
         mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
 
@@ -72,32 +78,31 @@ public class LoanRestAdapterIT {
     }
 
     @Test
-    void should_get_loan_by_id_end_to_end() throws Exception {
+    void should_get_all_loans_end_to_end() throws Exception {
 
         //* Given
         LoanRequest request = new LoanRequest(
-                2L,
-                20L,
+                1L,
+                10L,
                 LocalDate.now(),
                 LocalDate.now().plusDays(7),
                 null,
                 Status.ACTIVE
         );
 
-        //* When
-        String response = mockMvc.perform(post(BASE_URL)
+        mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
+                .andExpect(status().isCreated());
 
-        long id = objectMapper.readTree(response).get("loanId").asLong();
-
-        //* Then
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        //* When & Then
+        mockMvc.perform(get(BASE_URL)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.loanId").value(id));
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$[0].loanId").exists())
+                .andExpect(jsonPath("$[0].userId").value(1));
     }
 
     @Test
@@ -115,6 +120,7 @@ public class LoanRestAdapterIT {
 
         //* When
         String response = mockMvc.perform(post(BASE_URL)
+                        .with(jwt().authorities(ADMIN))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andReturn()
@@ -124,10 +130,12 @@ public class LoanRestAdapterIT {
         long id = objectMapper.readTree(response).get("loanId").asLong();
 
         //* Then
-        mockMvc.perform(delete(BASE_URL + "/" + id))
+        mockMvc.perform(delete(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(get(BASE_URL + "/" + id))
+        mockMvc.perform(get(BASE_URL + "/" + id)
+                        .with(jwt().authorities(ADMIN)))
                 .andExpect(status().is4xxClientError());
     }
 

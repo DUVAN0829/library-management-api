@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanDetailResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,26 +187,11 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LoanRestAdapterTest">
+  <component name="RunManager" selected="JUnit.LoanRestAdapterIT">
     <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loan-msvc" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CopyRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="copy-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.copy.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest.CopyRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -222,6 +206,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="co.duvan.loan.application.usecase" />
       <option name="MAIN_CLASS_NAME" value="co.duvan.loan.application.usecase.GetLoanUseCaseImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoanRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loan-msvc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.duvan.loan.infrastructure.adapters.input.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest.LoanRestAdapterIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -287,11 +286,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoanRestAdapterIT" />
+        <item itemvalue="JUnit.All in loan-msvc" />
         <item itemvalue="JUnit.LoanRestAdapterTest" />
         <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
-        <item itemvalue="JUnit.All in loan-msvc" />
-        <item itemvalue="JUnit.CopyRestAdapterIT" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +361,7 @@
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
-      <workItem from="1772103498195" duration="20271000" />
+      <workItem from="1772103498195" duration="21736000" />
     </task>
     <servers />
   </component>
