@@ -18,6 +18,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,11 +51,10 @@ public class LoanRestAdapter {
             @ApiResponse(responseCode = "404", description = "Loan not found")
     })
     @DefaultApiErrors
+    @PreAuthorize("hasRole('ADMIN') or hasRole('LIBRARIAN') or @loanSecurity.isOwner(authentication, #id)")
     @GetMapping("/api/v1/{id}")
     public ResponseEntity<LoanDetailResponse> findById(@PathVariable Long id) {
-
         return ResponseEntity.ok(loanRestMapper.toLoanDetailResponse(getLoanUseCase.findById(id)));
-
     }
 
     @Operation(summary = "Create loan")
