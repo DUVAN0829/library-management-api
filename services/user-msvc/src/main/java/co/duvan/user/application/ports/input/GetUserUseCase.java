@@ -10,4 +10,6 @@ public interface GetUserUseCase {
 
     List<User> findAll();
 
+    Long findUserIdByKeycloakId(String keycloakId);
+
 }
