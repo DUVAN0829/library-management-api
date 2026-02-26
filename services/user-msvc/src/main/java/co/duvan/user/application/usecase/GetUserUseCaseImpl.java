@@ -28,4 +28,11 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
         return repositoryPort.findAll();
     }
 
+    @Override
+    public Long findUserIdByKeycloakId(String keycloakId) {
+        return repositoryPort.findByKeycloakId(keycloakId)
+                .orElseThrow(() -> new UserNotFoundException("User not found with keycloakId: " + keycloakId))
+                .getUserId();
+    }
+
 }
