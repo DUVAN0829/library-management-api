@@ -15,4 +15,6 @@ public interface UserRepositoryPort {
 
     void deleteById(Long id);
 
+    Optional<User> findByKeycloakId(String keycloakId);
+
 }
