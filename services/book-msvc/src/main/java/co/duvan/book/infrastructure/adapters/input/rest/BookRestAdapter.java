@@ -23,7 +23,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/loans")
+@RequestMapping("/books")
 @Tag(name = "Books API", description = "Operations basic related books (CRUD)")
 public class BookRestAdapter {
 

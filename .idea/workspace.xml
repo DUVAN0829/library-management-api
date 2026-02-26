@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/application/usecase/GetLoanUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,89 +72,89 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.All in copy-msvc.executor": "Run",
-    "JUnit.All in loan-msvc.executor": "Run",
-    "JUnit.All in user-msvc.executor": "Run",
-    "JUnit.BookPersistenceAdapterIT.executor": "Run",
-    "JUnit.BookPersistenceAdapterIT.should_fail_when_isbn_is_duplicated.executor": "Run",
-    "JUnit.BookPersistenceAdapterIT.should_find_all_books.executor": "Run",
-    "JUnit.BookPersistenceAdapterIT.should_find_book_by_id.executor": "Run",
-    "JUnit.BookPersistenceAdapterIT.should_update_book.executor": "Run",
-    "JUnit.BookPersistenceAdapterTest.executor": "Run",
-    "JUnit.BookPersistenceAdapterTest.should_save_book.executor": "Debug",
-    "JUnit.BookRestAdapterIT.executor": "Run",
-    "JUnit.BookRestAdapterTest.executor": "Run",
-    "JUnit.BookRestAdapterTest.should_get_all_books.executor": "Run",
-    "JUnit.CopyPersistenceAdapterIT.executor": "Run",
-    "JUnit.CopyRestAdapterIT.executor": "Run",
-    "JUnit.CopyRestAdapterTest.executor": "Run",
-    "JUnit.CreateBookUseCaseImplTest.executor": "Run",
-    "JUnit.CreateBookUseCaseImplTest.should_create_book_succesfully.executor": "Run",
-    "JUnit.CreateCopyUseCaseImplTest.executor": "Run",
-    "JUnit.CreateLoanUseCaseImplTest.executor": "Run",
-    "JUnit.CreateUserUseCaseImplTest.executor": "Run",
-    "JUnit.DeleteBookUseCaseImplTest.executor": "Run",
-    "JUnit.DeleteBookUseCaseImplTest.should_throw_exception_when_book_not_found.executor": "Run",
-    "JUnit.DeleteCopyUseCaseImplTest.executor": "Run",
-    "JUnit.DeleteLoanUseCaseImplTest.executor": "Run",
-    "JUnit.DeleteUserUseCaseImplTest.executor": "Run",
-    "JUnit.GetBookUseCaseImplTest.executor": "Run",
-    "JUnit.GetCopyUseCaseImplTest.executor": "Run",
-    "JUnit.GetLoanUseCaseImplTest.executor": "Run",
-    "JUnit.GetUserUseCaseImplTest.executor": "Run",
-    "JUnit.GlobalControllerAdviceTest.executor": "Run",
-    "JUnit.LoanPersistenceAdapterIT.executor": "Run",
-    "JUnit.LoanPersistenceAdapterTest.executor": "Run",
-    "JUnit.LoanRestAdapterIT.executor": "Run",
-    "JUnit.LoanRestAdapterTest.executor": "Run",
-    "JUnit.NationalityTest.executor": "Run",
-    "JUnit.UpdateBookUseCaseImplTest.executor": "Run",
-    "JUnit.UpdateCopyUseCaseImplTest.executor": "Run",
-    "JUnit.UpdateLoanUseCaseImplTest.executor": "Run",
-    "JUnit.UpdateUserUseCaseImplTest.executor": "Run",
-    "JUnit.UserPersistenceAdapterIT.executor": "Run",
-    "JUnit.UserRestAdapterIT.executor": "Run",
-    "JUnit.UserRestAdapterTest.executor": "Run",
-    "JUnit.java in book-msvc.executor": "Run",
-    "JUnit.java in copy-msvc.executor": "Run",
-    "JUnit.java in loan-msvc.executor": "Run",
-    "JUnit.java in user-msvc.executor": "Run",
-    "Maven.book-msvc [install].executor": "Run",
-    "Maven.library-management-api [clean].executor": "Run",
-    "Maven.prestamo-msvc [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.BookMsvcApplication.executor": "Run",
-    "Spring Boot.CopyMsvcApplication.executor": "Run",
-    "Spring Boot.GatewayMsvcApplication.executor": "Run",
-    "Spring Boot.LoanMsvcApplication.executor": "Run",
-    "Spring Boot.PrestamoMsvcApplication.executor": "Run",
-    "Spring Boot.UserMsvcApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/duglas/Documents/Backend/Portfolio-projects/library-management-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.All in copy-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in loan-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in user-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_fail_when_isbn_is_duplicated.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_find_all_books.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_find_book_by_id.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterIT.should_update_book.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookPersistenceAdapterTest.should_save_book.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.BookRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRestAdapterTest.should_get_all_books.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CopyRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateBookUseCaseImplTest.should_create_book_succesfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CreateUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteBookUseCaseImplTest.should_throw_exception_when_book_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeleteUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GetUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GlobalControllerAdviceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanPersistenceAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoanRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NationalityTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateBookUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateCopyUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateLoanUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UpdateUserUseCaseImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserPersistenceAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRestAdapterIT.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRestAdapterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in book-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in copy-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in loan-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in user-msvc.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.book-msvc [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.library-management-api [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.prestamo-msvc [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BookMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CopyMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.LoanMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PrestamoMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.UserMsvcApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/duglas/Documents/Backend/Portfolio-projects/library-management-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -186,7 +187,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GetLoanUseCaseImplTest">
+  <component name="RunManager" selected="JUnit.java in book-msvc">
     <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loan-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -240,10 +241,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
+    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/user-msvc/src/test/java" />
+      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -285,11 +286,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
+        <item itemvalue="JUnit.java in book-msvc" />
         <item itemvalue="JUnit.All in loan-msvc" />
+        <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
         <item itemvalue="JUnit.LoanRestAdapterIT" />
         <item itemvalue="JUnit.LoanRestAdapterTest" />
-        <item itemvalue="JUnit.java in user-msvc" />
       </list>
     </recent_temporary>
   </component>
@@ -360,7 +361,8 @@
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
-      <workItem from="1772103498195" duration="22923000" />
+      <workItem from="1772103498195" duration="23752000" />
+      <workItem from="1772148927832" duration="367000" />
     </task>
     <servers />
   </component>
