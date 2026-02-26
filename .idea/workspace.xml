@@ -31,9 +31,9 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
+        <option value="package.json" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -358,7 +358,7 @@
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
-      <workItem from="1772103498195" duration="1554000" />
+      <workItem from="1772103498195" duration="3006000" />
     </task>
     <servers />
   </component>
