@@ -1,6 +1,7 @@
 package co.duvan.loan.application.usecase;
 
 import co.duvan.loan.application.ports.output.LoanRepositoryPort;
+import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.domain.exceptions.LoanNotFoundException;
 import co.duvan.loan.domain.model.Loan;
 import org.junit.jupiter.api.Test;
@@ -34,11 +35,11 @@ class GetLoanUseCaseImplTest {
         when(repositoryPort.findById(1L)).thenReturn(Optional.of(loan));
 
         //* Act
-        Loan result = getLoanUseCase.findById(1L);
+        LoanDetailResult result = getLoanUseCase.findById(1L);
 
         //* Assert
         assertNotNull(result);
-        assertNotNull(result.getLoanId());
+        assertNotNull(result.getLoan().getLoanId());
 
         verify(repositoryPort).findById(1L);
     }

@@ -2,6 +2,7 @@ package co.duvan.loan.infrastructure.adapters.input.rest.model.request;
 
 import co.duvan.loan.application.ports.output.dto.CopyClientResponse;
 import co.duvan.loan.application.ports.output.dto.UserClientResponse;
+import co.duvan.loan.domain.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class LoanDetailResponse {
     private LocalDate loanDate;
     private LocalDate dueDate;
     private LocalDate returnDate;
-    private String loanStatus;
+    private Status loanStatus;
     private UserClientResponse user;
     private CopyClientResponse copy;
 
