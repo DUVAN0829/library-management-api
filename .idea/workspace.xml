@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,11 +167,11 @@
       <recent name="co.duvan.prestamo.infrastructure.adapters.output.persistence" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="co.duvan.loan.infrastructure.security.config" />
       <recent name="co.duvan.copy.infrastructure.security.jwt" />
       <recent name="co.duvan.copy.infrastructure.security.config" />
       <recent name="co.duvan.book.infrastructure.security.jwt" />
       <recent name="co.duvan.book.infrastructure.security.config" />
-      <recent name="co.duvan.user.infrastructure.adapters.input.rest.documentation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -355,7 +357,8 @@
       <workItem from="1771981997420" duration="560000" />
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
-      <workItem from="1772068442079" duration="515000" />
+      <workItem from="1772068442079" duration="1637000" />
+      <workItem from="1772103498195" duration="980000" />
     </task>
     <servers />
   </component>
