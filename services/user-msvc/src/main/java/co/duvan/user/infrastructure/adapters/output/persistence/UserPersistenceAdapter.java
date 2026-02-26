@@ -38,4 +38,8 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
         repository.deleteById(id);
     }
 
+    @Override
+    public Optional<User> findByKeycloakId(String keycloakId) {
+        return repository.findByKeycloakId(keycloakId).map(userPersistenceMapper::toUser);
+    }
 }
