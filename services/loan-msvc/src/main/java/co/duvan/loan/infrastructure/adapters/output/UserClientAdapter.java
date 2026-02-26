@@ -17,4 +17,9 @@ public class UserClientAdapter implements UserClientPort {
         return userFeignClient.findById(userId);
     }
 
+    @Override
+    public Long findUserIdByKeycloakId(String keycloakId) {
+        return userFeignClient.findUserIdByKeycloakId(keycloakId);
+    }
+
 }
