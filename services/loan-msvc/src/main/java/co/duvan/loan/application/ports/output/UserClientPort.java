@@ -6,4 +6,6 @@ public interface UserClientPort {
 
     UserClientResponse findUserById(Long userId, String token);
 
+    Long findUserIdByKeycloakId(String keycloakId);
+
 }
