@@ -64,7 +64,7 @@ class GlobalControllerAdviceTest {
         when(getBookUseCase.findById(99L)).thenThrow(new BookNotFoundException());
 
         //* When
-        mockMvc.perform(get("/books/api/v1/99"))
+        mockMvc.perform(get("/loans/api/v1/99"))
 
                 //* Then
                 .andExpect(status().isNotFound())
