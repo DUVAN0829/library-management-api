@@ -58,6 +58,14 @@ public class UserRestAdapter {
 
     }
 
+    @Operation(summary = "Get userId by keycloakId")
+    @DefaultApiErrors
+    @PreAuthorize("hasRole('MEMBER') or hasRole('LIBRARIAN') or hasRole('ADMIN')")
+    @GetMapping("/api/v1/internal/keycloak/{keycloakId}")
+    public ResponseEntity<Long> findUserIdByKeycloakId(@PathVariable String keycloakId) {
+        return ResponseEntity.ok(getUserUseCase.findUserIdByKeycloakId(keycloakId));
+    }
+
     @Operation(summary = "Create user")
     @ApiResponse(responseCode = "201", description = "User created")
     @DefaultApiErrors

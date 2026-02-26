@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -356,7 +359,7 @@
       <workItem from="1772050570813" duration="1020000" />
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
-      <workItem from="1772103498195" duration="13860000" />
+      <workItem from="1772103498195" duration="14512000" />
     </task>
     <servers />
   </component>
