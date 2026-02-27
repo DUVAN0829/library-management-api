@@ -2,7 +2,7 @@ package co.duvan.loan.infrastructure.adapters.input.rest.mapper;
 
 import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.domain.model.Loan;
-import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanDetailResponse;
+import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanDetailResponse;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
 import org.mapstruct.Mapper;

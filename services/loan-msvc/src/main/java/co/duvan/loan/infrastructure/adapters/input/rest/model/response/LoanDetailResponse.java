@@ -1,4 +1,4 @@
-package co.duvan.loan.infrastructure.adapters.input.rest.model.request;
+package co.duvan.loan.infrastructure.adapters.input.rest.model.response;
 
 import co.duvan.loan.application.ports.output.dto.CopyClientResponse;
 import co.duvan.loan.application.ports.output.dto.UserClientResponse;

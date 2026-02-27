@@ -10,7 +10,7 @@ import co.duvan.loan.application.ports.output.dto.UserClientResponse;
 import co.duvan.loan.domain.enums.Status;
 import co.duvan.loan.domain.model.Loan;
 import co.duvan.loan.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
-import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanDetailResponse;
+import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanDetailResponse;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
 import org.junit.jupiter.api.BeforeEach;

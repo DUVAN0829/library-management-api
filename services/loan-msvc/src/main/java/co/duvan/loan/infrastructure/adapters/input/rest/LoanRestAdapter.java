@@ -7,7 +7,7 @@ import co.duvan.loan.application.ports.input.UpdateLoanUseCase;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.loan.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
-import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanDetailResponse;
+import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanDetailResponse;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.response.LoanResponse;
 import io.swagger.v3.oas.annotations.Operation;
