@@ -62,10 +62,10 @@ public class LoanRestAdapter {
     @DefaultApiErrors
     @ValidationApiError
     @PostMapping("/api/v1")
-    public ResponseEntity<LoanResponse> save(@Valid @RequestBody LoanRequest loanRequest) {
+    public ResponseEntity<LoanDetailResponse> save(@Valid @RequestBody LoanRequest loanRequest) {
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(loanRestMapper.toLoanResponse(createLoanUseCase.save(loanRestMapper.toLoan(loanRequest))));
+                .body(loanRestMapper.toLoanDetailResponse(createLoanUseCase.save(loanRestMapper.toLoan(loanRequest))));
 
     }
 
@@ -74,9 +74,9 @@ public class LoanRestAdapter {
     @DefaultApiErrors
     @ValidationApiError
     @PutMapping("/api/v1/{id}")
-    public ResponseEntity<LoanResponse> update(@Valid @PathVariable Long id, @RequestBody LoanRequest loanRequest) {
+    public ResponseEntity<LoanDetailResponse> update(@Valid @PathVariable Long id, @RequestBody LoanRequest loanRequest) {
 
-        return ResponseEntity.ok(loanRestMapper.toLoanResponse(updateLoanUseCase.update(id, loanRestMapper.toLoan(loanRequest))));
+        return ResponseEntity.ok(loanRestMapper.toLoanDetailResponse(updateLoanUseCase.update(id, loanRestMapper.toLoan(loanRequest))));
 
     }
 
