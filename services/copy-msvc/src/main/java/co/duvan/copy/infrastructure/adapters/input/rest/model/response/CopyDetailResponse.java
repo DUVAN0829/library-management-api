@@ -17,6 +17,6 @@ public class CopyDetailResponse {
     private Long bookId;
     private String code;
     private Status status;
-    private BookClientResponse clientResponse;
+    private BookClientResponse book;
 
 }

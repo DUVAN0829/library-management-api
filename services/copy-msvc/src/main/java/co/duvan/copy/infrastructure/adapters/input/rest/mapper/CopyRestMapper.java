@@ -25,7 +25,6 @@ public interface CopyRestMapper {
     @Mapping(source = "copy.bookId", target = "bookId")
     @Mapping(source = "copy.code", target = "code")
     @Mapping(source = "copy.status", target = "status")
-    @Mapping(source = "book", target = "clientResponse")
     CopyDetailResponse toCopyDetailResponse(CopyDetailResult copyDetailResult);
 
 }
