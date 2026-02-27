@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/application/usecase/GetCopyUseCaseImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/application/usecase/GetCopyUseCaseImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +188,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BookMsvcApplication">
+  <component name="RunManager" selected="JUnit.java in copy-msvc">
     <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loan-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -195,46 +197,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetLoanUseCaseImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
+    <configuration name="CopyRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.loan.application.usecase.*" />
+          <option name="PATTERN" value="co.duvan.copy.infrastructure.adapters.input.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.loan.application.usecase" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.application.usecase.GetLoanUseCaseImplTest" />
+      <option name="PACKAGE_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest.CopyRestAdapterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoanRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
+    <configuration name="GetCopyUseCaseImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.loan.infrastructure.adapters.input.rest.*" />
+          <option name="PATTERN" value="co.duvan.copy.application.usecase.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest.LoanRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.loan.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest.LoanRestAdapterTest" />
+      <option name="PACKAGE_NAME" value="co.duvan.copy.application.usecase" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.application.usecase.GetCopyUseCaseImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -244,6 +231,14 @@
       <module name="book-msvc" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/copy-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -285,11 +280,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in loan-msvc" />
+        <item itemvalue="JUnit.java in copy-msvc" />
+        <item itemvalue="JUnit.GetCopyUseCaseImplTest" />
+        <item itemvalue="JUnit.CopyRestAdapterTest" />
         <item itemvalue="JUnit.java in book-msvc" />
-        <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
-        <item itemvalue="JUnit.LoanRestAdapterIT" />
-        <item itemvalue="JUnit.LoanRestAdapterTest" />
+        <item itemvalue="JUnit.All in loan-msvc" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +357,7 @@
       <workItem from="1772068442079" duration="1637000" />
       <workItem from="1772103498195" duration="23752000" />
       <workItem from="1772148927832" duration="8495000" />
-      <workItem from="1772189607823" duration="1380000" />
+      <workItem from="1772189607823" duration="3345000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,8 @@
 package co.duvan.copy.application.usecase;
 
+import co.duvan.copy.application.ports.output.BookClientPort;
 import co.duvan.copy.application.ports.output.CopyRepositoryPort;
+import co.duvan.copy.application.ports.output.dto.CopyDetailResult;
 import co.duvan.copy.domain.exceptions.CopyNotFoundException;
 import co.duvan.copy.domain.model.Copy;
 import org.junit.jupiter.api.Test;
@@ -21,6 +23,9 @@ class GetCopyUseCaseImplTest {
     @Mock
     private CopyRepositoryPort repositoryPort;
 
+    @Mock
+    private BookClientPort bookClientPort;
+
     @InjectMocks
     private GetCopyUseCaseImpl getCopyUseCase;
 
@@ -34,11 +39,11 @@ class GetCopyUseCaseImplTest {
         when(repositoryPort.findById(1L)).thenReturn(Optional.of(copy));
 
         //* Act
-        Copy result = getCopyUseCase.findById(1L);
+        CopyDetailResult result = getCopyUseCase.findById(1L);
 
         //* Assert
         assertNotNull(result);
-        assertEquals(1L, result.getCopyId());
+        assertEquals(1L, result.getCopy().getCopyId());
 
         verify(repositoryPort).findById(1L);
     }

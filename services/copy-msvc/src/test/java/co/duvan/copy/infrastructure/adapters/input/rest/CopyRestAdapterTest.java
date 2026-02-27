@@ -4,10 +4,13 @@ import co.duvan.copy.application.ports.input.CreateCopyUseCase;
 import co.duvan.copy.application.ports.input.DeleteCopyUseCase;
 import co.duvan.copy.application.ports.input.GetCopyUseCase;
 import co.duvan.copy.application.ports.input.UpdateCopyUseCase;
+import co.duvan.copy.application.ports.output.dto.BookClientResponse;
+import co.duvan.copy.application.ports.output.dto.CopyDetailResult;
 import co.duvan.copy.domain.enums.Status;
 import co.duvan.copy.domain.model.Copy;
 import co.duvan.copy.infrastructure.adapters.input.rest.mapper.CopyRestMapper;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.request.CopyRequest;
+import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyDetailResponse;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -91,9 +94,17 @@ class CopyRestAdapterTest {
     @Test
     void should_get_copy_by_id() throws Exception {
 
+        BookClientResponse bookClientResponse = new BookClientResponse();
+
+        CopyDetailResult copyDetailResult = new CopyDetailResult(copy, bookClientResponse);
+
+        CopyDetailResponse copyDetailResponse = new CopyDetailResponse();
+        copyDetailResponse.setCopyId(copy.getCopyId());
+        copyDetailResponse.setCode(copy.getCode());
+
         //* Given
-        when(getCopyUseCase.findById(1L)).thenReturn(copy);
-        when(copyRestMapper.toCopyResponse(copy)).thenReturn(copyResponse);
+        when(getCopyUseCase.findById(1L)).thenReturn(copyDetailResult);
+        when(copyRestMapper.toCopyDetailResponse(copyDetailResult)).thenReturn(copyDetailResponse);
 
         //* When
         mockMvc.perform(get(BASE_URL + "/1"))
@@ -104,7 +115,7 @@ class CopyRestAdapterTest {
                 .andExpect(jsonPath("$.code").value("CP-001"));
 
         verify(getCopyUseCase).findById(1L);
-        verify(copyRestMapper).toCopyResponse(copy);
+        verify(copyRestMapper).toCopyDetailResponse(copyDetailResult);
     }
 
     @Test

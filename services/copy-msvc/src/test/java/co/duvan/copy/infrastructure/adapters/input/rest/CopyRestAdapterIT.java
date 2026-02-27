@@ -74,7 +74,7 @@ public class CopyRestAdapterIT {
     }
 
     @Test
-    void should_get_copy_by_id_end_to_end() throws Exception {
+    void should_get_all_copies_end_to_end() throws Exception {
 
         //* Given
         CopyRequest request = new CopyRequest(
@@ -94,13 +94,13 @@ public class CopyRestAdapterIT {
         long id = objectMapper.readTree(response).get("copyId").asLong();
 
         //* When
-        mockMvc.perform(get(BASE_URL + "/" + id)
+        mockMvc.perform(get(BASE_URL)
                         .with(jwt().authorities(ADMIN)))
 
                 //* Then
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.copyId").value(id))
-                .andExpect(jsonPath("$.code").value("CP-200"));
+                .andExpect(jsonPath("$[0].copyId").value(id))
+                .andExpect(jsonPath("$[0].code").value("CP-200"));
     }
 
     @Test
