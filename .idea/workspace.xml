@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/ports/input/GetCopyUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/ports/input/GetCopyUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/usecase/GetCopyUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/usecase/GetCopyUseCaseImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -358,7 +361,7 @@
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
       <workItem from="1772103498195" duration="23752000" />
-      <workItem from="1772148927832" duration="3847000" />
+      <workItem from="1772148927832" duration="4468000" />
     </task>
     <servers />
   </component>
