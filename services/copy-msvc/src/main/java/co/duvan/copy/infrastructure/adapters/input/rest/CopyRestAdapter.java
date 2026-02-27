@@ -9,6 +9,7 @@ import co.duvan.copy.infrastructure.adapters.input.rest.documentation.DefaultApi
 import co.duvan.copy.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.copy.infrastructure.adapters.input.rest.mapper.CopyRestMapper;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.request.CopyRequest;
+import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyDetailResponse;
 import co.duvan.copy.infrastructure.adapters.input.rest.model.response.CopyResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -40,9 +41,9 @@ public class CopyRestAdapter {
     })
     @DefaultApiErrors
     @GetMapping("/api/v1/{id}")
-    public ResponseEntity<CopyResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<CopyDetailResponse> findById(@PathVariable Long id) {
 
-        return ResponseEntity.ok(copyRestMapper.toCopyResponse(getCopyUseCase.findById(id)));
+        return ResponseEntity.ok(copyRestMapper.toCopyDetailResponse(getCopyUseCase.findById(id)));
 
     }
 

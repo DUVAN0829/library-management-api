@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/loans")
+@RequestMapping("/books")
 @RequiredArgsConstructor
 @Tag(name = "Loans API", description = "Operations basic related loans (CRUD)")
 public class LoanRestAdapter {

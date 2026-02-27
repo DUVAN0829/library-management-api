@@ -22,10 +22,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/loans/api/v1/**").authenticated()
-                        .requestMatchers(HttpMethod.POST, "/loans/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/loans/api/v1/**").hasAnyRole("LIBRARIAN", "ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/loans/api/v1/**").hasAnyRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/books/api/v1/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/books/api/v1").hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/books/api/v1/**").hasAnyRole("LIBRARIAN", "ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/books/api/v1/**").hasAnyRole("ADMIN")
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth -> oauth
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter)));
