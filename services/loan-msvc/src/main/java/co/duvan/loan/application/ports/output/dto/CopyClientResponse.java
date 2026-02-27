@@ -15,5 +15,6 @@ public class CopyClientResponse {
     private Long bookId;
     private String code;
     private String status;
+    private BookClientResponse book;
 
 }
