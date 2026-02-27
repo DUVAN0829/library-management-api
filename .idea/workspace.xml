@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/adapters/input/rest/BookRestAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/test/java/co/duvan/book/infrastructure/adapters/input/rest/GlobalControllerAdviceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +185,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in book-msvc">
+  <component name="RunManager" selected="JUnit.All in loan-msvc">
     <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loan-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -286,8 +284,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in book-msvc" />
         <item itemvalue="JUnit.All in loan-msvc" />
+        <item itemvalue="JUnit.java in book-msvc" />
         <item itemvalue="JUnit.GetLoanUseCaseImplTest" />
         <item itemvalue="JUnit.LoanRestAdapterIT" />
         <item itemvalue="JUnit.LoanRestAdapterTest" />
@@ -362,7 +360,7 @@
       <workItem from="1772051808404" duration="842000" />
       <workItem from="1772068442079" duration="1637000" />
       <workItem from="1772103498195" duration="23752000" />
-      <workItem from="1772148927832" duration="367000" />
+      <workItem from="1772148927832" duration="1704000" />
     </task>
     <servers />
   </component>
