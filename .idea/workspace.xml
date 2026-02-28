@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/application/ports/input/GetBookUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/application/ports/input/GetBookUseCase.java" afterDir="false" />
-    </list>
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -372,7 +369,7 @@
       <workItem from="1772103498195" duration="23752000" />
       <workItem from="1772148927832" duration="8495000" />
       <workItem from="1772189607823" duration="12476000" />
-      <workItem from="1772289347741" duration="500000" />
+      <workItem from="1772289347741" duration="874000" />
     </task>
     <servers />
   </component>
