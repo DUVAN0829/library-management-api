@@ -1,5 +1,7 @@
 package co.duvan.loan.infrastructure.adapters.input.rest;
 
+import co.duvan.loan.application.ports.output.CopyClientPort;
+import co.duvan.loan.application.ports.output.UserClientPort;
 import co.duvan.loan.domain.enums.Status;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
 import org.junit.jupiter.api.Test;
@@ -10,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -37,6 +40,12 @@ public class LoanRestAdapterIT {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @MockitoBean
+    private UserClientPort userClientPort;
+
+    @MockitoBean
+    private CopyClientPort copyClientPort;
 
     @Container
     static PostgreSQLContainer<?> postgres =

@@ -1,6 +1,9 @@
 package co.duvan.loan.application.usecase;
 
+import co.duvan.loan.application.ports.output.CopyClientPort;
 import co.duvan.loan.application.ports.output.LoanRepositoryPort;
+import co.duvan.loan.application.ports.output.UserClientPort;
+import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.domain.enums.Status;
 import co.duvan.loan.domain.model.Loan;
 import org.junit.jupiter.api.Test;
@@ -20,6 +23,12 @@ class UpdateLoanUseCaseImplTest {
 
     @Mock
     private LoanRepositoryPort repositoryPort;
+
+    @Mock
+    private UserClientPort userClientPort;
+
+    @Mock
+    private CopyClientPort copyClientPort;
 
     @InjectMocks
     private UpdateLoanUseCaseImpl updateLoanUseCase;
@@ -52,10 +61,10 @@ class UpdateLoanUseCaseImplTest {
                 .thenReturn(savedLoan);
 
         //* Act
-        Loan result = updateLoanUseCase.update(loanId, loanToUpdate);
+        LoanDetailResult result = updateLoanUseCase.update(loanId, loanToUpdate);
 
         //* Assert
-        assertEquals(Status.RETURNED, result.getLoanStatus());
+        assertEquals(Status.RETURNED, result.getLoan().getLoanStatus());
 
         verify(repositoryPort).findById(loanId);
         verify(repositoryPort).save(existingLoan);

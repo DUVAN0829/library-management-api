@@ -1,6 +1,9 @@
 package co.duvan.loan.application.usecase;
 
+import co.duvan.loan.application.ports.output.CopyClientPort;
 import co.duvan.loan.application.ports.output.LoanRepositoryPort;
+import co.duvan.loan.application.ports.output.UserClientPort;
+import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.domain.model.Loan;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +20,12 @@ class CreateLoanUseCaseImplTest {
     @Mock
     private LoanRepositoryPort repositoryPort;
 
+    @Mock
+    private UserClientPort userClientPort;
+
+    @Mock
+    private CopyClientPort copyClientPort;
+
     @InjectMocks
     private CreateLoanUseCaseImpl createLoanUseCase;
 
@@ -32,11 +41,11 @@ class CreateLoanUseCaseImplTest {
         when(repositoryPort.save(loan)).thenReturn(existingLoan);
 
         //* Act
-        Loan result = createLoanUseCase.save(loan);
+        LoanDetailResult result = createLoanUseCase.save(loan);
 
         //* Assert
         assertNotNull(result);
-        assertNotNull(result.getLoanId());
+        assertNotNull(result.getLoan().getLoanId());
 
         verify(repositoryPort).save(loan);
     }

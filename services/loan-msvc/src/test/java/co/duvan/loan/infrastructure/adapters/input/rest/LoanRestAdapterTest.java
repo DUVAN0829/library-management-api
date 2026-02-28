@@ -159,10 +159,27 @@ class LoanRestAdapterTest {
     @Test
     void should_create_loan() throws Exception {
 
+        UserClientResponse clientResponse = new UserClientResponse();
+        clientResponse.setUserId(1L);
+
+        CopyClientResponse copyResponse = new CopyClientResponse();
+
+        LoanDetailResult result = new LoanDetailResult(loan, clientResponse, copyResponse);
+
+        LoanDetailResponse loanDetailResponse = new LoanDetailResponse(
+                1L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(7),
+                null,
+                Status.ACTIVE,
+                clientResponse,
+                copyResponse
+        );
+
         //* Given
         when(loanRestMapper.toLoan(any(LoanRequest.class))).thenReturn(loan);
-        when(createLoanUseCase.save(any(Loan.class))).thenReturn(loan);
-        when(loanRestMapper.toLoanResponse(any(Loan.class))).thenReturn(loanResponse);
+        when(createLoanUseCase.save(any(Loan.class))).thenReturn(result);
+        when(loanRestMapper.toLoanDetailResponse(any(LoanDetailResult.class))).thenReturn(loanDetailResponse);
 
         //* When
         mockMvc.perform(post(BASE_URL)
@@ -175,16 +192,33 @@ class LoanRestAdapterTest {
 
         verify(createLoanUseCase).save(any(Loan.class));
         verify(loanRestMapper).toLoan(any(LoanRequest.class));
-        verify(loanRestMapper).toLoanResponse(any(Loan.class));
+        verify(loanRestMapper).toLoanDetailResponse(any(LoanDetailResult.class));
     }
 
     @Test
     void should_update_loan() throws Exception {
 
+        UserClientResponse clientResponse = new UserClientResponse();
+        clientResponse.setUserId(1L);
+
+        CopyClientResponse copyResponse = new CopyClientResponse();
+
+        LoanDetailResult result = new LoanDetailResult(loan, clientResponse, copyResponse);
+
+        LoanDetailResponse loanDetailResponse = new LoanDetailResponse(
+                1L,
+                LocalDate.now(),
+                LocalDate.now().plusDays(7),
+                null,
+                Status.ACTIVE,
+                clientResponse,
+                copyResponse
+        );
+
         //* Given
         when(loanRestMapper.toLoan(any(LoanRequest.class))).thenReturn(loan);
-        when(updateLoanUseCase.update(eq(1L), any(Loan.class))).thenReturn(loan);
-        when(loanRestMapper.toLoanResponse(any(Loan.class))).thenReturn(loanResponse);
+        when(updateLoanUseCase.update(eq(1L), any(Loan.class))).thenReturn(result);
+        when(loanRestMapper.toLoanDetailResponse(any(LoanDetailResult.class))).thenReturn(loanDetailResponse);
 
         //* When
         mockMvc.perform(put(BASE_URL + "/1")
@@ -197,7 +231,7 @@ class LoanRestAdapterTest {
 
         verify(updateLoanUseCase).update(eq(1L), any(Loan.class));
         verify(loanRestMapper).toLoan(any(LoanRequest.class));
-        verify(loanRestMapper).toLoanResponse(any(Loan.class));
+        verify(loanRestMapper).toLoanDetailResponse(any(LoanDetailResult.class));
     }
 
     @Test
