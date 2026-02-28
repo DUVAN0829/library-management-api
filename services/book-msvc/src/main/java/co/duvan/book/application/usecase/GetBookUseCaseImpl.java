@@ -4,6 +4,7 @@ import co.duvan.book.application.ports.input.GetBookUseCase;
 import co.duvan.book.application.ports.output.BookRepositoryPort;
 import co.duvan.book.domain.exceptions.BookNotFoundException;
 import co.duvan.book.domain.model.Book;
+import co.duvan.book.domain.model.BookFilterQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,11 @@ public class GetBookUseCaseImpl implements GetBookUseCase {
 
         return repositoryPort.findAll();
 
+    }
+
+    @Override
+    public List<Book> getWithFilters(BookFilterQuery filter) {
+        return repositoryPort.findWithFilters(filter);
     }
 
 }
