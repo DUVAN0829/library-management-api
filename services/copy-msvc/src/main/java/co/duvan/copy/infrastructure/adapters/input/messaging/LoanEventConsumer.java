@@ -18,11 +18,11 @@ public class LoanEventConsumer {
     @Bean
     public Consumer<LoanEvent> loanEvents() {
         return event -> {
-            log.info("Evento recibido: {} para copyId: {}", event.eventType(), event.copyId());
+            log.info("Received event: {} for copyId: {}", event.eventType(), event.copyId());
             switch (event.eventType()) {
                 case "LOAN_CREATED"   -> updateCopyUseCase.updateStatus(event.copyId(), "LOANED");
                 case "LOAN_RETURNED"  -> updateCopyUseCase.updateStatus(event.copyId(), "AVAILABLE");
-                default -> log.warn("Evento desconocido: {}", event.eventType());
+                default -> log.warn("unknown event: {}", event.eventType());
             }
         };
     }
