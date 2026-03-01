@@ -1,6 +1,7 @@
 package co.duvan.loan.application.ports.output;
 
 import co.duvan.loan.domain.model.Loan;
+import co.duvan.loan.domain.model.LoanFilterQuery;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,5 +15,7 @@ public interface LoanRepositoryPort {
     List<Loan> findAll();
 
     void deleteById(Long id);
+
+    List<Loan> findWithFilters(LoanFilterQuery filter);
 
 }
