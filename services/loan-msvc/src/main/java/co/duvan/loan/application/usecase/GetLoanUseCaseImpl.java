@@ -9,6 +9,7 @@ import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.application.ports.output.dto.UserClientResponse;
 import co.duvan.loan.domain.exceptions.LoanNotFoundException;
 import co.duvan.loan.domain.model.Loan;
+import co.duvan.loan.domain.model.LoanFilterQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -39,6 +40,11 @@ public class GetLoanUseCaseImpl implements GetLoanUseCase {
     @Override
     public List<Loan> findAll() {
         return repositoryPort.findAll();
+    }
+
+    @Override
+    public List<Loan> getWithFilters(LoanFilterQuery filter) {
+        return repositoryPort.findWithFilters(filter);
     }
 
 }
