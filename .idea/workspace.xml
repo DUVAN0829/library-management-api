@@ -30,8 +30,8 @@
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
         <option value="package.json" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -355,7 +355,7 @@
       <workItem from="1772307352652" duration="1591000" />
       <workItem from="1772308960496" duration="24000" />
       <workItem from="1772309007498" duration="1113000" />
-      <workItem from="1772366287142" duration="8407000" />
+      <workItem from="1772366287142" duration="8631000" />
     </task>
     <servers />
   </component>
