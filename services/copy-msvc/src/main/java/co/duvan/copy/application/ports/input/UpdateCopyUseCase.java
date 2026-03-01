@@ -6,4 +6,6 @@ public interface UpdateCopyUseCase {
 
     Copy update(Long id, Copy copy);
 
+    void updateStatus(Long copyId, String status);
+
 }
