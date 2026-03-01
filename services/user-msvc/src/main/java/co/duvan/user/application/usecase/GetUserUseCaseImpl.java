@@ -4,6 +4,7 @@ import co.duvan.user.application.ports.input.GetUserUseCase;
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.exceptions.UserNotFoundException;
 import co.duvan.user.domain.model.User;
+import co.duvan.user.domain.model.UserFilterQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +34,11 @@ public class GetUserUseCaseImpl implements GetUserUseCase {
         return repositoryPort.findByKeycloakId(keycloakId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with keycloakId: " + keycloakId))
                 .getUserId();
+    }
+
+    @Override
+    public List<User> getWithFilters(UserFilterQuery filter) {
+        return repositoryPort.findWithFilters(filter);
     }
 
 }
