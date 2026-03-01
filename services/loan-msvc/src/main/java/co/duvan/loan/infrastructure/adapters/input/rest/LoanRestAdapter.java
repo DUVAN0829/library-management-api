@@ -4,6 +4,8 @@ import co.duvan.loan.application.ports.input.CreateLoanUseCase;
 import co.duvan.loan.application.ports.input.DeleteLoanUseCase;
 import co.duvan.loan.application.ports.input.GetLoanUseCase;
 import co.duvan.loan.application.ports.input.UpdateLoanUseCase;
+import co.duvan.loan.domain.enums.Status;
+import co.duvan.loan.domain.model.LoanFilterQuery;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.loan.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.loan.infrastructure.adapters.input.rest.mapper.LoanRestMapper;
@@ -16,12 +18,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/loans")
@@ -90,6 +95,27 @@ public class LoanRestAdapter {
 
         return ResponseEntity.noContent().build();
 
+    }
+
+    @Operation(summary = "Filter loans")
+    @ApiResponse(responseCode = "200", description = "Filtered loans")
+    @GetMapping("/api/v1/filter")
+    public ResponseEntity<List<LoanResponse>> getLoans(
+            @RequestParam(required = false) Status status,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate loanDateFrom,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate loanDateTo,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dueDateFrom,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dueDateTo,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate returnDateFrom,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate returnDateTo
+    ) {
+        LoanFilterQuery filter = new LoanFilterQuery(status, loanDateFrom, loanDateTo, dueDateFrom, dueDateTo, returnDateFrom, returnDateTo);
+        return ResponseEntity.ok(
+                getLoanUseCase.getWithFilters(filter)
+                        .stream()
+                        .map(loanRestMapper::toLoanResponse)
+                        .collect(Collectors.toList())
+        );
     }
 
 }
