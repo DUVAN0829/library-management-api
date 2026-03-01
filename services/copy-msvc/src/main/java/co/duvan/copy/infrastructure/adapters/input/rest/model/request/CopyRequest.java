@@ -40,7 +40,7 @@ public class CopyRequest {
             example = "AVAILABLE",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
-    @NotNull(message = "Field status cannot be null")
+    //@NotNull(message = "Field status cannot be null")
     private Status status;
 
 }

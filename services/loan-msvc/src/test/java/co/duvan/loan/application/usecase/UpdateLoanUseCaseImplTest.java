@@ -1,6 +1,7 @@
 package co.duvan.loan.application.usecase;
 
 import co.duvan.loan.application.ports.output.CopyClientPort;
+import co.duvan.loan.application.ports.output.LoanEventPublisherPort;
 import co.duvan.loan.application.ports.output.LoanRepositoryPort;
 import co.duvan.loan.application.ports.output.UserClientPort;
 import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
@@ -29,6 +30,9 @@ class UpdateLoanUseCaseImplTest {
 
     @Mock
     private CopyClientPort copyClientPort;
+
+    @Mock
+    private LoanEventPublisherPort eventPublisherPort;
 
     @InjectMocks
     private UpdateLoanUseCaseImpl updateLoanUseCase;
