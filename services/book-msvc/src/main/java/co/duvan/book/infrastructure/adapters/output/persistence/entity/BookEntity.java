@@ -35,7 +35,7 @@ public class BookEntity {
             name = "book_authors",
             joinColumns = @JoinColumn(name = "book_id")
     )
-    @Column(name = "author")
+    @Column(name = "author", columnDefinition = "TEXT")
     private List<String> authors;
 
     private String publisher;

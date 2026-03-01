@@ -4,6 +4,8 @@ import co.duvan.book.application.ports.input.CreateBookUseCase;
 import co.duvan.book.application.ports.input.DeleteBookUseCase;
 import co.duvan.book.application.ports.input.GetBookUseCase;
 import co.duvan.book.application.ports.input.UpdateBookUseCase;
+import co.duvan.book.domain.enums.Category;
+import co.duvan.book.domain.model.BookFilterQuery;
 import co.duvan.book.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.book.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.book.infrastructure.adapters.input.rest.mapper.BookRestMapper;
@@ -20,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -94,6 +97,23 @@ public class BookRestAdapter {
 
         return ResponseEntity.noContent().build();
 
+    }
+
+    @Operation(summary = "Filter books")
+    @ApiResponse(responseCode = "200", description = "Filtered books")
+    @GetMapping("/api/v1/filter")
+    public ResponseEntity<List<BookResponse>> getBooks(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) Category category
+    ) {
+        BookFilterQuery filter = new BookFilterQuery(title, author, category);
+        return ResponseEntity.ok(
+                getBookUseCase.getWithFilters(filter)
+                        .stream()
+                        .map(bookRestMapper::toBookResponse)
+                        .collect(Collectors.toList())
+        );
     }
 
 }

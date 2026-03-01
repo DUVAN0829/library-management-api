@@ -3,12 +3,9 @@ package co.duvan.book.infrastructure.adapters.output.persistence;
 import co.duvan.book.application.ports.output.BookRepositoryPort;
 import co.duvan.book.domain.model.Book;
 import co.duvan.book.domain.model.BookFilterQuery;
-import co.duvan.book.infrastructure.adapters.output.persistence.entity.BookEntity;
 import co.duvan.book.infrastructure.adapters.output.persistence.mapper.BookPersistenceMapper;
 import co.duvan.book.infrastructure.adapters.output.persistence.repository.BookRepository;
-import co.duvan.book.infrastructure.adapters.output.persistence.repository.BookSpecification;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -45,12 +42,11 @@ public class BookPersistenceAdapter implements BookRepositoryPort {
     @Override
     public List<Book> findWithFilters(BookFilterQuery filter) {
 
-        Specification<BookEntity> spec = Specification
-                .where(BookSpecification.hasTitle(filter.getTitle()))
-                .and(BookSpecification.hasCategory(filter.getCategory()))
-                .and(BookSpecification.hasAuthor(filter.getAuthor()));
-
-        return repository.findAll(spec)
+        return repository.findWithFilters(
+                        filter.getTitle(),
+                        filter.getAuthor(),
+                        filter.getCategory()
+                )
                 .stream()
                 .map(bookPersistenceMapper::toBook)
                 .collect(Collectors.toList());
