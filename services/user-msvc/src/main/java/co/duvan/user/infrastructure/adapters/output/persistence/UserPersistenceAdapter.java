@@ -2,6 +2,7 @@ package co.duvan.user.infrastructure.adapters.output.persistence;
 
 import co.duvan.user.application.ports.output.UserRepositoryPort;
 import co.duvan.user.domain.model.User;
+import co.duvan.user.domain.model.UserFilterQuery;
 import co.duvan.user.infrastructure.adapters.output.persistence.entity.UserEntity;
 import co.duvan.user.infrastructure.adapters.output.persistence.mapper.UserPersistenceMapper;
 import co.duvan.user.infrastructure.adapters.output.persistence.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -42,4 +44,18 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     public Optional<User> findByKeycloakId(String keycloakId) {
         return repository.findByKeycloakId(keycloakId).map(userPersistenceMapper::toUser);
     }
+
+    @Override
+    public List<User> findWithFilters(UserFilterQuery filter) {
+        return repository.findWithFilters(
+                        filter.getFirstname(),
+                        filter.getLastname(),
+                        filter.getDocumentType(),
+                        filter.getDocumentNumber()
+                )
+                .stream()
+                .map(userPersistenceMapper::toUser)
+                .collect(Collectors.toList());
+    }
+
 }
