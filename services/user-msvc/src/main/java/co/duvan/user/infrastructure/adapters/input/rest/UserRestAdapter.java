@@ -4,6 +4,8 @@ import co.duvan.user.application.ports.input.CreateUserUseCase;
 import co.duvan.user.application.ports.input.DeleteUserUseCase;
 import co.duvan.user.application.ports.input.GetUserUseCase;
 import co.duvan.user.application.ports.input.UpdateUserUseCase;
+import co.duvan.user.domain.enums.DocumentType;
+import co.duvan.user.domain.model.UserFilterQuery;
 import co.duvan.user.infrastructure.adapters.input.rest.documentation.DefaultApiErrors;
 import co.duvan.user.infrastructure.adapters.input.rest.documentation.ValidationApiError;
 import co.duvan.user.infrastructure.adapters.input.rest.mapper.UserRestMapper;
@@ -21,6 +23,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -99,6 +102,24 @@ public class UserRestAdapter {
 
         return ResponseEntity.noContent().build();
 
+    }
+
+    @Operation(summary = "Filter users")
+    @ApiResponse(responseCode = "200", description = "Filtered users")
+    @GetMapping("/api/v1/filter")
+    public ResponseEntity<List<UserResponse>> getUsers(
+            @RequestParam(required = false) String firstname,
+            @RequestParam(required = false) String lastname,
+            @RequestParam(required = false) DocumentType documentType,
+            @RequestParam(required = false) String documentNumber
+    ) {
+        UserFilterQuery filter = new UserFilterQuery(firstname, lastname, documentType, documentNumber);
+        return ResponseEntity.ok(
+                getUserUseCase.getWithFilters(filter)
+                        .stream()
+                        .map(userRestMapper::toUserResponse)
+                        .collect(Collectors.toList())
+        );
     }
 
 }

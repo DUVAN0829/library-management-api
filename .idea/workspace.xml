@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapter.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +191,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in book-msvc">
+  <component name="RunManager" selected="Spring Boot.UserMsvcApplication">
     <configuration name="All in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="book-msvc" />
       <option name="PACKAGE_NAME" value="" />
@@ -355,7 +358,7 @@
       <workItem from="1772307352652" duration="1591000" />
       <workItem from="1772308960496" duration="24000" />
       <workItem from="1772309007498" duration="1113000" />
-      <workItem from="1772366287142" duration="1628000" />
+      <workItem from="1772366287142" duration="2882000" />
     </task>
     <servers />
   </component>
