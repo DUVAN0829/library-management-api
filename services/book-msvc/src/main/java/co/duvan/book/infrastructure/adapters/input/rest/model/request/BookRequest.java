@@ -2,10 +2,7 @@ package co.duvan.book.infrastructure.adapters.input.rest.model.request;
 
 import co.duvan.book.domain.enums.Category;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +25,7 @@ public class BookRequest {
             example = "Joyland",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(min = 1, max = 255, message = "Field title must be between 1 and 255 characters")
     @NotBlank(message = "Field title cannot be blank")
     private String title;
 
@@ -43,6 +41,7 @@ public class BookRequest {
             example = "A mystery novel set in an amusement park, written by Stephen King.",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(max = 1000, message = "Field description cannot exceed 1000 characters")
     @NotBlank(message = "Field description cannot be blank")
     private String description;
 
@@ -59,6 +58,7 @@ public class BookRequest {
             example = "[\"Stephen King\"]",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(max = 10, message = "A book cannot have more than 10 authors")
     @NotEmpty(message = "Field authors cannot be empty")
     private List<String> authors;
 
@@ -67,6 +67,7 @@ public class BookRequest {
             example = "Hard Case Crime",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(max = 255, message = "Field publisher cannot exceed 255 characters")
     @NotBlank(message = "Field publisher cannot be blank")
     private String publisher;
 }
