@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,11 +32,10 @@ public class BookRequest {
     private String title;
 
     @Schema(
-            description = "Unique identifier of the book in the system",
-            example = "ISBN-97",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            description = "Unique identifier of the book. If not provided, it will be generated automatically with format ISBN-XXXX",
+            example = "ISBN-97f3a2bc"
     )
-    @NotBlank(message = "Field isbn cannot be blank")
+    @Pattern(regexp = "^ISBN-[a-zA-Z0-9]+$", message = "ISBN must have format ISBN-XXXX")
     private String isbn;
 
     @Schema(

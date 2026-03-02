@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 @RequiredArgsConstructor
 public class CreateBookUseCaseImpl implements CreateBookUseCase {
@@ -15,7 +17,16 @@ public class CreateBookUseCaseImpl implements CreateBookUseCase {
 
     @Override
     public Book save(Book book) {
+
+        if (book.getIsbn() == null || book.getIsbn().isBlank()) {
+            book.setIsbn(generateIsbn());
+        }
+
         return repositoryPort.save(book);
+    }
+
+    private String generateIsbn() {
+        return "ISBN-" + UUID.randomUUID().toString().replace("-", "").substring(0, 8).toUpperCase();
     }
 
 }
