@@ -41,7 +41,6 @@ public class LoanRequest {
             example = "2026-02-17",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
-    @NotNull(message = "Field loanDate cannot be null")
     private LocalDate loanDate;
 
     @Schema(
@@ -49,7 +48,6 @@ public class LoanRequest {
             example = "2026-03-03",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
-    @NotNull(message = "Field dueDate cannot be null")
     private LocalDate dueDate;
 
     @Schema(

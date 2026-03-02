@@ -8,10 +8,13 @@ import co.duvan.loan.application.ports.output.UserClientPort;
 import co.duvan.loan.application.ports.output.dto.CopyClientResponse;
 import co.duvan.loan.application.ports.output.dto.LoanDetailResult;
 import co.duvan.loan.application.ports.output.dto.UserClientResponse;
+import co.duvan.loan.domain.enums.Status;
 import co.duvan.loan.domain.model.Loan;
 import co.duvan.loan.domain.model.LoanEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 @RequiredArgsConstructor
@@ -24,6 +27,12 @@ public class CreateLoanUseCaseImpl implements CreateLoanUseCase {
 
     @Override
     public LoanDetailResult save(Loan loan) {
+
+        loan.setLoanDate(LocalDate.now());
+
+        loan.setDueDate(LocalDate.now().plusDays(15));
+
+        loan.setLoanStatus(Status.ACTIVE);
 
         Loan loanDb = repositoryPort.save(loan);
 
