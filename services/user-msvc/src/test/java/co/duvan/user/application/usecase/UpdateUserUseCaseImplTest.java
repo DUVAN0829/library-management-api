@@ -34,14 +34,14 @@ class UpdateUserUseCaseImplTest {
 
         User exitingUser = new User();
         exitingUser.setUserId(bookId);
-        exitingUser.setPhoneNumber("318-098-631");
+        exitingUser.setPhoneNumber("318098631");
 
         User usertoUpdate = new User();
-        usertoUpdate.setPhoneNumber("319-765-632");
+        usertoUpdate.setPhoneNumber("319765632");
 
         User savedUser = new User();
         savedUser.setUserId(bookId);
-        savedUser.setPhoneNumber("319-765-632");
+        savedUser.setPhoneNumber("319765632");
 
         when(repositoryPort.findById(bookId)).thenReturn(Optional.of(exitingUser));
         when(repositoryPort.save(any(User.class))).thenReturn(savedUser);
@@ -51,7 +51,7 @@ class UpdateUserUseCaseImplTest {
 
         //* Assert
         assertNotNull(result);
-        assertEquals("319-765-632", result.getPhoneNumber());
+        assertEquals("319765632", result.getPhoneNumber());
 
     }
 

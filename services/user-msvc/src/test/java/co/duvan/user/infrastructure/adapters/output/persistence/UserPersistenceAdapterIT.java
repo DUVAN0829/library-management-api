@@ -52,11 +52,11 @@ class UserPersistenceAdapterIT {
                 .firstname("Duván")
                 .lastname("González")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
-                .documentNumber("23.984.631")
+                .documentNumber("23984631")
                 .birthdate(LocalDate.of(2004, 2, 11))
                 .gender(Gender.MALE)
                 .email("duvan@gmail.com")
-                .phoneNumber("314-984-234")
+                .phoneNumber("314984234")
                 .nationality(new Nationality("CO"))
                 .build();
 
@@ -78,11 +78,11 @@ class UserPersistenceAdapterIT {
                 .firstname("Kata")
                 .lastname("Suárez")
                 .documentType(DocumentType.PASSPORT)
-                .documentNumber("90.832.457")
+                .documentNumber("90832457")
                 .birthdate(LocalDate.of(2003, 1, 29))
                 .gender(Gender.FEMALE)
                 .email("katha04@gmail.com")
-                .phoneNumber("984-416-091")
+                .phoneNumber("984416091")
                 .nationality(new Nationality("AR"))
                 .build();
 
@@ -104,14 +104,14 @@ class UserPersistenceAdapterIT {
         User userA = User.builder()
                 .keycloakId(UUID.randomUUID().toString())
                 .firstname("Mahrie").lastname("Cardona").documentType(DocumentType.IDENTITY_DOCUMENT)
-                .documentNumber("45.178.092").birthdate(LocalDate.of(2000, 11, 2)).gender(Gender.FEMALE)
-                .email("mari56@gmail.com").phoneNumber("349-902-413").nationality(new Nationality("MX")).build();
+                .documentNumber("45178092").birthdate(LocalDate.of(2000, 11, 2)).gender(Gender.FEMALE)
+                .email("mari56@gmail.com").phoneNumber("349902413").nationality(new Nationality("MX")).build();
 
         User userB = User.builder()
                 .keycloakId(UUID.randomUUID().toString())
                 .firstname("Jacob").lastname("Álvarez").documentType(DocumentType.OTHER)
-                .documentNumber("76.364.419").birthdate(LocalDate.of(1997, 6, 18)).gender(Gender.MALE)
-                .email("jacalv07@gmail.com").phoneNumber("632-209-183").nationality(new Nationality("CO")).build();
+                .documentNumber("76364419").birthdate(LocalDate.of(1997, 6, 18)).gender(Gender.MALE)
+                .email("jacalv07@gmail.com").phoneNumber("632209183").nationality(new Nationality("CO")).build();
 
         repositoryPort.save(userA);
         repositoryPort.save(userB);
@@ -134,24 +134,24 @@ class UserPersistenceAdapterIT {
                 .firstname("Mark")
                 .lastname("Adams")
                 .documentType(DocumentType.PASSPORT)
-                .documentNumber("LDK9384")
+                .documentNumber("9837190")
                 .birthdate(LocalDate.of(2001, 8, 22))
                 .gender(Gender.MALE)
                 .email("markadams@gmail.com")
-                .phoneNumber("984-416-091")
+                .phoneNumber("984416091")
                 .nationality(new Nationality("AR"))
                 .build();
 
         User exitignUser = repositoryPort.save(user);
 
         //* When
-        exitignUser.setPhoneNumber("678-321-790");
+        exitignUser.setPhoneNumber("678321790");
 
         User updatedUser = repositoryPort.save(exitignUser);
 
         //* Then
         assertNotNull(updatedUser.getUserId());
-        assertEquals("678-321-790", updatedUser.getPhoneNumber());
+        assertEquals("678321790", updatedUser.getPhoneNumber());
 
     }
 
@@ -164,11 +164,11 @@ class UserPersistenceAdapterIT {
                 .firstname("Melanie")
                 .lastname("Martinez")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
-                .documentNumber("89.261.725")
+                .documentNumber("89261725")
                 .birthdate(LocalDate.of(1998, 12, 14))
                 .gender(Gender.FEMALE)
                 .email("melanie93@gmail.com")
-                .phoneNumber("902-612-927")
+                .phoneNumber("902612927")
                 .nationality(new Nationality("US"))
                 .build();
 
