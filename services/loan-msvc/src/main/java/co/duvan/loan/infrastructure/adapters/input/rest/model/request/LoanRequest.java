@@ -3,6 +3,7 @@ package co.duvan.loan.infrastructure.adapters.input.rest.model.request;
 import co.duvan.loan.domain.enums.Status;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class LoanRequest {
             example = "5",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Positive(message = "Field userId must be a positive number")
     @NotNull(message = "Field userId cannot be null")
     private Long userId;
 
@@ -33,6 +35,7 @@ public class LoanRequest {
             example = "3",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Positive(message = "Field copyId must be a positive number")
     @NotNull(message = "Field copyId cannot be null")
     private Long copyId;
 
