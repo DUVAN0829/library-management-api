@@ -57,7 +57,7 @@ public class CopyRestAdapterIT {
         //* Given
         CopyRequest request = new CopyRequest(
                 1L,
-                "CP-100",
+                "COD-1KNC",
                 Status.AVAILABLE
         );
 
@@ -70,7 +70,7 @@ public class CopyRestAdapterIT {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.copyId").exists())
-                .andExpect(jsonPath("$.code").value("CP-100"));
+                .andExpect(jsonPath("$.code").value("COD-1KNC"));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CopyRestAdapterIT {
         //* Given
         CopyRequest request = new CopyRequest(
                 2L,
-                "CP-200",
+                "COD-2LOP",
                 Status.LOANED
         );
 
@@ -100,7 +100,7 @@ public class CopyRestAdapterIT {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].copyId").value(id))
-                .andExpect(jsonPath("$[0].code").value("CP-200"));
+                .andExpect(jsonPath("$[0].code").value("COD-2LOP"));
     }
 
     @Test
@@ -109,7 +109,7 @@ public class CopyRestAdapterIT {
         //* Given
         CopyRequest request = new CopyRequest(
                 3L,
-                "CP-300",
+                "COD-30SD",
                 Status.AVAILABLE
         );
 

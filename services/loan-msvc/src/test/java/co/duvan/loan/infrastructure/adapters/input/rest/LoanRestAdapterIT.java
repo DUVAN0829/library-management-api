@@ -1,6 +1,7 @@
 package co.duvan.loan.infrastructure.adapters.input.rest;
 
 import co.duvan.loan.application.ports.output.CopyClientPort;
+import co.duvan.loan.application.ports.output.LoanEventPublisherPort;
 import co.duvan.loan.application.ports.output.UserClientPort;
 import co.duvan.loan.domain.enums.Status;
 import co.duvan.loan.infrastructure.adapters.input.rest.model.request.LoanRequest;
@@ -46,6 +47,9 @@ public class LoanRestAdapterIT {
 
     @MockitoBean
     private CopyClientPort copyClientPort;
+
+    @MockitoBean
+    private LoanEventPublisherPort loanEventPublisherPort;
 
     @Container
     static PostgreSQLContainer<?> postgres =
@@ -94,7 +98,7 @@ public class LoanRestAdapterIT {
                 1L,
                 10L,
                 LocalDate.now(),
-                LocalDate.now().plusDays(7),
+                LocalDate.now().plusDays(10),
                 null,
                 Status.ACTIVE
         );

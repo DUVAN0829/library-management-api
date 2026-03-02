@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,71 +196,57 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserPersistenceAdapterIT">
-    <configuration name="GlobalControllerAdviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
+  <component name="RunManager" selected="JUnit.java in loan-msvc">
+    <configuration name="CopyRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
+          <option name="PATTERN" value="co.duvan.copy.infrastructure.adapters.input.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.GlobalControllerAdviceTest" />
+      <option name="PACKAGE_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest.CopyRestAdapterIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserPersistenceAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
+    <configuration name="LoanRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loan-msvc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.output.persistence.*" />
+          <option name="PATTERN" value="co.duvan.loan.infrastructure.adapters.input.rest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.output.persistence" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.output.persistence.UserPersistenceAdapterIT" />
+      <option name="PACKAGE_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest" />
+      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest.LoanRestAdapterIT" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRestAdapterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.user.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.user.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.user.infrastructure.adapters.input.rest.UserRestAdapterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="user-msvc" />
+    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-msvc" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/user-msvc/src/test/java" />
+      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="copy-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/copy-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loan-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/loan-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -298,11 +288,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserPersistenceAdapterIT" />
-        <item itemvalue="JUnit.java in user-msvc" />
-        <item itemvalue="JUnit.GlobalControllerAdviceTest" />
-        <item itemvalue="JUnit.UserRestAdapterIT" />
-        <item itemvalue="JUnit.UserRestAdapterTest" />
+        <item itemvalue="JUnit.java in loan-msvc" />
+        <item itemvalue="JUnit.LoanRestAdapterIT" />
+        <item itemvalue="JUnit.java in copy-msvc" />
+        <item itemvalue="JUnit.CopyRestAdapterIT" />
+        <item itemvalue="JUnit.java in book-msvc" />
       </list>
     </recent_temporary>
   </component>
@@ -384,7 +374,7 @@
       <workItem from="1772400137896" duration="5313000" />
       <workItem from="1772414205382" duration="1198000" />
       <workItem from="1772449431238" duration="5125000" />
-      <workItem from="1772483588490" duration="2304000" />
+      <workItem from="1772483588490" duration="7595000" />
     </task>
     <servers />
   </component>

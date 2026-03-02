@@ -73,20 +73,20 @@ class CopyRestAdapterTest {
         copy = new Copy(
                 1L,
                 10L,
-                "CP-001",
+                "COD-001",
                 Status.AVAILABLE
         );
 
         copyResponse = new CopyResponse(
                 1L,
                 10L,
-                "CP-001",
+                "COD-001",
                 Status.AVAILABLE
         );
 
         copyRequest = new CopyRequest(
                 10L,
-                "CP-002",
+                "COD-002",
                 Status.LOANED
         );
     }
@@ -112,7 +112,7 @@ class CopyRestAdapterTest {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.copyId").value(1))
-                .andExpect(jsonPath("$.code").value("CP-001"));
+                .andExpect(jsonPath("$.code").value("COD-001"));
 
         verify(getCopyUseCase).findById(1L);
         verify(copyRestMapper).toCopyDetailResponse(copyDetailResult);
@@ -131,7 +131,7 @@ class CopyRestAdapterTest {
                 //* Then
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].copyId").value(1))
-                .andExpect(jsonPath("$[0].code").value("CP-001"));
+                .andExpect(jsonPath("$[0].code").value("COD-001"));
 
         verify(getCopyUseCase).findAll();
         verify(copyRestMapper).toCopyResponseList(List.of(copy));
