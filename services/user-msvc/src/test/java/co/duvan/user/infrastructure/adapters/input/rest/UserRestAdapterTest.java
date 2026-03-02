@@ -76,11 +76,11 @@ class UserRestAdapterTest {
                 .firstname("Duvan")
                 .lastname("Gonzalez")
                 .documentType(DocumentType.IDENTITY_DOCUMENT)
-                .documentNumber("90.342.056")
+                .documentNumber("90342056")
                 .birthdate(LocalDate.of(1995, 5, 10))
                 .gender(Gender.MALE)
                 .email("duvan@email.com")
-                .phoneNumber("300-123-456")
+                .phoneNumber("3189368129")
                 .nationality(new Nationality("CL"))
                 .build();
 
@@ -88,11 +88,11 @@ class UserRestAdapterTest {
                 "Duvan",
                 "Gonzalez",
                 DocumentType.IDENTITY_DOCUMENT,
-                "90.342.056",
+                "90342056",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
                 "duvan@gmail.com",
-                "300-123-456",
+                "3189368129",
                 "CL"
         );
 
@@ -105,7 +105,7 @@ class UserRestAdapterTest {
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
                 "duvan@gmail.com",
-                "300-123-456",
+                "3189368129",
                 "CL"
         );
     }

@@ -125,7 +125,7 @@ class GlobalControllerAdviceTest {
                 .andExpect(jsonPath("$.code").value("ERR_USER_02"))
                 .andExpect(jsonPath("$.message").value("Invalid user parameters"))
                 .andExpect(jsonPath("$.details[0]")
-                        .value("Invalid ISO 3166-1 alpha-2 code"));
+                        .value("Field nationality must be uppercase, example: CO, US, MX"));
     }
 
     @Test

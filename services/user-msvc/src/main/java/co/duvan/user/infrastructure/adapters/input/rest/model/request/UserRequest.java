@@ -3,9 +3,7 @@ package co.duvan.user.infrastructure.adapters.input.rest.model.request;
 import co.duvan.user.domain.enums.DocumentType;
 import co.duvan.user.domain.enums.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +26,8 @@ public class UserRequest {
             example = "Duván",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(min = 2, max = 50, message = "Field firstname must be between 2 and 50 characters")
+    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+$", message = "Field firstname can only contain letters")
     @NotBlank(message = "Field firstname cannot be blank")
     private String firstname;
 
@@ -36,6 +36,8 @@ public class UserRequest {
             example = "González",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(min = 2, max = 50, message = "Field lastname must be between 2 and 50 characters")
+    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+$", message = "Field lastname can only contain letters")
     @NotBlank(message = "Field lastname cannot be blank")
     private String lastname;
 
@@ -52,6 +54,8 @@ public class UserRequest {
             example = "32.984.032",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(min = 5, max = 20, message = "Field documentNumber must be between 5 and 20 characters")
+    @Pattern(regexp = "^[0-9]+$", message = "Field documentNumber can only contain numbers")
     @NotBlank(message = "Field documentNumber cannot be blank")
     private String documentNumber;
 
@@ -60,6 +64,7 @@ public class UserRequest {
             example = "2004-02-11",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Past(message = "Field birthdate must be a past date")
     @NotNull(message = "Field birthdate cannot be null")
     private LocalDate birthdate;
 
@@ -76,8 +81,9 @@ public class UserRequest {
             example = "duvan@gmail.com",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Email(message = "Field email must be a valid email address")
+    @Size(max = 50, message = "Field email cannot exceed 50 characters")
     @NotBlank(message = "Field email cannot be blank")
-    @Email
     private String email;
 
     @Schema(
@@ -86,6 +92,8 @@ public class UserRequest {
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank(message = "Field phoneNumber cannot be blank")
+    @Pattern(regexp = "^[0-9]{7,15}$", message = "Field phoneNumber must contain between 7 and 15 digits")
+    @NotBlank(message = "Field phoneNumber cannot be blank")
     private String phoneNumber;
 
     @Schema(
@@ -93,6 +101,8 @@ public class UserRequest {
             example = "CO",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
+    @Size(min = 2, max = 2, message = "Field nationality must be a valid ISO 3166-1 alpha-2 code")
+    @Pattern(regexp = "^[A-Z]{2}$", message = "Field nationality must be uppercase, example: CO, US, MX")
     @NotBlank(message = "Field nationality cannot be blank")
     private String nationality;
 

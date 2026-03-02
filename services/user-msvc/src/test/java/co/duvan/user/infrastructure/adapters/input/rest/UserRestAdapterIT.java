@@ -80,11 +80,11 @@ public class UserRestAdapterIT {
                 "Duvan",
                 "Gonzalez",
                 DocumentType.IDENTITY_DOCUMENT,
-                "74.930.123",
+                "74930123",
                 LocalDate.of(1995, 5, 10),
                 Gender.MALE,
                 "duv@gmail.com",
-                "300-123-456",
+                "300123456",
                 "CO"
         );
 
@@ -107,11 +107,11 @@ public class UserRestAdapterIT {
                 "Maria",
                 "Perez",
                 DocumentType.IDENTITY_DOCUMENT,
-                "87.654321",
+                "87654321",
                 LocalDate.of(1998, 3, 20),
                 Gender.FEMALE,
                 "maria@gmail.com",
-                "300-999-888",
+                "300999888",
                 "MX"
         );
 
@@ -141,11 +141,11 @@ public class UserRestAdapterIT {
                 "Carlos",
                 "Lopez",
                 DocumentType.PASSPORT,
-                "AMN3914",
+                "391465467",
                 LocalDate.of(1990, 1, 15),
                 Gender.MALE,
                 "carlos@gmail.com",
-                "301-222-333",
+                "301222333",
                 "CL"
         );
 
