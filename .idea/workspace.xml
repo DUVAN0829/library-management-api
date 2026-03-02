@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/usecase/CreateCopyUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/application/usecase/CreateCopyUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/request/CopyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/java/co/duvan/copy/infrastructure/adapters/input/rest/model/request/CopyRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +356,8 @@
       <workItem from="1772309007498" duration="1113000" />
       <workItem from="1772366287142" duration="9027000" />
       <workItem from="1772400137896" duration="5313000" />
-      <workItem from="1772414205382" duration="520000" />
+      <workItem from="1772414205382" duration="1198000" />
+      <workItem from="1772449431238" duration="411000" />
     </task>
     <servers />
   </component>

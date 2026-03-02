@@ -4,6 +4,7 @@ import co.duvan.copy.domain.enums.Status;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,19 +29,16 @@ public class CopyRequest {
     private Long bookId;
 
     @Schema(
-            description = "code of the copy",
-            example = "CP-12",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            description = "Code of the copy. If not provided, it will be generated automatically with format COD-XXXX",
+            example = "COD-3F7A92BC"
     )
-    @NotBlank(message = "Field code cannot be blank")
+    @Pattern(regexp = "^COD-[a-zA-Z0-9]+$", message = "Code must have format COD-XXXX")
     private String code;
 
     @Schema(
-            description = "status of the copy",
-            example = "AVAILABLE",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            description = "Status of the copy. If not provided, defaults to AVAILABLE",
+            example = "AVAILABLE"
     )
-    //@NotNull(message = "Field status cannot be null")
     private Status status;
 
 }
