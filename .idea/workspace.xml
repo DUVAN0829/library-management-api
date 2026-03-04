@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-fast.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-fast.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -361,6 +358,7 @@
       <workItem from="1772546367338" duration="1453000" />
       <workItem from="1772576627400" duration="3137000" />
       <workItem from="1772647320642" duration="211000" />
+      <workItem from="1772647910207" duration="2054000" />
     </task>
     <servers />
   </component>
