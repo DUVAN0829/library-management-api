@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-fast.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-fast.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/test/java/co/duvan/copy/infrastructure/adapters/input/rest/CopyRestAdapterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/test/java/co/duvan/loan/infrastructure/adapters/input/rest/LoanRestAdapterIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -196,49 +193,35 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in loan-msvc">
-    <configuration name="CopyRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="copy-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.copy.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.copy.infrastructure.adapters.input.rest.CopyRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanRestAdapterIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.duvan.loan.infrastructure.adapters.input.rest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest" />
-      <option name="MAIN_CLASS_NAME" value="co.duvan.loan.infrastructure.adapters.input.rest.LoanRestAdapterIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in user-msvc">
+    <configuration name="All in book-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="book-msvc" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/book-msvc/src/test/java" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in copy-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="copy-msvc" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/services/copy-msvc/src/test/java" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in loan-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loan-msvc" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -288,11 +271,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in user-msvc" />
+        <item itemvalue="JUnit.All in loan-msvc" />
+        <item itemvalue="JUnit.All in copy-msvc" />
+        <item itemvalue="JUnit.All in book-msvc" />
         <item itemvalue="JUnit.java in loan-msvc" />
-        <item itemvalue="JUnit.LoanRestAdapterIT" />
-        <item itemvalue="JUnit.java in copy-msvc" />
-        <item itemvalue="JUnit.CopyRestAdapterIT" />
-        <item itemvalue="JUnit.java in book-msvc" />
       </list>
     </recent_temporary>
   </component>
@@ -374,7 +357,10 @@
       <workItem from="1772400137896" duration="5313000" />
       <workItem from="1772414205382" duration="1198000" />
       <workItem from="1772449431238" duration="5125000" />
-      <workItem from="1772483588490" duration="7595000" />
+      <workItem from="1772483588490" duration="8238000" />
+      <workItem from="1772546367338" duration="1453000" />
+      <workItem from="1772576627400" duration="3137000" />
+      <workItem from="1772647320642" duration="211000" />
     </task>
     <servers />
   </component>
