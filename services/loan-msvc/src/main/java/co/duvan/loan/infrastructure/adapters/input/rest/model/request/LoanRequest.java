@@ -65,7 +65,6 @@ public class LoanRequest {
             example = "ACTIVE",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
-    @NotNull(message = "Field loanStatus cannot be null")
     private Status loanStatus;
 
 }
