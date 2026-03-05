@@ -38,7 +38,7 @@ public class CopyDetailResponse {
     )
     private Status status;
 
-    @Schema(description = "status of the copy")
+    @Schema(description = "")
     private BookClientResponse book;
 
 }

@@ -21,50 +21,43 @@ public class LoanResponse {
 
     @Schema(
             description = "loanId of the loan",
-            example = "8",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "8"
     )
     private Long loanId;
 
     @Schema(
             description = "userId of the loan",
-            example = "5",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "5"
     )
     private Long userId;
 
     @Schema(
             description = "copyId of the loan",
-            example = "3",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "3"
     )
     private Long copyId;
 
     @Schema(
             description = "loanDate of the loan",
-            example = "2026-02-17",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2026-02-17"
     )
     private LocalDate loanDate;
 
     @Schema(
             description = "dueDate of the loan",
-            example = "2026-03-03",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2026-03-03"
     )
     private LocalDate dueDate;
 
     @Schema(
             description = "returnDate of the loan",
-            example = "2026-02-25",
-            requiredMode = Schema.RequiredMode.NOT_REQUIRED
+            example = "2026-02-25"
     )
     private LocalDate returnDate;
 
     @Schema(
             description = "loanStatus of the loan",
-            example = "RETURNED",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "RETURNED"
     )
     private Status loanStatus;
 
