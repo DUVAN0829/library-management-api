@@ -50,7 +50,7 @@ public class UserResponse {
 
     @Schema(
             description = "documentNumber of the user",
-            example = "32.984.032",
+            example = "3298403241",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private String documentNumber;
@@ -78,7 +78,7 @@ public class UserResponse {
 
     @Schema(
             description = "phoneNumber of the user",
-            example = "318-936-812",
+            example = "3189368127",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     private String phoneNumber;
