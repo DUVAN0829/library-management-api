@@ -22,71 +22,61 @@ public class UserResponse {
 
     @Schema(
             description = "userId of the user",
-            example = "5",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "5"
     )
     private Long userId;
 
     @Schema(
             description = "firstname of the user",
-            example = "Duván",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "Duván"
     )
     private String firstname;
 
     @Schema(
             description = "lastname of the user",
-            example = "González",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "González"
     )
     private String lastname;
 
     @Schema(
             description = "documentType of the user",
-            example = "IDENTITY_DOCUMENT",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "IDENTITY_DOCUMENT"
     )
     private DocumentType documentType;
 
     @Schema(
             description = "documentNumber of the user",
-            example = "3298403241",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "3298403241"
     )
     private String documentNumber;
 
     @Schema(
             description = "birthdate of the user",
-            example = "2004-02-11",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2004-02-11"
     )
     private LocalDate birthdate;
 
     @Schema(
             description = "gender of the user",
-            example = "MALE",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "MALE"
     )
     private Gender gender;
 
     @Schema(
             description = "email of the user",
-            example = "duvan@gmail.com",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "duvan@gmail.com"
     )
     private String email;
 
     @Schema(
             description = "phoneNumber of the user",
-            example = "3189368127",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "3189368127"
     )
     private String phoneNumber;
 
     @Schema(
             description = "Nationality of the user in ISO 3166-1 alpha-2 format",
-            example = "CO",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "CO"
     )
     private String nationality;
 
