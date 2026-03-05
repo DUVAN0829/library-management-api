@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/request/LoanRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/response/LoanDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/java/co/duvan/loan/infrastructure/adapters/input/rest/model/response/LoanDetailResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +363,8 @@
       <workItem from="1772647320642" duration="211000" />
       <workItem from="1772647910207" duration="2054000" />
       <workItem from="1772656731059" duration="575000" />
-      <workItem from="1772667064056" duration="2932000" />
+      <workItem from="1772667064056" duration="4416000" />
+      <workItem from="1772739641039" duration="11000" />
     </task>
     <servers />
   </component>
@@ -389,6 +389,11 @@
           <url>file://$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java</url>
           <line>51</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/services/user-msvc/src/main/java/co/duvan/user/infrastructure/adapters/input/rest/model/request/UserRequest.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
