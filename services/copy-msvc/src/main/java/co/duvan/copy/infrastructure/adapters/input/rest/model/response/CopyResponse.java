@@ -20,29 +20,25 @@ public class CopyResponse {
 
     @Schema(
             description = "copyId of the copy",
-            example = "2",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2"
     )
     private Long copyId;
 
     @Schema(
             description = "bookId of the copy",
-            example = "3",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "3"
     )
     private Long bookId;
 
     @Schema(
             description = "code of the copy",
-            example = "CP-12",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "COD-3F7A92BC"
     )
     private String code;
 
     @Schema(
             description = "status of the copy",
-            example = "AVAILABLE",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "AVAILABLE"
     )
     private Status status;
 
