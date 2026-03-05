@@ -23,7 +23,7 @@ public class CopyRequest {
 
     @Schema(
             description = "bookId of the copy",
-            example = "3",
+            example = "1",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Positive(message = "Field bookId must be a positive number")
