@@ -31,8 +31,6 @@ public class UpdateLoanUseCaseImpl implements UpdateLoanUseCase {
 
                     loanDb.setUserId(loan.getUserId());
                     loanDb.setCopyId(loan.getCopyId());
-                    loanDb.setLoanDate(loan.getLoanDate());
-                    loanDb.setDueDate(loan.getDueDate());
                     loanDb.setReturnDate(loan.getReturnDate());
                     loanDb.setLoanStatus(loan.getLoanStatus());
 
