@@ -23,7 +23,7 @@ public class LoanRequest {
 
     @Schema(
             description = "userId of the loan",
-            example = "5",
+            example = "1",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Positive(message = "Field userId must be a positive number")
@@ -32,7 +32,7 @@ public class LoanRequest {
 
     @Schema(
             description = "copyId of the loan",
-            example = "3",
+            example = "1",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Positive(message = "Field copyId must be a positive number")
@@ -41,31 +41,26 @@ public class LoanRequest {
 
     @Schema(
             description = "loanDate of the loan",
-            example = "2026-02-17",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2026-02-17"
     )
     private LocalDate loanDate;
 
     @Schema(
             description = "dueDate of the loan",
-            example = "2026-03-03",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "2026-03-03"
     )
     private LocalDate dueDate;
 
     @Schema(
             description = "returnDate of the loan",
-            example = "2026-02-25",
-            requiredMode = Schema.RequiredMode.NOT_REQUIRED
+            example = "2026-02-25"
     )
     private LocalDate returnDate;
 
     @Schema(
             description = "loanStatus of the loan",
-            example = "ACTIVE",
-            requiredMode = Schema.RequiredMode.REQUIRED
+            example = "ACTIVE"
     )
-    @NotNull(message = "Field loanStatus cannot be null")
     private Status loanStatus;
 
 }

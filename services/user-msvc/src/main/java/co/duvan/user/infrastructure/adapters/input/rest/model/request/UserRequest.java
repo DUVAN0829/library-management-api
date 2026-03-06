@@ -23,7 +23,7 @@ public class UserRequest {
 
     @Schema(
             description = "firstname of the user",
-            example = "Duván",
+            example = "Alex",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Size(min = 2, max = 50, message = "Field firstname must be between 2 and 50 characters")
@@ -51,7 +51,7 @@ public class UserRequest {
 
     @Schema(
             description = "documentNumber of the user",
-            example = "32.984.032",
+            example = "32984032",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Size(min = 5, max = 20, message = "Field documentNumber must be between 5 and 20 characters")
@@ -78,7 +78,7 @@ public class UserRequest {
 
     @Schema(
             description = "email of the user",
-            example = "duvan@gmail.com",
+            example = "alex83@gmail.com",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @Email(message = "Field email must be a valid email address")
@@ -88,7 +88,7 @@ public class UserRequest {
 
     @Schema(
             description = "phoneNumber of the user",
-            example = "318-936-812",
+            example = "3189366812",
             requiredMode = Schema.RequiredMode.REQUIRED
     )
     @NotBlank(message = "Field phoneNumber cannot be blank")
