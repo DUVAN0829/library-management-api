@@ -1,10 +1,6 @@
 name: CI - Full Validation
 
 on:
-  pull_request:
-    branches:
-      - develop
-      - main
   workflow_dispatch:
 
 jobs:
