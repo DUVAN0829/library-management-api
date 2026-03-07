@@ -4,7 +4,7 @@ ARG LOAN_MSVC=loan-msvc
 FROM alpine/java:22-jdk AS builder
 
 ARG MONOREPO
-ARG BOOK_MSVC
+ARG LOAN_MSVC
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ RUN ./mvnw clean package -DskipTests
 FROM alpine/java:22-jdk
 
 ARG MONOREPO
-ARG BOOK_MSVC
+ARG LOAN_MSVC
 
 WORKDIR /app
 
