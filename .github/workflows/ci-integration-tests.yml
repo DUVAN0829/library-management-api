@@ -1,4 +1,4 @@
-name: CI - Full Validation
+name: CI - Integrations Tests
 
 on:
   workflow_dispatch:
