@@ -7,3 +7,10 @@ spring:
 
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  # Resource server configuration for testing
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost/test
