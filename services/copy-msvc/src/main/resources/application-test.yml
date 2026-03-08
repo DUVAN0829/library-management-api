@@ -1,0 +1,10 @@
+spring:
+  # Resource server configuration for testing
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost/test
+
+book-msvc:
+  url: http://localhost:8081
