@@ -1,4 +1,4 @@
-ARG MONOREPO=services
+ARG MONOREPO=platform
 ARG GATEWAY_MSVC=gateway-msvc
 
 FROM alpine/java:22-jdk AS builder
