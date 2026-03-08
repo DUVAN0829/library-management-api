@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway-msvc/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/copy-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/copy-msvc/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/loan-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/loan-msvc/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +370,7 @@
       <workItem from="1772837054160" duration="5637000" />
       <workItem from="1772884203670" duration="88000" />
       <workItem from="1772885907377" duration="4435000" />
-      <workItem from="1772922819186" duration="4318000" />
+      <workItem from="1772922819186" duration="5331000" />
     </task>
     <servers />
   </component>
