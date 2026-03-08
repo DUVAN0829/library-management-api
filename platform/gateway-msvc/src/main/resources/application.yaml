@@ -6,7 +6,7 @@ spring:
         webflux:
           routes:
             - id: book-msvc
-              uri: http://localhost:8081
+              uri: ${BOOK_MSVC_URL:http://localhost:8081}
               predicates:
                 - Path=/books/api/v1/**
               filters:
@@ -17,7 +17,7 @@ spring:
                     statusCodes: [ 500,502,503,504 ]
 
             - id: copy-msvc
-              uri: http://localhost:8082
+              uri: ${COPY_MSVC_URL:http://localhost:8082}
               predicates:
                 - Path=/copies/api/v1/**
               filters:
@@ -28,7 +28,7 @@ spring:
                     statusCodes: [ 500,502,503,504 ]
 
             - id: loan-msvc
-              uri: http://localhost:8083
+              uri: ${LOAN_MSVC_URL:http://localhost:8083}
               predicates:
                 - Path=/loans/api/v1/**
               filters:
@@ -39,7 +39,7 @@ spring:
                     statusCodes: [ 500,502,503,504 ]
 
             - id: user-msvc
-              uri: http://localhost:8084
+              uri: ${USER_MSVC_URL:http://localhost:8084}
               predicates:
                 - Path=/users/api/v1/**
               filters:
@@ -54,7 +54,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/library-management-api
+          issuer-uri: ${KEYCLOAK_URL:http://localhost:8080}/realms/library-management-api
 
 # Resilience
 resilience4j:

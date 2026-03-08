@@ -1,20 +1,20 @@
 keycloak:
-  server-url: http://localhost:8080
+  server-url: ${KEYCLOAK_URL:http://localhost:8080}
   realm: library-management-api
   client-id: user-service
-  client-secret: kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV
+  client-secret: ${KEYCLOAK_CLIENT_SECRET:kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV}
 
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/library-management-api
+          issuer-uri: ${KEYCLOAK_URL:http://localhost:8080}/realms/library-management-api
 
 springdoc:
   swagger-ui:
     oauth:
-      client-id: swagger_test
+      client-id: ${SWAGGER_CLIENT_ID:swagger_test}
       use-pkce-with-authorization-code-grant: true
       additional-query-string-params:
         prompt: login
