@@ -1,5 +1,5 @@
+# Resource server configuration for testing
 spring:
-  # Resource server configuration for testing
   security:
     oauth2:
       resourceserver:
