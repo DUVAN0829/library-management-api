@@ -1,4 +1,4 @@
-name: CI - Fast Checks
+name: CI - Unit Tests
 
 on:
   push:

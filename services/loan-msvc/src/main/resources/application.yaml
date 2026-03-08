@@ -3,12 +3,12 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/library-management-api
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/library-management-api}
 
 springdoc:
   swagger-ui:
     oauth:
-      client-id: swagger_test
+      client-id: ${SWAGGER_CLIENT_ID:swagger_test}
       use-pkce-with-authorization-code-grant: true
       additional-query-string-params:
         prompt: login
