@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/input/rest/UserRestAdapterIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/output/persistence/UserPersistenceAdapterIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/src/test/java/co/duvan/user/infrastructure/adapters/output/persistence/UserPersistenceAdapterIT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,15 +203,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserMsvcApplication">
-    <configuration name="All in loan-msvc (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loan-msvc" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.java in user-msvc">
     <configuration name="GlobalControllerAdviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="copy-msvc" />
       <extension name="coverage">
@@ -247,6 +239,14 @@
       <module name="loan-msvc" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/services/loan-msvc/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in user-msvc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="user-msvc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/services/user-msvc/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -295,11 +295,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in user-msvc" />
         <item itemvalue="JUnit.java in loan-msvc" />
         <item itemvalue="JUnit.java in book-msvc" />
         <item itemvalue="JUnit.java in copy-msvc" />
         <item itemvalue="JUnit.GlobalControllerAdviceTest" />
-        <item itemvalue="JUnit.All in loan-msvc (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -396,7 +396,7 @@
       <workItem from="1772884203670" duration="88000" />
       <workItem from="1772885907377" duration="4435000" />
       <workItem from="1772922819186" duration="12881000" />
-      <workItem from="1772976030013" duration="9606000" />
+      <workItem from="1772976030013" duration="9912000" />
     </task>
     <servers />
   </component>
