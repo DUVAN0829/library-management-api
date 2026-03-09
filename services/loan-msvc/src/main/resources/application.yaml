@@ -1,14 +1,9 @@
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/library-management-api}
+  application:
+    name: loan-msvc
 
-springdoc:
-  swagger-ui:
-    oauth:
-      client-id: ${SWAGGER_CLIENT_ID:swagger_test}
-      use-pkce-with-authorization-code-grant: true
-      additional-query-string-params:
-        prompt: login
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
