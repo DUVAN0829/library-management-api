@@ -1,5 +1,5 @@
 ARG MONOREPO=platform
-ARG CONFIG_SERVER=config
+ARG CONFIG_SERVER=config-server
 
 FROM alpine/java:22-jdk AS builder
 
