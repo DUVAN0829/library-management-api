@@ -1,0 +1,13 @@
+# Resource server configuration for testing
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost/test
+
+copy-msvc:
+  url: http://localhost:8082
+
+user-msvc:
+  url: http://localhost:8084
