@@ -1,4 +1,4 @@
-name: CD - Build & Push
+name: CI - Build & Push Docker Images
 
 on:
   push:
@@ -9,12 +9,26 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        service: [book-msvc, copy-msvc, user-msvc, loan-msvc, config-server, gateway-msvc]
+        include:
+          - name: book-msvc
+            path: services/book-msvc
+          - name: copy-msvc
+            path: services/copy-msvc
+          - name: user-msvc
+            path: services/user-msvc
+          - name: loan-msvc
+            path: services/loan-msvc
+          - name: config-server
+            path: platform/config-server
+          - name: gateway-msvc
+            path: platform/gateway-msvc
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Login to Docker Hub
         if: github.ref == 'refs/heads/main'
@@ -23,13 +37,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push ${{ matrix.service }}
+      - name: Build and push ${{ matrix.name }}
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: services/${{ matrix.service }}/Dockerfile
+          file: ${{ matrix.path }}/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.service }}:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.name }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.name }}:${{ github.sha }}
