@@ -17,6 +17,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,7 +65,8 @@ public class CopyRestAdapter {
     @PostMapping("/api/v1")
     public ResponseEntity<CopyResponse> save(@Valid @RequestBody CopyRequest copyRequest) {
 
-        return ResponseEntity.ok(copyRestMapper.toCopyResponse(createCopyUseCase.save(copyRestMapper.toCopy(copyRequest))));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(copyRestMapper.toCopyResponse(createCopyUseCase.save(copyRestMapper.toCopy(copyRequest))));
 
     }
 
