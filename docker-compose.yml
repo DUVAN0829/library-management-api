@@ -1,234 +1,203 @@
 services:
-  # ==========================================
-  # INFRAESTRUCTURA (Bases de datos)
-  # ==========================================
-  postgres-book:
-    image: postgres:15-alpine
-    container_name: postgres-book
-    environment:
-      POSTGRES_DB: book_db
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin_password
-    ports:
-      - "5433:5432"
-    networks:
-      - library-network
 
-  postgres-loan:
-    image: postgres:15-alpine
-    container_name: postgres-loan
+  mysql:
+    image: mysql:8.3
+    container_name: mysql
+    restart: always
     environment:
-      POSTGRES_DB: loan_db
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin_password
-    ports:
-      - "5433:5432"
-    networks:
-      - library-network
-
-  mysql-copy:
-    image: mysql:8.0
-    container_name: mysql-copy
-    environment:
-      MYSQL_DATABASE: copy_db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin_password
-      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: library
     ports:
       - "3307:3306"
     networks:
-      - library-network
+      - library-net
 
-  mysql-user:
-    image: mysql:8.0
-    container_name: mysql-user
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
     environment:
-      MYSQL_DATABASE: user_db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin_password
-      MYSQL_ROOT_PASSWORD: root_password
+      POSTGRES_DB: library
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-      - "3307:3306"
+      - "5433:5432"
     networks:
-      - library-network
+      - library-net
 
-  # ==========================================
-  # KAFKA (KRaft mode - Sin Zookeeper)
-  # ==========================================
   kafka:
-    image: apache/kafka:3.7.0
+    image: apache/kafka:4.1.1
     container_name: kafka
+    restart: always
     ports:
       - "9092:9092"
-      - "9094:9094"
-    environment:
-      KAFKA_NODE_ID: 1
-      KAFKA_PROCESS_ROLES: broker,controller
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:9094
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
     networks:
-      - library-network
+      - library-net
 
-  # ==========================================
-  # KEYCLOAK
-  # ==========================================
   keycloak:
-    image: quay.io/keycloak/keycloak:24.0.1
+    image: quay.io/keycloak/keycloak:26.4.7
     container_name: keycloak
+    command: start-dev --import-realm
+    restart: always
     environment:
-      KC_DB: dev-file
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-    command: start-dev
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_BACKCHANNEL: "false"
+    volumes:
+      - ./keycloak/realm-export.json:/opt/keycloak/data/import/realm.json
     ports:
       - "8080:8080"
     networks:
-      - library-network
+      - library-net
 
-  # ==========================================
-  # CONFIG SERVER
-  # ==========================================
   config-server:
     image: duvangonzalez09/config-server
     container_name: config-server
+    restart: always
+    depends_on:
+      - mysql
+      - postgres
+      - kafka
+      - keycloak
+    environment:
+      SERVER_PORT: 8888
+      SPRING_PROFILES_ACTIVE: prod
     ports:
       - "8888:8888"
     networks:
-      - library-network
-
-  # ==========================================
-  # MICROSERVICIOS
-  # ==========================================
-  book-msvc:
-    image: duvangonzalez09/book-msvc
-    container_name: book-msvc
-    depends_on:
-      - postgres-book
-      - keycloak
-      - config-server
-    environment:
-      - SERVER_PORT=8081
-      - DB_HOST=postgres-book
-      - DB_PORT=5432
-      - DB_NAME=book_db
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin_password
-      - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/library-management-api
-      - CONFIG_SERVER_URL=http://config-server:8888
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - "8081:8081"
-    networks:
-      - library-network
-
-  copy-msvc:
-    image: duvangonzalez09/copy-msvc
-    container_name: copy-msvc
-    depends_on:
-      - mysql-copy
-      - kafka
-      - keycloak
-      - book-msvc
-      - config-server
-    environment:
-      - SERVER_PORT=8082
-      - DB_HOST=mysql-copy
-      - DB_PORT=3306
-      - DB_NAME=copy_db
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin_password
-      - KAFKA_BROKER=kafka:9092
-      - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/library-management-api
-      - BOOK_MSVC_URL=http://book-msvc:8081
-      - CONFIG_SERVER_URL=http://config-server:8888
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - "8082:8082"
-    networks:
-      - library-network
-
-  user-msvc:
-    image: duvangonzalez09/user-msvc
-    container_name: user-msvc
-    depends_on:
-      - mysql-user
-      - keycloak
-      - config-server
-    environment:
-      - SERVER_PORT=8084
-      - DB_HOST=mysql-user
-      - DB_PORT=3306
-      - DB_NAME=user_db
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin_password
-      - KEYCLOAK_URL=http://keycloak:8080
-      - KEYCLOAK_CLIENT_SECRET=poner_aqui_el_secret_de_keycloak # Se debe reemplazar luego
-      - CONFIG_SERVER_URL=http://config-server:8888
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - "8084:8084"
-    networks:
-      - library-network
-
-  loan-msvc:
-    image: duvangonzalez09/loan-msvc
-    container_name: loan-msvc
-    depends_on:
-      - postgres-loan
-      - kafka
-      - keycloak
-      - copy-msvc
-      - user-msvc
-      - config-server
-    environment:
-      - SERVER_PORT=8083
-      - DB_HOST=postgres-loan
-      - DB_PORT=5432
-      - DB_NAME=loan_db
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin_password
-      - KAFKA_BROKER=kafka:9092
-      - KEYCLOAK_ISSUER_URI=http://keycloak:8080/realms/library-management-api
-      - COPY_MSVC_URL=http://copy-msvc:8082
-      - USER_MSVC_URL=http://user-msvc:8084
-      - CONFIG_SERVER_URL=http://config-server:8888
-      - SPRING_PROFILES_ACTIVE=prod
-    ports:
-      - "8083:8083"
-    networks:
-      - library-network
+      - library-net
 
   gateway-msvc:
     image: duvangonzalez09/gateway-msvc
     container_name: gateway-msvc
+    restart: always
     depends_on:
-      - book-msvc
-      - copy-msvc
-      - loan-msvc
-      - user-msvc
-      - keycloak
       - config-server
     environment:
-      - SERVER_PORT=9090 # Lo pongo en 9090 para que no choque con Keycloak
-      - BOOK_MSVC_URL=http://book-msvc:8081
-      - COPY_MSVC_URL=http://copy-msvc:8082
-      - LOAN_MSVC_URL=http://loan-msvc:8083
-      - USER_MSVC_URL=http://user-msvc:8084
-      - KEYCLOAK_URL=http://keycloak:8080
-      - CONFIG_SERVER_URL=http://config-server:8888
-      - SPRING_PROFILES_ACTIVE=prod
+      SERVER_PORT: 8090
+      CONFIG_SERVER_URL: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: prod
+
+      KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+
+      BOOK_MSVC_URL: http://book-msvc:8081
+      COPY_MSVC_URL: http://copy-msvc:8082
+      LOAN_MSVC_URL: http://loan-msvc:8083
+      USER_MSVC_URL: http://user-msvc:8084
     ports:
-      - "9090:9090"
+      - "8090:8090"
     networks:
-      - library-network
+      - library-net
+
+  book-msvc:
+    image: duvangonzalez09/book-msvc
+    container_name: book-msvc
+    restart: always
+    depends_on:
+      - gateway-msvc
+    environment:
+      SERVER_PORT: 8081
+      CONFIG_SERVER_URL: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: prod
+
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: library
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+
+      KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+    ports:
+      - "8081:8081"
+    networks:
+      - library-net
+
+  user-msvc:
+    image: duvangonzalez09/user-msvc
+    container_name: user-msvc
+    restart: always
+    depends_on:
+      - gateway-msvc
+    environment:
+      SERVER_PORT: 8084
+      CONFIG_SERVER_URL: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: prod
+
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: library
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+      KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+      KEYCLOAK_CLIENT_SECRET: kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV
+    ports:
+      - "8084:8084"
+    networks:
+      - library-net
+
+  loan-msvc:
+    image: duvangonzalez09/loan-msvc
+    container_name: loan-msvc
+    restart: always
+    depends_on:
+      - gateway-msvc
+    environment:
+      SERVER_PORT: 8083
+      CONFIG_SERVER_URL: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: prod
+
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: library
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+
+      KAFKA_BROKER: kafka:9092
+      KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+
+      COPY_MSVC_URL: http://copy-msvc:8082
+      USER_MSVC_URL: http://user-msvc:8084
+    ports:
+      - "8083:8083"
+    networks:
+      - library-net
+
+  copy-msvc:
+    image: duvangonzalez09/copy-msvc
+    container_name: copy-msvc
+    restart: always
+    depends_on:
+      - gateway-msvc
+    environment:
+      SERVER_PORT: 8082
+      CONFIG_SERVER_URL: http://config-server:8888
+      SPRING_PROFILES_ACTIVE: prod
+
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: library
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+      KAFKA_BROKER: kafka:9092
+      KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+
+      BOOK_MSVC_URL: http://book-msvc:8081
+    ports:
+      - "8082:8082"
+    networks:
+      - library-net
+
 
 networks:
-  library-network:
+  library-net:
     driver: bridge
