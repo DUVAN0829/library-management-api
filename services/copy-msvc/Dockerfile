@@ -11,10 +11,12 @@ ARG COMMONS
 WORKDIR /app
 
 COPY pom.xml .
+COPY mvnw .
+COPY .mvn .mvn/
 
-# instalar observability-commons en el .m2 local
+# instalar observability-commons
 COPY $MONOREPO/$COMMONS $MONOREPO/$COMMONS/
-RUN mvn install -f $MONOREPO/$COMMONS/pom.xml -DskipTests
+RUN ./mvnw install -f $MONOREPO/$COMMONS/pom.xml -DskipTests
 
 COPY $MONOREPO/pom.xml $MONOREPO/
 COPY $MONOREPO/$COPY_MSVC $MONOREPO/$COPY_MSVC/
