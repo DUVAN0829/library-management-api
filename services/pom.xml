@@ -21,7 +21,6 @@
         <module>loan-msvc</module>
         <module>user-msvc</module>
         <module>copy-msvc</module>
-        <module>observability-commons</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -153,6 +152,23 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <!-- Telemtry and Monitoring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-opentelemetry</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-logback-appender-1.0</artifactId>
+            <version>2.23.0-alpha</version>
         </dependency>
 
     </dependencies>
