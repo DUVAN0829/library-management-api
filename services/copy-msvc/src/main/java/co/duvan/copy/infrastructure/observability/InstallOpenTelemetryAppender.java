@@ -1,4 +1,4 @@
-package co.duvan.commons.monitoring;
+package co.duvan.copy.infrastructure.observability;
 
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender;

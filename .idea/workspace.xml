@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/user-msvc/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-msvc/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +152,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/duglas/Documents/Backend/Portfolio-projects/library-management-api/observability-commons/src/main/java/co/duvan/commons/monitoring",
+    "last_opened_file_path": "/Users/duglas/Documents/Backend/Portfolio-projects/library-management-api/services/book-msvc/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -166,11 +165,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/services/book-msvc/src/main/resources" />
+      <recent name="$PROJECT_DIR$/services/book-msvc/src/main/java/co/duvan/book/infrastructure/observability" />
       <recent name="$PROJECT_DIR$/observability-commons/src/main/java/co/duvan/commons/monitoring" />
       <recent name="$PROJECT_DIR$/services/user-msvc/src/main/resources" />
       <recent name="$PROJECT_DIR$/services/loan-msvc/src/main/resources" />
-      <recent name="$PROJECT_DIR$/services/book-msvc/src/main/resources" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -404,7 +403,7 @@
       <workItem from="1773188524333" duration="1542000" />
       <workItem from="1773225307091" duration="23732000" />
       <workItem from="1773350258016" duration="7735000" />
-      <workItem from="1773414044064" duration="7174000" />
+      <workItem from="1773414044064" duration="8974000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package co.duvan.commons.monitoring;
+package co.duvan.loan.infrastructure.observability;
 
 import io.micrometer.core.instrument.Tags;
 import io.micrometer.core.instrument.binder.jvm.ClassLoaderMetrics;
