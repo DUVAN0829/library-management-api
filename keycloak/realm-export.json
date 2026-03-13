@@ -4,17 +4,57 @@
 
   "roles": {
     "realm": [
-      {
-        "name": "ADMIN"
-      },
-      {
-        "name": "LIBRARIAN"
-      },
-      {
-        "name": "MEMBER"
-      }
+      { "name": "ADMIN" },
+      { "name": "LIBRARIAN" },
+      { "name": "MEMBER" }
     ]
   },
+
+  "clients": [
+    {
+      "clientId": "library-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH",
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": false,
+      "serviceAccountsEnabled": false
+    },
+    {
+      "clientId": "user-service",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV",
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false
+    },
+    {
+      "clientId": "swagger_test",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:8081/swagger-ui/oauth2-redirect.html",
+        "http://localhost:8082/swagger-ui/oauth2-redirect.html",
+        "http://localhost:8083/swagger-ui/oauth2-redirect.html",
+        "http://localhost:8084/swagger-ui/oauth2-redirect.html"
+      ],
+      "webOrigins": [
+        "http://localhost:8081",
+        "http://localhost:8082",
+        "http://localhost:8083",
+        "http://localhost:8084"
+      ]
+    }
+  ],
 
   "users": [
     {
@@ -31,59 +71,21 @@
           "temporary": false
         }
       ],
-      "realmRoles": [
-        "ADMIN"
-      ]
-    }
-  ],
-
-  "clients": [
-    {
-      "clientId": "library-app",
-      "enabled": true,
-      "clientAuthenticatorType": "client-secret",
-      "secret": "0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH",
-      "protocol": "openid-connect",
-      "publicClient": false,
-      "directAccessGrantsEnabled": true,
-      "standardFlowEnabled": false,
-      "serviceAccountsEnabled": false
+      "realmRoles": ["ADMIN"]
     },
-
     {
-      "clientId": "user-service",
+      "username": "service-account-user-service",
       "enabled": true,
-      "clientAuthenticatorType": "client-secret",
-      "secret": "kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV",
-      "protocol": "openid-connect",
-      "publicClient": false,
-      "serviceAccountsEnabled": true,
-      "standardFlowEnabled": false,
-      "directAccessGrantsEnabled": false
-    },
-
-    {
-      "clientId": "swagger_test",
-      "enabled": true,
-      "protocol": "openid-connect",
-      "publicClient": true,
-      "standardFlowEnabled": true,
-      "directAccessGrantsEnabled": false,
-      "serviceAccountsEnabled": false,
-
-      "redirectUris": [
-        "http://localhost:8081/swagger-ui/oauth2-redirect.html",
-        "http://localhost:8082/swagger-ui/oauth2-redirect.html",
-        "http://localhost:8083/swagger-ui/oauth2-redirect.html",
-        "http://localhost:8084/swagger-ui/oauth2-redirect.html"
-      ],
-
-      "webOrigins": [
-        "http://localhost:8081",
-        "http://localhost:8082",
-        "http://localhost:8083",
-        "http://localhost:8084"
-      ]
+      "serviceAccountClientId": "user-service",
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "view-users",
+          "query-users",
+          "manage-realm",
+          "view-realm"
+        ]
+      }
     }
   ]
 }

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/keycloak/realm-export.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak/realm-export.json" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak/realm-export.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +402,7 @@
       <workItem from="1773146148162" duration="11575000" />
       <workItem from="1773188524333" duration="1542000" />
       <workItem from="1773225307091" duration="23732000" />
-      <workItem from="1773350258016" duration="2129000" />
+      <workItem from="1773350258016" duration="7388000" />
     </task>
     <servers />
   </component>
