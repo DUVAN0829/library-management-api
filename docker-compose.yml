@@ -1,5 +1,18 @@
 services:
 
+  otel-lgtm:
+    image: grafana/otel-lgtm
+    container_name: otel-lgtm
+    restart: always
+    ports:
+      - "3000:3000"   # Grafana UI
+      - "4318:4318"   # OTLP HTTP
+      - "4317:4317"   # OTLP gRPC
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - library-net
+
   mysql:
     image: mysql:8.3
     container_name: mysql
@@ -86,6 +99,7 @@ services:
     restart: always
     depends_on:
       - config-server
+      - otel-lgtm
     environment:
       SERVER_PORT: 8090
       CONFIG_SERVER_URL: http://config-server:8888
@@ -98,6 +112,9 @@ services:
       COPY_MSVC_URL: http://copy-msvc:8082
       LOAN_MSVC_URL: http://loan-msvc:8083
       USER_MSVC_URL: http://user-msvc:8084
+
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
+
     ports:
       - "8090:8090"
     networks:
@@ -109,6 +126,7 @@ services:
     restart: always
     depends_on:
       - gateway-msvc
+      - otel-lgtm
     environment:
       SERVER_PORT: 8081
       CONFIG_SERVER_URL: http://config-server:8888
@@ -122,6 +140,9 @@ services:
 
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
+
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
+
     ports:
       - "8081:8081"
     networks:
@@ -133,6 +154,7 @@ services:
     restart: always
     depends_on:
       - gateway-msvc
+      - otel-lgtm
     environment:
       SERVER_PORT: 8084
       CONFIG_SERVER_URL: http://config-server:8888
@@ -149,6 +171,8 @@ services:
       KEYCLOAK_URL: http://keycloak:8080
       KEYCLOAK_CLIENT_SECRET: kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV
 
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
+
     ports:
       - "8084:8084"
     networks:
@@ -160,6 +184,7 @@ services:
     restart: always
     depends_on:
       - gateway-msvc
+      - otel-lgtm
     environment:
       SERVER_PORT: 8083
       CONFIG_SERVER_URL: http://config-server:8888
@@ -177,6 +202,9 @@ services:
 
       COPY_MSVC_URL: http://copy-msvc:8082
       USER_MSVC_URL: http://user-msvc:8084
+
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
+
     ports:
       - "8083:8083"
     networks:
@@ -188,6 +216,7 @@ services:
     restart: always
     depends_on:
       - gateway-msvc
+      - otel-lgtm
     environment:
       SERVER_PORT: 8082
       CONFIG_SERVER_URL: http://config-server:8888
@@ -204,6 +233,9 @@ services:
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
 
       BOOK_MSVC_URL: http://book-msvc:8081
+
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
+
     ports:
       - "8082:8082"
     networks:
