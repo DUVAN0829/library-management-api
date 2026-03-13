@@ -8,18 +8,11 @@ ARG USER_MSVC
 
 WORKDIR /app
 
-# NUEVO: copiar Maven wrapper
-COPY $MONOREPO/$USER_MSVC/mvnw $MONOREPO/$USER_MSVC/mvnw
-COPY $MONOREPO/$USER_MSVC/.mvn $MONOREPO/$USER_MSVC/.mvn
-
 COPY pom.xml .
 COPY $MONOREPO/pom.xml $MONOREPO/
 COPY $MONOREPO/$USER_MSVC $MONOREPO/$USER_MSVC/
 
 WORKDIR /app/$MONOREPO/$USER_MSVC
-
-# NUEVO: asegurar permiso de ejecución
-RUN chmod +x mvnw
 
 RUN ./mvnw clean package -DskipTests
 
