@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/book-msvc/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/book-msvc/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/config-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -404,7 +404,7 @@
       <workItem from="1773188524333" duration="1542000" />
       <workItem from="1773225307091" duration="23732000" />
       <workItem from="1773350258016" duration="7735000" />
-      <workItem from="1773414044064" duration="5468000" />
+      <workItem from="1773414044064" duration="6522000" />
     </task>
     <servers />
   </component>
