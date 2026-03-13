@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/services/observability-commons/src/main/java/co/duvan/commons/monitoring/TraceIdFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/observability-commons/src/main/java/co/duvan/commons/monitoring/TraceIdFilter.java" afterDir="false" />
-    </list>
+    <list default="true" id="4e78d697-8494-4bb0-a8f9-ed14766c2720" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -403,7 +401,7 @@
       <workItem from="1773188524333" duration="1542000" />
       <workItem from="1773225307091" duration="23732000" />
       <workItem from="1773350258016" duration="7735000" />
-      <workItem from="1773414044064" duration="3776000" />
+      <workItem from="1773414044064" duration="4116000" />
     </task>
     <servers />
   </component>
