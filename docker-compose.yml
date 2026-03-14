@@ -5,13 +5,19 @@ services:
     container_name: otel-lgtm
     restart: always
     ports:
-      - "3000:3000"   # Grafana UI
-      - "4318:4318"   # OTLP HTTP
-      - "4317:4317"   # OTLP gRPC
+      - "3000:3000"
+      - "4318:4318"
+      - "4317:4317"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       - library-net
+    healthcheck:                                          # ← CAMBIO
+      test: ["CMD", "sh", "-c", "test -f /tmp/ready"]   # ← CAMBIO
+      interval: 10s                                      # ← CAMBIO
+      timeout: 5s                                        # ← CAMBIO
+      retries: 15                                        # ← CAMBIO
+      start_period: 30s                                  # ← CAMBIO
 
   mysql:
     image: mysql:8.3
@@ -98,23 +104,21 @@ services:
     container_name: gateway-msvc
     restart: always
     depends_on:
-      - config-server
-      - otel-lgtm
+      config-server:                       # ← CAMBIO (formato extendido)
+        condition: service_started
+      otel-lgtm:                           # ← CAMBIO
+        condition: service_healthy         # ← CAMBIO
     environment:
       SERVER_PORT: 8090
       CONFIG_SERVER_URL: http://config-server:8888
       SPRING_PROFILES_ACTIVE: prod
-
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
-
       BOOK_MSVC_URL: http://book-msvc:8081
       COPY_MSVC_URL: http://copy-msvc:8082
       LOAN_MSVC_URL: http://loan-msvc:8083
       USER_MSVC_URL: http://user-msvc:8084
-
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
-
     ports:
       - "8090:8090"
     networks:
@@ -125,24 +129,22 @@ services:
     container_name: book-msvc
     restart: always
     depends_on:
-      - gateway-msvc
-      - otel-lgtm
+      gateway-msvc:                        # ← CAMBIO (formato extendido)
+        condition: service_started
+      otel-lgtm:                           # ← CAMBIO
+        condition: service_healthy         # ← CAMBIO
     environment:
       SERVER_PORT: 8081
       CONFIG_SERVER_URL: http://config-server:8888
       SPRING_PROFILES_ACTIVE: prod
-
       DB_HOST: postgres
       DB_PORT: 5432
       DB_NAME: library
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
-
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
-
     ports:
       - "8081:8081"
     networks:
@@ -153,26 +155,24 @@ services:
     container_name: user-msvc
     restart: always
     depends_on:
-      - gateway-msvc
-      - otel-lgtm
+      gateway-msvc:                        # ← CAMBIO (formato extendido)
+        condition: service_started
+      otel-lgtm:                           # ← CAMBIO
+        condition: service_healthy         # ← CAMBIO
     environment:
       SERVER_PORT: 8084
       CONFIG_SERVER_URL: http://config-server:8888
       SPRING_PROFILES_ACTIVE: prod
-
       DB_HOST: mysql
       DB_PORT: 3306
       DB_NAME: library
       DB_USERNAME: root
       DB_PASSWORD: root
-
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
       KEYCLOAK_URL: http://keycloak:8080
       KEYCLOAK_CLIENT_SECRET: kzrQJ8b98D6WhCogcWIVO0V7Tkp5HjOV
-
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
-
     ports:
       - "8084:8084"
     networks:
@@ -183,28 +183,25 @@ services:
     container_name: loan-msvc
     restart: always
     depends_on:
-      - gateway-msvc
-      - otel-lgtm
+      gateway-msvc:                        # ← CAMBIO (formato extendido)
+        condition: service_started
+      otel-lgtm:                           # ← CAMBIO
+        condition: service_healthy         # ← CAMBIO
     environment:
       SERVER_PORT: 8083
       CONFIG_SERVER_URL: http://config-server:8888
       SPRING_PROFILES_ACTIVE: prod
-
       DB_HOST: postgres
       DB_PORT: 5432
       DB_NAME: library
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-
       KAFKA_BROKER: kafka:9092
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
-
       COPY_MSVC_URL: http://copy-msvc:8082
       USER_MSVC_URL: http://user-msvc:8084
-
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
-
     ports:
       - "8083:8083"
     networks:
@@ -215,32 +212,28 @@ services:
     container_name: copy-msvc
     restart: always
     depends_on:
-      - gateway-msvc
-      - otel-lgtm
+      gateway-msvc:                        # ← CAMBIO (formato extendido)
+        condition: service_started
+      otel-lgtm:                           # ← CAMBIO
+        condition: service_healthy         # ← CAMBIO
     environment:
       SERVER_PORT: 8082
       CONFIG_SERVER_URL: http://config-server:8888
       SPRING_PROFILES_ACTIVE: prod
-
       DB_HOST: mysql
       DB_PORT: 3306
       DB_NAME: library
       DB_USERNAME: root
       DB_PASSWORD: root
-
       KAFKA_BROKER: kafka:9092
       KEYCLOAK_ISSUER_URI: http://localhost:8080/realms/library-management-api
       KEYCLOAK_JWK_URI: http://keycloak:8080/realms/library-management-api/protocol/openid-connect/certs
-
       BOOK_MSVC_URL: http://book-msvc:8081
-
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4318
-
     ports:
       - "8082:8082"
     networks:
       - library-net
-
 
 networks:
   library-net:
