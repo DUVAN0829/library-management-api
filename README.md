@@ -1,6 +1,6 @@
 # 📚 Library Management API
 
-API REST para la gestión de bibliotecas desarrollada con **Spring Boot**, basada en arquitectura de microservicios, seguridad con Keycloak y herramientas modernas de backend.
+API REST para la gestión de bibliotecas desarrollada con **Spring Boot**, basada en arquitectura de microservicios, seguridad con **Keycloak (OAuth2 + JWT)** y herramientas modernas de backend.
 
 ---
 
@@ -8,89 +8,145 @@ API REST para la gestión de bibliotecas desarrollada con **Spring Boot**, basad
 
 **Library Management API** es un sistema distribuido que permite gestionar:
 
-- 📚 Libros
-- 📦 Ejemplares (copies)
-- 🔄 Préstamos
-- 👤 Usuarios
+* 📚 Libros
+* 📦 Ejemplares (copies)
+* 🔄 Préstamos
+* 👤 Usuarios
 
-Incluye autenticación y autorización mediante **Keycloak (OAuth2 + JWT)**, documentación con **Swagger**, monitoreo y despliegue con **Docker**.
+La aplicación implementa autenticación centralizada, documentación interactiva y despliegue mediante contenedores.
 
 ---
 
 ## 🧩 Arquitectura del sistema
 
-Microservicios independientes:
-
-| Servicio | Puerto | Descripción |
-|----------|--------|------------|
-| Books Service | 8081 | Gestión de libros |
-| Copies Service | 8082 | Gestión de ejemplares |
-| Loans Service | 8083 | Gestión de préstamos |
-| Users Service | 8084 | Gestión de usuarios |
-| API Gateway | 8090 | Punto de entrada único |
+| Servicio       | Puerto | Descripción            |
+| -------------- | ------ | ---------------------- |
+| Books Service  | 8081   | Gestión de libros      |
+| Copies Service | 8082   | Gestión de ejemplares  |
+| Loans Service  | 8083   | Gestión de préstamos   |
+| Users Service  | 8084   | Gestión de usuarios    |
+| API Gateway    | 8090   | Punto de entrada único |
 
 ---
 
-## 📄 Acceso a Swagger (Documentación API)
+## 🐳 Ejecución con Docker
 
-Cada microservicio tiene su propia documentación:
+### 🔹 Requisitos
 
-- 📚 Books → http://localhost:8081/swagger-ui/index.html  
-- 📦 Copies → http://localhost:8082/swagger-ui/index.html  
-- 🔄 Loans → http://localhost:8083/swagger-ui/index.html  
-- 👤 Users → http://localhost:8084/swagger-ui/index.html  
+* Docker
+* Docker Compose
 
 ---
 
-## 🔐 Autenticación con Keycloak
+### 🔹 Levantar todo el entorno
 
-### 📍 Acceso a Keycloak
+```bash
+docker-compose up --build
+```
 
-- URL: http://localhost:8080  
-- Usuario: `admin`  
-- Contraseña: `admin`  
+Esto iniciará automáticamente:
 
----
-
-### ⚙️ Configuración del Realm
-
-- **Realm ID:** `library-management-api`
-
-### 👥 Roles disponibles
-
-- `ADMIN`
-- `LIBRARIAN`
-- `MEMBER`
+* Keycloak (servidor de autenticación)
+* Base de datos
+* Microservicios
+* API Gateway
+* Grafana
 
 ---
 
-### 🔑 Clientes configurados
+### 🔹 Detener servicios
 
-#### 1. Cliente principal (API)
-
-- **clientId:** `library-app`
-- **client-secret:** `0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH`
-- Tipo: confidential
-- Direct Access Grants: enabled
+```bash
+docker-compose down
+```
 
 ---
 
-#### 2. Cliente interno
+## 📄 Swagger (Documentación interactiva)
 
-- **clientId:** `user-service`
-- Uso interno entre microservicios
+Accede a cada microservicio:
 
----
-
-#### 3. Cliente para Swagger
-
-- **clientId:** `swagger_test`
-- Tipo: public
-- Flujo: Authorization Code
+* 📚 http://localhost:8081/swagger-ui/index.html
+* 📦 http://localhost:8082/swagger-ui/index.html
+* 🔄 http://localhost:8083/swagger-ui/index.html
+* 👤 http://localhost:8084/swagger-ui/index.html
 
 ---
 
-### 👤 Usuario administrador
+## 🔐 Autenticación en Swagger (Keycloak)
+
+Los endpoints están protegidos mediante **OAuth2 + JWT**, por lo que es necesario autenticarse antes de consumirlos.
+
+---
+
+### 🧠 ¿Cómo funciona?
+
+Swagger está integrado con Keycloak usando el flujo **Authorization Code**:
+
+1. Swagger redirige a Keycloak
+2. El usuario inicia sesión
+3. Keycloak genera un **JWT (access token)**
+4. Swagger incluye automáticamente ese token en cada request
+
+---
+
+### ✅ Pasos para autenticarse
+
+1. Abre cualquier Swagger UI
+2. Haz clic en **Authorize 🔒**
+3. Ingresa el siguiente clientId:
+
+```
+swagger_test
+```
+
+4. Serás redirigido a Keycloak
+5. Inicia sesión con:
+
+```
+username: duvan
+password: 12345
+```
+
+6. Acepta la autorización
+
+---
+
+### 🎯 Resultado
+
+* Swagger enviará automáticamente el token JWT
+* Podrás ejecutar endpoints protegidos (POST, PUT, DELETE)
+* El acceso dependerá del rol (`ADMIN`, `LIBRARIAN`, `MEMBER`)
+
+---
+
+## 🔐 Configuración de Keycloak
+
+### 📍 Acceso
+
+* URL: http://localhost:8080
+* Usuario: `admin`
+* Contraseña: `admin`
+
+---
+
+### ⚙️ Realm
+
+```
+library-management-api
+```
+
+---
+
+### 👥 Roles
+
+* ADMIN
+* LIBRARIAN
+* MEMBER
+
+---
+
+### 👤 Usuario de prueba
 
 ```json
 {
@@ -98,3 +154,166 @@ Cada microservicio tiene su propia documentación:
   "password": "12345",
   "role": "ADMIN"
 }
+```
+
+---
+
+### 🔑 Clientes configurados
+
+#### Cliente principal
+
+* clientId: `library-app`
+* client-secret: `0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH`
+
+#### Cliente interno
+
+* clientId: `user-service`
+
+#### Cliente Swagger
+
+* clientId: `swagger_test`
+* Tipo: public
+* Flujo: Authorization Code
+
+---
+
+## 🌐 Uso con API Gateway (Postman)
+
+Base URLs:
+
+```
+http://localhost:8090/books/api/v1
+http://localhost:8090/copies/api/v1
+http://localhost:8090/loans/api/v1
+http://localhost:8090/users/api/v1
+```
+
+---
+
+### 📌 Operaciones disponibles
+
+| Método | Endpoint | Descripción    |
+| ------ | -------- | -------------- |
+| GET    | `/`      | Listar todos   |
+| GET    | `/{id}`  | Obtener por ID |
+| POST   | `/`      | Crear          |
+| PUT    | `/{id}`  | Actualizar     |
+| DELETE | `/{id}`  | Eliminar       |
+
+---
+
+## 🧪 Testing
+
+El proyecto incluye pruebas unitarias y de integración.
+
+---
+
+### 🔹 Tests unitarios
+
+Prueban lógica aislada sin levantar el contexto completo.
+
+```bash
+mvn test
+```
+
+✔️ Rápidos
+✔️ Usan mocks
+✔️ No usan base de datos real
+
+---
+
+### 🔹 Tests de integración (Testcontainers)
+
+Prueban el sistema completo usando contenedores reales.
+
+```bash
+mvn verify
+```
+
+✔️ Levantan base de datos en contenedor
+✔️ Validan integración entre capas
+✔️ Simulan entorno real
+
+---
+
+### 🧠 Diferencia clave
+
+| Tipo        | Usa Spring | DB real | Velocidad    |
+| ----------- | ---------- | ------- | ------------ |
+| Unitarios   | ❌          | ❌       | ⚡ Rápido     |
+| Integración | ✅          | ✅       | 🐢 Más lento |
+
+---
+
+## 📊 Observabilidad
+
+### Grafana
+
+* URL: http://localhost:3000
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+### Backend
+
+* Java 17+
+* Spring Boot
+* Spring Web
+* Spring Data JPA
+* Spring Security
+
+### Seguridad
+
+* Keycloak
+* OAuth2 / JWT
+
+### DevOps
+
+* Docker
+* Docker Compose
+
+### Documentación
+
+* Swagger / OpenAPI
+
+### Testing
+
+* JUnit
+* Testcontainers
+
+### Resiliencia
+
+* Resilience4j
+
+---
+
+## 📦 Despliegue
+
+Preparado para:
+
+* Docker
+* Kubernetes (opcional)
+
+---
+
+## 📈 Mejoras futuras
+
+* 🔍 Búsqueda avanzada
+* 📊 Métricas con Prometheus
+* 📩 Notificaciones
+* 🧱 Arquitectura basada en eventos (Kafka)
+
+---
+
+## 👨‍💻 Autor
+
+**Duván González**
+
+* GitHub: https://github.com/DUVAN0829
+
+---
+
+## 📄 Licencia
+
+MIT License
