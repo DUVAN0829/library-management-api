@@ -1,79 +1,100 @@
 # 📚 Library Management API
 
-API REST para la gestión de bibliotecas desarrollada con **Spring Boot**, enfocada en arquitectura escalable, seguridad y buenas prácticas de desarrollo backend.
+API REST para la gestión de bibliotecas desarrollada con **Spring Boot**, basada en arquitectura de microservicios, seguridad con Keycloak y herramientas modernas de backend.
 
 ---
 
 ## 🚀 Descripción
 
-**Library Management API** es un sistema backend que permite gestionar libros, usuarios y préstamos dentro de una biblioteca.
+**Library Management API** es un sistema distribuido que permite gestionar:
 
-La aplicación implementa una arquitectura basada en microservicios (o modular, según configuración), integrando autenticación segura, documentación automática y contenerización.
+- 📚 Libros
+- 📦 Ejemplares (copies)
+- 🔄 Préstamos
+- 👤 Usuarios
 
----
-
-## 🧩 Características principales
-
-- 📖 Gestión de libros (CRUD)
-- 👤 Gestión de usuarios
-- 🔄 Sistema de préstamos y devoluciones
-- 🔐 Autenticación y autorización con Keycloak (JWT)
-- 📄 Documentación interactiva con Swagger / OpenAPI
-- 🐳 Contenerización con Docker
-- ⚙️ Configuración centralizada (opcional)
-- 🧪 Testing con Testcontainers
-- 🛡️ Resiliencia con Resilience4j
+Incluye autenticación y autorización mediante **Keycloak (OAuth2 + JWT)**, documentación con **Swagger**, monitoreo y despliegue con **Docker**.
 
 ---
 
-## 🏗️ Arquitectura
+## 🧩 Arquitectura del sistema
 
-El proyecto sigue principios de:
+Microservicios independientes:
 
-- Clean Architecture / Hexagonal Architecture
-- Separación por capas:
-  - `domain`
-  - `application`
-  - `infrastructure`
-- Uso de DTOs y mapeadores
-- APIs RESTful
-
----
-
-## 🛠️ Tecnologías utilizadas
-
-### Backend
-- Java 17+
-- Spring Boot
-- Spring Web
-- Spring Data JPA
-- Spring Security
-
-### Seguridad
-- Keycloak
-- JWT
-
-### DevOps
-- Docker
-- Docker Compose
-- Kubernetes *(opcional)*
-
-### Documentación
-- Swagger / OpenAPI
-
-### Testing
-- JUnit
-- Testcontainers
-
-### Resiliencia
-- Resilience4j
+| Servicio | Puerto | Descripción |
+|----------|--------|------------|
+| Books Service | 8081 | Gestión de libros |
+| Copies Service | 8082 | Gestión de ejemplares |
+| Loans Service | 8083 | Gestión de préstamos |
+| Users Service | 8084 | Gestión de usuarios |
+| API Gateway | 8090 | Punto de entrada único |
 
 ---
 
-## ⚙️ Instalación y ejecución
+## 📄 Acceso a Swagger (Documentación API)
 
-### 1. Clonar el repositorio
+Cada microservicio tiene su propia documentación:
 
-```bash
-git clone https://github.com/DUVAN0829/library-management-api.git
-cd library-management-api
+- 📚 Books → http://localhost:8081/swagger-ui/index.html  
+- 📦 Copies → http://localhost:8082/swagger-ui/index.html  
+- 🔄 Loans → http://localhost:8083/swagger-ui/index.html  
+- 👤 Users → http://localhost:8084/swagger-ui/index.html  
+
+---
+
+## 🔐 Autenticación con Keycloak
+
+### 📍 Acceso a Keycloak
+
+- URL: http://localhost:8080  
+- Usuario: `admin`  
+- Contraseña: `admin`  
+
+---
+
+### ⚙️ Configuración del Realm
+
+- **Realm ID:** `library-management-api`
+
+### 👥 Roles disponibles
+
+- `ADMIN`
+- `LIBRARIAN`
+- `MEMBER`
+
+---
+
+### 🔑 Clientes configurados
+
+#### 1. Cliente principal (API)
+
+- **clientId:** `library-app`
+- **client-secret:** `0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH`
+- Tipo: confidential
+- Direct Access Grants: enabled
+
+---
+
+#### 2. Cliente interno
+
+- **clientId:** `user-service`
+- Uso interno entre microservicios
+
+---
+
+#### 3. Cliente para Swagger
+
+- **clientId:** `swagger_test`
+- Tipo: public
+- Flujo: Authorization Code
+
+---
+
+### 👤 Usuario administrador
+
+```json
+{
+  "username": "duvan",
+  "password": "12345",
+  "role": "ADMIN"
+}
