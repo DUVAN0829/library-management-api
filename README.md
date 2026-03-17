@@ -62,14 +62,43 @@ docker-compose down
 
 ---
 
-## 📄 Swagger (Documentación interactiva)
+## 📄 Swagger (Documentación interactiva por microservicio)
 
-Accede a cada microservicio:
+Cada microservicio expone su propia documentación:
 
-* 📚 http://localhost:8081/swagger-ui/index.html
-* 📦 http://localhost:8082/swagger-ui/index.html
-* 🔄 http://localhost:8083/swagger-ui/index.html
-* 👤 http://localhost:8084/swagger-ui/index.html
+* 📚 **Books Service (Libros)**
+  http://localhost:8081/swagger-ui/index.html
+
+* 📦 **Copies Service (Ejemplares)**
+  http://localhost:8082/swagger-ui/index.html
+
+* 🔄 **Loans Service (Préstamos)**
+  http://localhost:8083/swagger-ui/index.html
+
+* 👤 **Users Service (Usuarios)**
+  http://localhost:8084/swagger-ui/index.html
+
+---
+
+## 🔍 Filtros y parámetros de búsqueda
+
+Algunos endpoints permiten filtrar información mediante **query params**.
+
+📌 Ejemplos comunes:
+
+```http
+GET /books?title=CleanCode
+GET /loans?userId=1
+GET /copies?status=AVAILABLE
+```
+
+Estos filtros:
+
+* Permiten búsquedas más específicas
+* Mejoran el rendimiento al evitar traer toda la data
+* Están documentados directamente en Swagger
+
+👉 Puedes explorar todos los parámetros disponibles desde cada Swagger UI.
 
 ---
 
@@ -94,16 +123,16 @@ Swagger está integrado con Keycloak usando el flujo **Authorization Code**:
 
 1. Abre cualquier Swagger UI
 2. Haz clic en **Authorize 🔒**
-3. Ingresa el siguiente clientId:
+3. Ingresa el clientId:
 
-```
+```text
 swagger_test
 ```
 
-4. Serás redirigido a Keycloak
+4. Se abrirá la pantalla de login de Keycloak
 5. Inicia sesión con:
 
-```
+```text
 username: duvan
 password: 12345
 ```
@@ -114,7 +143,7 @@ password: 12345
 
 ### 🎯 Resultado
 
-* Swagger enviará automáticamente el token JWT
+* Swagger enviará automáticamente el token JWT en cada request
 * Podrás ejecutar endpoints protegidos (POST, PUT, DELETE)
 * El acceso dependerá del rol (`ADMIN`, `LIBRARIAN`, `MEMBER`)
 
@@ -132,7 +161,7 @@ password: 12345
 
 ### ⚙️ Realm
 
-```
+```text
 library-management-api
 ```
 
@@ -181,7 +210,7 @@ library-management-api
 
 Base URLs:
 
-```
+```text
 http://localhost:8090/books/api/v1
 http://localhost:8090/copies/api/v1
 http://localhost:8090/loans/api/v1
@@ -210,8 +239,6 @@ El proyecto incluye pruebas unitarias y de integración.
 
 ### 🔹 Tests unitarios
 
-Prueban lógica aislada sin levantar el contexto completo.
-
 ```bash
 mvn test
 ```
@@ -224,15 +251,13 @@ mvn test
 
 ### 🔹 Tests de integración (Testcontainers)
 
-Prueban el sistema completo usando contenedores reales.
-
 ```bash
 mvn verify
 ```
 
-✔️ Levantan base de datos en contenedor
-✔️ Validan integración entre capas
+✔️ Levantan contenedores automáticamente
 ✔️ Simulan entorno real
+✔️ Validan integración entre capas
 
 ---
 
@@ -259,9 +284,8 @@ mvn verify
 
 * Java 17+
 * Spring Boot
-* Spring Web
-* Spring Data JPA
 * Spring Security
+* Spring Data JPA
 
 ### Seguridad
 
