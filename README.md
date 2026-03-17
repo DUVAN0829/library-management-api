@@ -123,10 +123,10 @@ Swagger está integrado con Keycloak usando el flujo **Authorization Code**:
 
 1. Abre cualquier Swagger UI
 2. Haz clic en **Authorize 🔒**
-3. Ingresa el clientId:
+3. Ingresa el client-secret:
 
 ```text
-swagger_test
+0j3TiwtuMi23ouyn5dVCOZI0nafu7AFH`
 ```
 
 4. Se abrirá la pantalla de login de Keycloak
@@ -285,7 +285,10 @@ mvn verify
 * Java 17+
 * Spring Boot
 * Spring Security
+* Spring Cloud
+* Kafka
 * Spring Data JPA
+* Resilience4j
 
 ### Seguridad
 
@@ -296,6 +299,8 @@ mvn verify
 
 * Docker
 * Docker Compose
+* Github Actions
+* DockerHub
 
 ### Documentación
 
@@ -305,19 +310,6 @@ mvn verify
 
 * JUnit
 * Testcontainers
-
-### Resiliencia
-
-* Resilience4j
-
----
-
-## 📦 Despliegue
-
-Preparado para:
-
-* Docker
-* Kubernetes (opcional)
 
 ---
 
