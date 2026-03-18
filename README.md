@@ -41,7 +41,7 @@ La aplicación implementa autenticación centralizada, documentación interactiv
 ### 🔹 Levantar todo el entorno
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 Esto iniciará automáticamente:
@@ -57,7 +57,7 @@ Esto iniciará automáticamente:
 ### 🔹 Detener servicios
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ---
@@ -87,9 +87,9 @@ Algunos endpoints permiten filtrar información mediante **query params**.
 📌 Ejemplos comunes:
 
 ```http
-GET /books?title=CleanCode
-GET /loans?userId=1
-GET /copies?status=AVAILABLE
+GET /users/api/v1/filter?documentNumber=32984032
+GET /books/api/v1/filter?category=THRILLER
+GET /loans/api/v1/filter?status=ACTIVE
 ```
 
 Estos filtros:
