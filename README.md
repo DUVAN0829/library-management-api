@@ -313,15 +313,6 @@ mvn verify
 
 ---
 
-## 📈 Mejoras futuras
-
-* 🔍 Búsqueda avanzada
-* 📊 Métricas con Prometheus
-* 📩 Notificaciones
-* 🧱 Arquitectura basada en eventos (Kafka)
-
----
-
 ## 👨‍💻 Autor
 
 **Duván González**
